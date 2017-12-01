@@ -15,6 +15,7 @@
     <link href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
     <link href="{{ admin_asset('css/animate.css') }}" rel="stylesheet">
     <link href="{{ admin_asset('css/style.css') }}" rel="stylesheet">
+    <link href="{{ admin_asset('css/common.css') }}" rel="stylesheet">
 
     @yield('stylesheet')
 </head>
