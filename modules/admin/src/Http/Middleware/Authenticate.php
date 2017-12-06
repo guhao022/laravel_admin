@@ -34,7 +34,7 @@ class Authenticate
     protected function shouldPassThrough($request)
     {
         $excepts = [
-            '*auth/login',
+            '*admin/auth/login',
         ];
 
         foreach ($excepts as $except) {

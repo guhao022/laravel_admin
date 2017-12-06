@@ -21,42 +21,6 @@ class UsersController extends Controller {
         parent::__construct();
     }
 
-    public function register() {
-        $code = Request::input("code");
-        $phone = Request::input("phone");
-        $password = Request::input("password");
-
-        $has = Users::where("phone", $phone)->count();
-
-        if ($has) {
-            return "<script>window.alert('手机号已注册'); window.location.href='/';</script>";
-        }
-
-        /*if (!Session::has("code".$phone)) {
-            return "<script>window.alert('验证码不正确'); window.location.href='/';</script>";
-        }
-
-        $se_code = Session::get("code".$phone);
-
-        if ($se_code != $code) {
-            return "<script>window.alert('验证码不正确'); window.location.href='/';</script>";
-        }*/
-
-        $user = new Users();
-
-        $user->username = $phone;
-        $user->phone = $phone;
-        $user->password = bcrypt($password);
-
-        if ($user->save()) {
-            Auth::guard("admin")->attempt(['phone' => $phone, 'password' => $password]);
-            return redirect("/");
-        } else {
-            return "<script>window.alert('注册失败'); window.location.href='/';</script>";
-        }
-
-    }
-
     public function login() {
 
         $credentials = Request::only(['phone', 'password']);
@@ -152,82 +116,6 @@ class UsersController extends Controller {
 
         return "<script> window.location.href='/user/center';</script>";
 
-    }
-
-    public function follow($fid) {
-        if (empty(Hive::user())) {
-            return response()->json([
-                'code'=>500,
-                'msg'=>'请登录',
-            ]);
-        }
-        $uid = Hive::user()->id;
-        if ($uid == $fid) {
-            return response()->json([
-                'code'=>500,
-                'msg'=>'你不能关注自己',
-            ]);
-        }
-
-        $is_follow = Follow::where("uid", $uid)->where("follow_id", $fid)->count();
-        if ($is_follow > 0) {
-            return response()->json([
-                'code'=>500,
-                'msg'=>'请不要重复关注',
-            ]);
-        }
-
-        $follow = new Follow();
-        $follow->uid = $uid;
-        $follow->follow_id = $fid;
-        if ($follow->save()) {
-
-            $notice = new Notice();
-            $notice->uid = $fid;
-            $notice->notice = json_encode([
-                "uid" => $fid,
-                'msg' => "关注了你"
-            ]);
-            $notice->type = 2;
-            $notice->save();
-
-            return response()->json([
-                'code'=>0,
-                'msg'=>'关注成功',
-            ]);
-        };
-    }
-
-    public function non_follow($fid) {
-        if (empty(Hive::user())) {
-            return response()->json([
-                'code'=>500,
-                'msg'=>'请登录',
-            ]);
-        }
-        $uid = Hive::user()->id;
-
-        $follow = Follow::where("uid", $uid)->where("follow_id", $fid)->delete();
-        if ($follow) {
-
-            $notice = new Notice();
-            $notice->uid = $fid;
-            $notice->notice = json_encode([
-                "uid" => $fid,
-                'msg' => "取消了关注"
-            ]);
-            $notice->type = 2;
-            $notice->save();
-
-            return response()->json([
-                'code'=>0,
-                'msg'=>'取消成功',
-            ]);
-        };
-    }
-
-    public function vip() {
-        return view("hive::user.vip");
     }
 
     public function avatar() {

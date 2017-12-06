@@ -10,14 +10,14 @@ return [
 
     'auth' => [
         'guards' => [
-            'hive' => [
+            'admin' => [
                 'driver'   => 'session',
                 'provider' => 'admin',
             ],
         ],
 
         'providers' => [
-            'hive' => [
+            'admin' => [
                 'driver' => 'eloquent',
                 'model'  => Modules\Admin\Models\Users::class,
             ],
