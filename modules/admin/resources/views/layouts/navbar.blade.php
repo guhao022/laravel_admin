@@ -12,9 +12,17 @@
                             </span>
                     </a>
                     <ul class="dropdown-menu animated fadeInRight m-t-xs">
-                        <li><a href="profile.html">设 置</a></li>
+                        <li><a href="/admin/user/setting/{{ Admin::user()->id }}">账号设置</a></li>
                         <li class="divider"></li>
-                        <li><a href="login.html">注 销</a></li>
+                        <li><a href="#"
+                               onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                                 注 销
+                            </a>
+
+                            <form id="logout-form" action="{{route('logout')}}" method="POST" style="display: none;">
+                                {{ csrf_field() }}
+                            </form></li>
                     </ul>
                 </div>
                 <div class="logo-element">

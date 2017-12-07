@@ -61,7 +61,7 @@ class AuthController extends Controller {
      *
      * @return Redirect
      */
-    public function getLogout()
+    public function postLogout()
     {
         Auth::guard('admin')->logout();
         session()->forget('url.intented');

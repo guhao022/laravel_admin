@@ -10,10 +10,10 @@ namespace Modules\Admin\Facades;
 
 use Illuminate\Support\Facades\Facade;
 
-class AdminHelper extends Facade
+class Admin extends Facade
 {
     protected static function getFacadeAccessor()
     {
-        return \Modules\Admin\Handle\AdminHandle::class;
+        return \Modules\Admin\Handle\AdminHelper::class;
     }
 }

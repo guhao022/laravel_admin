@@ -10,7 +10,7 @@ namespace Modules\Admin\Handle;
 
 use Illuminate\Support\Facades\Auth;
 
-class AdminHandle
+class AdminHelper
 {
 
     /**

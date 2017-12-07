@@ -1,6 +1,6 @@
 {
-  "name": "golune/hive",
-  "description": "蜂巢",
+  "name": "golune/admin",
+  "description": "laravel5.5 后台管理模块",
   "authors": [
     {
       "name": "guhao",
@@ -17,5 +17,17 @@
       "src/helpers.php"
     ]
   },
+
+  "extra": {
+    "laravel": {
+      "providers": [
+        "Barryvdh\\Debugbar\\ServiceProvider"
+      ],
+      "aliases": {
+        "Debugbar": "Barryvdh\\Debugbar\\Facade"
+      }
+    }
+  },
+
   "minimum-stability": "dev"
 }

@@ -9,7 +9,7 @@
                 <span class="m-r-sm text-muted welcome-message">欢迎进入 {{ config('app.name', 'Laravel') }} 后台管理系统</span>
             </li>
 
-            <li class="dropdown">
+            {{--<li class="dropdown">
                 <a aria-expanded="false" role="button" href="#" class="dropdown-toggle" data-toggle="dropdown">
                     <i class="fa fa-user"></i> 用户名
                     <span class="caret"></span>
@@ -39,7 +39,7 @@
                         </div>
                     </li>
                 </ul>
-            </li>
+            </li>--}}
 
             <li>
                 <a href="#"
@@ -48,7 +48,7 @@
                     <i class="fa fa-sign-out"></i> 注销
                 </a>
 
-                <form id="logout-form" action="#" method="POST" style="display: none;">
+                <form id="logout-form" action="{{route('logout')}}" method="POST" style="display: none;">
                     {{ csrf_field() }}
                 </form>
             </li>
