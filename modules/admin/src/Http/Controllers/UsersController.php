@@ -19,9 +19,7 @@ class UsersController extends Controller {
 
     public function getsetting($uid) {
         $user = Users::find($uid);
-
-        return $user;
-        //return view("admin::user.setting", ['user'=>$user]);
+        return view("admin::user.setting", ['user'=>$user]);
     }
 
 
