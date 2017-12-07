@@ -18,16 +18,16 @@
     ]
   },
 
-  "extra": {
+  /*"extra": {
     "laravel": {
       "providers": [
         "Barryvdh\\Debugbar\\ServiceProvider"
       ],
       "aliases": {
-        "Debugbar": "Barryvdh\\Debugbar\\Facade"
+        "Admin": "Modules\\Admin\\Facades\\Admin"
       }
     }
-  },
+  },*/
 
   "minimum-stability": "dev"
 }

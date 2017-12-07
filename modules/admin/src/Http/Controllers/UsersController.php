@@ -8,6 +8,7 @@
 
 namespace Modules\Admin\Controllers;
 
+use Illuminate\Http\Request;
 use Modules\Admin\Models\Users;
 
 class UsersController extends Controller {
