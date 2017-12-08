@@ -25,20 +25,11 @@
 
     <div id="page-wrapper" class="gray-bg">
 
-        <div class="row wrapper border-bottom white-bg page-heading">
-            <div class="col-lg-10">
-                <h2>
-                    @yield('pagetitle')
-                </h2>
-            </div>
-            <div class="col-lg-2">
-
-            </div>
-        </div>
-
         @include('admin::layouts.topbar')
 
-        @yield('content')
+        <div class="wrapper wrapper-content animated fadeInRight">
+            @yield('content')
+        </div>
     </div>
 </div>
 
