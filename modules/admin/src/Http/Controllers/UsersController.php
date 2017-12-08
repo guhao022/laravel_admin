@@ -23,6 +23,17 @@ class UsersController extends Controller {
         return view("admin::user.setting", ['user'=>$user]);
     }
 
+    public function postsetting($uid, Request $request) {
+        $user = Users::find($uid);
+        $name = $request->input("name");
+
+        $user->name = $name;
+
+        if ($user->save()) {
+            return true;
+        }
+    }
+
 
     /*public function avatar() {
 
