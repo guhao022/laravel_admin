@@ -2,5 +2,10 @@
 @section('title', '用户设置')
 
 @section('content')
-sdfsdfsdfsdfsfsfsfsfsfsdf
+
+    <div class="">
+
+        //
+
+    </div>
 @stop
