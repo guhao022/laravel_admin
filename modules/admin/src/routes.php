@@ -17,8 +17,9 @@ Route::group([
 
     // 账号管理
     Route::group(['prefix' => 'user'], function (){
-        Route::get('/setting/{uid}', 'UsersController@getsetting');
-        Route::post('setting/{uid}', 'UsersController@postsetting');
+        Route::get('setting/{uid}', 'UsersController@getSetting');
+        Route::post('setting', 'UsersController@postSetting');
+        Route::get('set_password/{uid}', 'UsersController@getSetPassword');
     });
 
 });

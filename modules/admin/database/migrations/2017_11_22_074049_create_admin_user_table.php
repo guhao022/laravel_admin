@@ -13,7 +13,9 @@ class CreateAdminUserTable extends Migration
      */
     public function up()
     {
-        Schema::create('admin_user', function (Blueprint $table) {
+        $connection = config('admin.database.connection') ?: config('database.default');
+
+        Schema::connection($connection)->create('admin_user', function (Blueprint $table) {
             $table->increments('id');
             $table->string('username', 190)->unique()->comment("用户名");
             $table->string('password', 60)->comment("密码");

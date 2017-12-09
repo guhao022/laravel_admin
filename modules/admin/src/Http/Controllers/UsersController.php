@@ -18,21 +18,37 @@ class UsersController extends Controller {
     }
 
 
-    public function getsetting($uid) {
+    /**
+     * @name  个人信息设置
+     * @param $uid
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
+    public function getSetting($uid) {
         $user = Users::find($uid);
         return view("admin::user.setting", ['user'=>$user]);
     }
 
-    public function postsetting($uid, Request $request) {
+    /**
+     * @name 个人信息设置（提交）
+     * @param Request $request
+     * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
+     */
+    public function postSetting(Request $request) {
+        $uid = $request->input('uid');
         $user = Users::find($uid);
         $name = $request->input("name");
 
         $user->name = $name;
 
         if ($user->save()) {
-            return redirect("");
+            return redirect(config('admin.route.prefix'));
         }
     }
+
+    public function getSetPwd($uid) {
+
+    }
+
 
 
     /*public function avatar() {

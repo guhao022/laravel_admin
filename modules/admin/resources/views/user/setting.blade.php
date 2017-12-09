@@ -25,7 +25,9 @@
 
                         <div class="col-md-9">
 
-                            <form class="m-t" role="form" method="POST" action="admin/user/setting/{{ $user->id }}">
+                            <form class="m-t" role="form" method="POST" action="/admin/user/setting">
+                                {{ csrf_field() }}
+                                <input type="hidden" name="uid" value="{{ $user->id }}">
                                 <fieldset class="form-horizontal">
                                     <div class="form-group">
                                         <label class="col-md-2 control-label">用户名:</label>
@@ -46,7 +48,7 @@
                                         </div>
 
                                         <div class="control-label pull-left">
-                                            <a href="#"> 修改密码</a>
+                                            <a href="{{ admin_url('user/set_password/' . $user->id) }}"> 修改密码</a>
                                         </div>
 
                                     </div>
