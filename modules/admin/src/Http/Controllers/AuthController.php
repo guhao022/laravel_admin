@@ -65,7 +65,6 @@ class AuthController extends Controller {
     {
         Auth::guard('admin')->logout();
         session()->forget('url.intented');
-
         return redirect(config('admin.route.prefix'));
     }
 
