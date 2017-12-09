@@ -7,7 +7,11 @@
                              </span>
                     <a data-toggle="dropdown" class="dropdown-toggle" href="#">
                             <span class="clear">
-                                <span class="block m-t-xs"> <strong class="font-bold">哈哈</strong></span>
+                                <span class="block m-t-xs">
+                                    <strong class="font-bold">
+                                        @if (Admin::user()->name) {{Admin::user()->name}} @else {{Admin::user()->username}} @endif
+                                    </strong>
+                                </span>
                                 <span class="text-muted text-xs block"> 超级管理员 <b class="caret"></b></span>
                             </span>
                     </a>
@@ -30,7 +34,7 @@
                 </div>
             </li>
             <li class="active">
-                <a href="/admin"><i class="fa fa-tachometer"></i> <span class="nav-label">控制台</span> </a>
+                <a href="{{ admin_url() }}"><i class="fa fa-tachometer"></i> <span class="nav-label">控制台</span> </a>
             </li>
         </ul>
 

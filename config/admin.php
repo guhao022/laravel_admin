@@ -8,6 +8,13 @@ return [
         "path" => "upload",
     ],
 
+    'route' => [
+
+        'prefix' => 'admin',
+
+        'namespace' => 'App\\Admin\\Controllers',
+    ],
+
     'auth' => [
         'guards' => [
             'admin' => [

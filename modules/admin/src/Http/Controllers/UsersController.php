@@ -30,7 +30,7 @@ class UsersController extends Controller {
         $user->name = $name;
 
         if ($user->save()) {
-            return true;
+            return redirect("");
         }
     }
 
