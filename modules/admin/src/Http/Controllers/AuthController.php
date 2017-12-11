@@ -49,7 +49,6 @@ class AuthController extends Controller {
             return Redirect::back()->withInput()->withErrors($validator);
         }
         if (Auth::guard('admin')->attempt($credentials)) {
-
             return redirect()->intended(config('admin.route.prefix'));
         }
         return Redirect::back()->withInput()->withErrors(['username' => $this->getFailedLoginMessage()]);
