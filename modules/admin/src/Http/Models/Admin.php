@@ -11,6 +11,15 @@ class Admin extends Authenticatable
 {
     use Notifiable,EntrustUserTrait;
 
+    public function __construct(array $attributes = [])
+    {
+        $connection = config('admin.database.connection') ?: config('database.default');
+
+        $this->setConnection($connection);
+
+        parent::__construct($attributes);
+    }
+
     /**
      * The attributes that are mass assignable.
      *
