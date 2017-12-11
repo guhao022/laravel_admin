@@ -27,11 +27,11 @@ class Authenticate
             }
         }
 
-        if(auth()->guard('admin')->user()->hasRole('admin')){
+        if(Auth::guard('admin')->user()->hasRole('admin')){
             return $next($request);
         }
 
-        if(!auth()->guard('admin')->user()->can(Route::currentRouteName()) && Route::currentRouteName()!='admin.home') {
+        if(!Auth::guard('admin')->user()->can(Route::currentRouteName()) && Route::currentRouteName()!='admin.home') {
             return response('您没有权限执行当前操作', 401);
         }
 
