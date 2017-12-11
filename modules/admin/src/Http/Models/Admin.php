@@ -20,6 +20,8 @@ class Admin extends Authenticatable
         parent::__construct($attributes);
     }
 
+    protected $table = "admin_user";
+
     /**
      * The attributes that are mass assignable.
      *

@@ -17,6 +17,7 @@ class UsersController extends Controller {
         parent::__construct();
     }
 
+    public
 
     /**
      * @name  个人信息设置
