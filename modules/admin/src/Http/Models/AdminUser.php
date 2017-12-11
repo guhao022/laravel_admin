@@ -8,7 +8,7 @@ use Zizaco\Entrust\Traits\EntrustUserTrait;
 
 class AdminUser extends Authenticatable
 {
-    use Notifiable,EntrustUserTrait;
+    use Notifiable, EntrustUserTrait;
 
     public function __construct(array $attributes = [])
     {
