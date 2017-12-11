@@ -18,9 +18,13 @@ class UsersController extends Controller {
         parent::__construct();
     }
 
-    public function index() {
+    public function index()
+    {
         $admin = AdminUser::all();
+
         $roles = AdminRoles::all(['id','display_name']);
+
+        return view('admin::user.index',['admin'=>$admin,'roles'=>$roles]);
     }
 
     /**
