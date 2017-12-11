@@ -14,10 +14,10 @@ class AdminsTableSeeder extends Seeder
     public function run()
     {
         //
-        factory('Modules\Admin\Models\AdminUser', 1)->create([
+        DB::table('admin_user')->insert([
             'id'=>1,
             'name'=>'admin',
-            'password' => bcrypt('123456')
+            'password' => bcrypt('123456'),
         ]);
     }
 }
