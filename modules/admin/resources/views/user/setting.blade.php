@@ -32,11 +32,7 @@
                                     <div class="form-group">
                                         <label class="col-md-2 control-label">用户名:</label>
                                         <div class="col-md-6">
-                                            <input type="username" name="username" disabled="disabled" class="form-control" value="{{ $user->username }}" required placeholder="用户名">
-                                        </div>
-
-                                        <div class="control-label pull-left">
-                                            <span class="label label-warning"> 登录名不允许更改</span>
+                                            <input type="email" name="email" class="form-control" value="{{ $user->email }}" required placeholder="登录邮箱">
                                         </div>
 
                                     </div>

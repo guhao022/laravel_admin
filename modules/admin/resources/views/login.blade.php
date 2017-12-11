@@ -34,12 +34,12 @@
         <form class="m-t" role="form" method="POST" action="{{ route('login') }}">
             {{ csrf_field() }}
 
-            <div class="form-group{{ $errors->has('username') ? ' has-error' : '' }}">
-                <input id="name" type="username" class="form-control" name="username"  placeholder="用户名" value="{{ old('username') }}" required autofocus>
+            <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
+                <input id="email" type="email" class="form-control" name="email"  placeholder="登录邮箱" value="{{ old('email') }}" required autofocus>
 
-                @if ($errors->has('username'))
+                @if ($errors->has('email'))
                     <span class="help-block">
-                                        <strong>{{ $errors->first('username') }}</strong>
+                                        <strong>{{ $errors->first('email') }}</strong>
                                     </span>
                 @endif
             </div>

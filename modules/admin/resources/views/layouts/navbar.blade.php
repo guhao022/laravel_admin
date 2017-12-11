@@ -9,7 +9,7 @@
                             <span class="clear">
                                 <span class="block m-t-xs">
                                     <strong class="font-bold">
-                                        @if (Admin::user()->name) {{Admin::user()->name}} @else {{Admin::user()->username}} @endif
+                                        @if (Admin::user()->name) {{Admin::user()->name}} @else {{Admin::user()->email}} @endif
                                     </strong>
                                 </span>
                                 <span class="text-muted text-xs block"> 超级管理员 <b class="caret"></b></span>
