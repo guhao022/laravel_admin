@@ -55,7 +55,6 @@ class AuthController extends Controller {
         return Redirect::back()->withInput()->withErrors(['username' => $this->getFailedLoginMessage()]);
     }
 
-
     /**
      * User logout.
      *
