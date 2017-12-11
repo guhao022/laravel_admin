@@ -19,7 +19,7 @@ return [
     | the role if it is in a different namespace.
     |
     */
-    'role' => 'App\AdminRoles',
+    'role' => 'Modules\Admin\Models\AdminRoles',
 
     /*
     |--------------------------------------------------------------------------
@@ -40,7 +40,7 @@ return [
     | Update the User if it is in a different namespace.
     |
     */
-    'user' => 'App\Admin',
+    'user' => 'Modules\Admin\Models\AdminUser',
 
     /*
     |--------------------------------------------------------------------------
@@ -51,7 +51,7 @@ return [
     | database.
     |
     */
-    'users_table' => 'admins',
+    'users_table' => 'admin_user',
 
     /*
     |--------------------------------------------------------------------------
@@ -62,7 +62,7 @@ return [
     | Update the permission if it is in a different namespace.
     |
     */
-    'permission' => 'App\AdminPermissions',
+    'permission' => 'Modules\Admin\Models\AdminPermissions',
 
     /*
     |--------------------------------------------------------------------------
