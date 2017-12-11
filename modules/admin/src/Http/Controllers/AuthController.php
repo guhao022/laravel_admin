@@ -32,6 +32,7 @@ class AuthController extends Controller {
         }
         return view('admin::login');
     }
+
     /**
      * @param Request $request
      *
