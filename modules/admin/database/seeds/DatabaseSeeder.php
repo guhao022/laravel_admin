@@ -1,7 +1,5 @@
 <?php
 
-namespace Modules\Admin\Seeds;
-
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -13,7 +11,8 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        $this->call(UserTableSeeder::class);
-        $this->command->info('数据填充完成!');
+        $this->call(AdminsTableSeeder::class);
+        $this->call(AdminRolesTableSeeder::class);
+        $this->call(AdminPermissionsTableSeeder::class);
     }
 }
