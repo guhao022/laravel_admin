@@ -8,6 +8,7 @@
 
 namespace Modules\Admin\Controllers;
 
+use Modules\Admin\Models\AdminRoles;
 use Modules\Admin\Models\AdminUser;
 use Illuminate\Http\Request;
 
