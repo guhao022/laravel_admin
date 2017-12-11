@@ -1,5 +1,7 @@
 <?php
 
+namespace Modules\Admin\Seeds;
+
 use Illuminate\Database\Seeder;
 
 class AdminsTableSeeder extends Seeder
@@ -12,7 +14,7 @@ class AdminsTableSeeder extends Seeder
     public function run()
     {
         //
-        factory('App\Admin', 1)->create([
+        factory('Modules\Admin\Models\AdminUser', 1)->create([
             'id'=>1,
             'name'=>'admin',
             'password' => bcrypt('123456')

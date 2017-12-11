@@ -27,7 +27,7 @@ class EntrustSetupTables extends Migration
             $table->integer('admin_id')->unsigned();
             $table->integer('admin_roles_id')->unsigned();
 
-            $table->foreign('admin_id')->references('id')->on('admins')
+            $table->foreign('admin_id')->references('id')->on('admin_user')
                 ->onUpdate('cascade')->onDelete('cascade');
             $table->foreign('admin_roles_id')->references('id')->on('admin_roles')
                 ->onUpdate('cascade')->onDelete('cascade');
