@@ -8,9 +8,8 @@
 
 namespace Modules\Admin\Controllers;
 
-use App\AdminUser;
+use Modules\Admin\Models\AdminUser;
 use Illuminate\Http\Request;
-use Modules\Admin\Models\Users;
 
 class UsersController extends Controller {
 

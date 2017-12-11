@@ -1,6 +1,6 @@
 <?php
 
-namespace App;
+namespace Modules\Admin\Models;
 
 use Zizaco\Entrust\EntrustRole;
 use Illuminate\Support\Facades\Config;
