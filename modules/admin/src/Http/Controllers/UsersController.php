@@ -8,6 +8,7 @@
 
 namespace Modules\Admin\Controllers;
 
+use App\AdminUser;
 use Illuminate\Http\Request;
 use Modules\Admin\Models\Users;
 
@@ -18,7 +19,8 @@ class UsersController extends Controller {
     }
 
     public function index() {
-        $admin =
+        $admin = AdminUser::all();
+        $roles = AdminRoles::all(['id','display_name']);
     }
 
     /**
