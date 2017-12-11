@@ -3,6 +3,7 @@
 namespace Modules\Admin\Seeds;
 
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
 
 class AdminsTableSeeder extends Seeder
 {
