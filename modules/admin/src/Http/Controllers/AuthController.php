@@ -67,6 +67,7 @@ class AuthController extends Controller {
         return redirect(config('admin.route.prefix'));
     }
 
+
     protected function getFailedLoginMessage()
     {
         return Lang::has('auth.failed')
