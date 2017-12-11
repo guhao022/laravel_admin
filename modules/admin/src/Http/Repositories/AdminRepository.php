@@ -1,16 +1,16 @@
 <?php
 namespace App\Repositories;
 
-use App\Admin;
-use App\AdminRoles;
-use App\Notifications\PermissionNotification;
+use Modules\Admin\Models\AdminUser;
+use Modules\Admin\Models\AdminRoles;
+use Modules\Admin\Notifications\PermissionNotification;
 use Illuminate\Support\Facades\Hash;
 
 class AdminRepository
 {
     public function createAdminAndSaveRole($request)
     {
-        $admin = new Admin();
+        $admin = new AdminUser();
 
         $admin->name = $request->name;
 
@@ -29,7 +29,7 @@ class AdminRepository
     public function updateAdminAndRole($request,$id)
     {
         //1.有密码通过验证，修改密码
-        $admin = Admin::find($id);
+        $admin = AdminUser::find($id);
 
         if(strlen($request->password) > 0){
             $admin->password = bcrypt($request->password);
