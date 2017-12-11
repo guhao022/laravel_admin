@@ -17,7 +17,9 @@ class UsersController extends Controller {
         parent::__construct();
     }
 
-    public
+    public function index() {
+        $admin =
+    }
 
     /**
      * @name  个人信息设置
