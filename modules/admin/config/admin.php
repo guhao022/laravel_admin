@@ -13,7 +13,6 @@ return [
         'prefix' => 'admin',
 
         'namespace' => 'App\\Admin\\Controllers',
-
     ],
 
     'auth' => [
