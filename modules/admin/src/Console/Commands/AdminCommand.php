@@ -47,6 +47,10 @@ class AdminCommand extends Command
         // 数据填充
         $this->call('db:seed', ['--class' => "Modules\Admin\Seeds\DatabaseSeeder"]);
 
+        // 执行entrust包命令
+        $this->info('配置entrust包......');
+        $this->call('vendor:publish', ['--provider' => 'Zizaco\Entrust\EntrustServiceProvider']);
+
         $this->info('admin 模块安装完成！皮皮虾，快停下......');
     }
 }

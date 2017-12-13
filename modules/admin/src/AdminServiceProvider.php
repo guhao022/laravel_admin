@@ -74,6 +74,8 @@ class AdminServiceProvider extends ServiceProvider
         }
 
         $this->loadHelper();
+
+        //
     }
 
     /**
