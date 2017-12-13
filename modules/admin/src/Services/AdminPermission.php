@@ -32,7 +32,7 @@ class AdminPermission
 
         $currentPermission = AdminPermissions::where('name',Route::currentRouteName())->first();
 
-        if(Route::currentRouteName() =='admin.home') {
+        if(Route::currentRouteName() =='`dmin.home') {
             $html = '<li class="active">
                     <a href="/admin">
                         <span class="icon fa fa-tachometer"></span><span class="title">控制面板</span>
@@ -74,6 +74,9 @@ class AdminPermission
                             }else{
                                 $childStyle = '';
                             }
+
+                            print_r($childPermission);die;
+
                             $html .= '<li><a style="'.$childStyle.'" href="'.route($childPermission['name']).'">'.$childPermission['display_name'].'</a></li>';
                         }
                     }

@@ -17,7 +17,7 @@ Route::group([
 
     // 账号管理
     Route::group(['prefix' => 'user'], function (){
-        Route::get('/', 'UsersController@index');
+        Route::get('/', 'UsersController@index')->name('admin.user.index');
         Route::get('setting/{uid}', 'UsersController@getSetting');
         Route::post('setting', 'UsersController@postSetting');
         Route::get('set_password/{uid}', 'UsersController@getSetPassword');
