@@ -47,6 +47,7 @@ class AdminPermission
         }
 
         foreach($treePermission as $fatherPermission) {
+
             if($this->admin->can($fatherPermission['name']) || $this->admin->hasRole('admin')) {
 
                 if(isset($currentPermission->fid) && $currentPermission->fid == $fatherPermission['id']){

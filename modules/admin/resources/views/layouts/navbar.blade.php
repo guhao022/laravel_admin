@@ -33,9 +33,13 @@
                     {{ config('app.logo', 'HH') }}
                 </div>
             </li>
-            <li class="active">
+
+            @inject('adminPermission', 'Modules\Admin\Services\AdminPermission')
+
+            {!! $adminPermission->permissionHtml() !!}
+            {{--<li class="active">
                 <a href="{{ admin_url() }}"><i class="fa fa-tachometer"></i> <span class="nav-label">控制台</span> </a>
-            </li>
+            </li>--}}
         </ul>
 
     </div>

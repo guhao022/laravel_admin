@@ -40,7 +40,7 @@ return [
     | relation between permissions and roles & roles and users
     |
     */
-    'role_foreign_key' => 'role_id',
+    'role_foreign_key' => 'admin_roles_id',
 
     /*
     |--------------------------------------------------------------------------
@@ -84,7 +84,7 @@ return [
    | relation between roles and users
    |
    */
-    'user_foreign_key' => 'user_id',
+    'user_foreign_key' => 'admin_id',
 
     /*
     |--------------------------------------------------------------------------
@@ -128,6 +128,6 @@ return [
     | relation between permissions and roles
     |
     */
-    'permission_foreign_key' => 'permission_id',
+    'permission_foreign_key' => 'admin_permissions_id',
 
 ];

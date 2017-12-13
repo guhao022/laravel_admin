@@ -24,15 +24,15 @@ class EntrustSetupTables extends Migration
 
         // Create table for associating roles to users (Many-to-Many)
         Schema::create('admin_role_user', function (Blueprint $table) {
-            $table->integer('user_id')->unsigned();
-            $table->integer('role_id')->unsigned();
+            $table->integer('admin_id')->unsigned();
+            $table->integer('admin_roles_id')->unsigned();
 
-            $table->foreign('user_id')->references('id')->on('admin_user')
+            $table->foreign('admin_id')->references('id')->on('admin_user')
                 ->onUpdate('cascade')->onDelete('cascade');
-            $table->foreign('role_id')->references('id')->on('admin_roles')
+            $table->foreign('admin_roles_id')->references('id')->on('admin_roles')
                 ->onUpdate('cascade')->onDelete('cascade');
 
-            $table->primary(['user_id', 'role_id']);
+            $table->primary(['admin_id', 'admin_roles_id']);
         });
 
         // Create table for storing permissions
@@ -46,15 +46,15 @@ class EntrustSetupTables extends Migration
 
         // Create table for associating permissions to roles (Many-to-Many)
         Schema::create('admin_permission_role', function (Blueprint $table) {
-            $table->integer('permissions_id')->unsigned();
-            $table->integer('role_id')->unsigned();
+            $table->integer('admin_permissions_id')->unsigned();
+            $table->integer('admin_roles_id')->unsigned();
 
-            $table->foreign('permissions_id')->references('id')->on('admin_permissions')
+            $table->foreign('admin_permissions_id')->references('id')->on('admin_permissions')
                 ->onUpdate('cascade')->onDelete('cascade');
-            $table->foreign('role_id')->references('id')->on('admin_roles')
+            $table->foreign('admin_roles_id')->references('id')->on('admin_roles')
                 ->onUpdate('cascade')->onDelete('cascade');
 
-            $table->primary(['permissions_id', 'role_id'],'admin_permission_role_role_id_foreign');
+            $table->primary(['admin_permissions_id', 'admin_roles_id'],'admin_permission_role_role_id_foreign');
         });
 
         DB::commit();

@@ -6,7 +6,7 @@ Route::group([
     'namespace' => 'Modules\Admin\Controllers',
 ], function() {
 
-    Route::get('/', 'HomeController@index');
+    Route::get('/', 'HomeController@index')->name('admin.home');
 
     // 验证
     Route::group(['prefix' => 'auth'], function (){
