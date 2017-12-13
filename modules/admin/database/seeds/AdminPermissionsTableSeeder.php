@@ -25,119 +25,119 @@ class AdminPermissionsTableSeeder extends Seeder
             ],
             [
                 'id'=>2,
-                'name'=>'admin.user.index',
+                'name'=>'admin.index',
                 'display_name'=>'用户列表',
                 'group_name'=>'admin',
                 'fid'=>1
             ],
             [
                 'id'=>3,
-                'name'=>'admin.user.store',
+                'name'=>'admin.store',
                 'display_name'=>'创建用户',
                 'group_name'=>'admin',
                 'fid'=>1
             ],
             [
                 'id'=>4,
-                'name'=>'admin.user.update',
+                'name'=>'admin.update',
                 'display_name'=>'编辑用户',
                 'group_name'=>'admin',
                 'fid'=>1
             ],
             [
                 'id'=>5,
-                'name'=>'admin.role.index',
+                'name'=>'role.index',
                 'display_name'=>'角色列表',
                 'group_name'=>'role',
                 'fid'=>1
             ],
             [
                 'id'=>6,
-                'name'=>'admin.role.store',
+                'name'=>'role.store',
                 'display_name'=>'创建角色',
                 'group_name'=>'role',
                 'fid'=>1
             ],
             [
                 'id'=>7,
-                'name'=>'admin.role.update',
+                'name'=>'role.update',
                 'display_name'=>'编辑角色',
                 'group_name'=>'role',
                 'fid'=>1
             ],
             [
                 'id'=>8,
-                'name'=>'admin.role.destroy',
+                'name'=>'role.destroy',
                 'display_name'=>'删除角色',
                 'group_name'=>'role',
                 'fid'=>1
             ],
             [
                 'id'=>9,
-                'name'=>'admin.permission.index',
+                'name'=>'permission.index',
                 'display_name'=>'权限列表',
                 'group_name'=>'permission',
                 'fid'=>1
             ],
             [
                 'id'=>10,
-                'name'=>'admin.permission.store',
+                'name'=>'permission.store',
                 'display_name'=>'创建权限',
                 'group_name'=>'permission',
                 'fid'=>1
             ],
             [
                 'id'=>11,
-                'name'=>'admin.permission.update',
+                'name'=>'permission.update',
                 'display_name'=>'编辑权限',
                 'group_name'=>'permission',
                 'fid'=>1
             ],
             [
                 'id'=>12,
-                'name'=>'admin.permission.destroy',
+                'name'=>'permission.destroy',
                 'display_name'=>'删除权限',
                 'group_name'=>'permission',
                 'fid'=>1
             ],
             [
                 'id'=>13,
-                'name'=>'admin.permission.child',
+                'name'=>'permission.child',
                 'display_name'=>'子权限列表',
                 'group_name'=>'permission',
                 'fid'=>1
             ],
             [
                 'id'=>14,
-                'name'=>'admin.my.profile',
+                'name'=>'admin.profile',
                 'display_name'=>'账户管理',
                 'group_name'=>'admin.profile',
                 'fid'=>1
             ],
             [
                 'id'=>15,
-                'name'=>'admin.notification.show',
+                'name'=>'notification.show',
                 'display_name'=>'阅读通知',
                 'group_name'=>'notification',
                 'fid'=>1
             ],
             [
                 'id'=>16,
-                'name'=>'admin.user.edit',
+                'name'=>'admin.edit',
                 'display_name'=>'显示用户信息',
                 'group_name'=>'admin',
                 'fid'=>1
             ],
             [
                 'id'=>17,
-                'name'=>'admin.permission.edit',
+                'name'=>'permission.edit',
                 'display_name'=>'显示权限',
                 'group_name'=>'permission',
                 'fid'=>1
             ],
             [
                 'id'=>18,
-                'name'=>'admin.role.edit',
+                'name'=>'role.edit',
                 'display_name'=>'显示角色',
                 'group_name'=>'role',
                 'fid'=>1

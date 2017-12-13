@@ -16,9 +16,18 @@ Route::group([
     });
 
     // 账号管理
-    Route::group(['prefix' => 'user'], function (){
-        Route::get('/', 'UsersController@index')->name('admin.user.index');
-        Route::get('/', 'UsersController@index')->name('admin.user.index');
-    });
+    Route::get('profile','AdminController@profileForm')->name('admin.profile');
+    Route::post('profile','AdminController@profileUpdate')->name('admin.profile');
+    Route::resource('admin','AdminController');
+
+    // 权限
+    Route::get('permission/child/{permission}','PermissionController@childIndex')->name('permission.child');
+    Route::resource('permission','PermissionController');
+
+    // 角色
+    Route::resource('role','RoleController');
+
+    // 通知
+    Route::get('notification/{notification}', 'NotificationController@show')->name('notification.show');
 
 });

@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Admin;
+namespace Modules\Admin\Controllers;
 
 use Modules\Admin\Models\AdminPermissions;
 use Modules\Admin\Models\AdminRoles;
