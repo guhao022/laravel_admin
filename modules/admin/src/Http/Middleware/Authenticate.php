@@ -18,22 +18,31 @@ class Authenticate
      */
     public function handle($request, Closure $next)
     {
-        if (Auth::guard('admin')->guest() && !$this->shouldPassThrough($request)) {
-            //return redirect()->guest(route('login'));
-            if ($request->ajax() || $request->wantsJson()) {
-                return response('非法用户！.', 401);
-            } else {
-                return redirect()->guest(route('login'));
+
+        if (!$this->shouldPassThrough($request))
+        {
+            if (Auth::guard('admin')->guest())
+            {
+                //return redirect()->guest(route('login'));
+                if ($request->ajax() || $request->wantsJson())
+                {
+                    return response('非法用户！.', 401);
+                } else {
+                    return redirect()->guest(route('login'));
+                }
+            }
+
+            if(Auth::guard('admin')->user()->hasRole('admin'))
+            {
+                return $next($request);
+            }
+
+            if(!Auth::guard('admin')->user()->can(Route::currentRouteName()) && Route::currentRouteName()!='admin.home')
+            {
+                return response('您没有权限执行当前操作', 401);
             }
         }
 
-        if(Auth::guard('admin')->user()->hasRole('admin')){
-            return $next($request);
-        }
-
-        if(!Auth::guard('admin')->user()->can(Route::currentRouteName()) && Route::currentRouteName()!='admin.home') {
-            return response('您没有权限执行当前操作', 401);
-        }
 
         return $next($request);
     }
