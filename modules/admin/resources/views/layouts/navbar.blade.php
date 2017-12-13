@@ -30,13 +30,11 @@
                     </ul>
                 </div>
                 <div class="logo-element">
-                    {{ config('app.logo', 'HH') }}
+                    {{ config('app.logo', 'WE') }}
                 </div>
             </li>
 
-            @inject('adminPermission', 'Modules\Admin\Services\AdminPermission')
-
-            {!! $adminPermission->permissionHtml() !!}
+            @include('admin::layouts.menu')
             {{--<li class="active">
                 <a href="{{ admin_url() }}"><i class="fa fa-tachometer"></i> <span class="nav-label">控制台</span> </a>
             </li>--}}

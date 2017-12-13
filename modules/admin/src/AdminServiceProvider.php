@@ -8,6 +8,7 @@
 
 namespace Modules\Admin;
 
+use Illuminate\Support\Facades\View;
 use Illuminate\Support\ServiceProvider;
 use Modules\Admin\Commands\AdminCommand;
 
@@ -75,6 +76,8 @@ class AdminServiceProvider extends ServiceProvider
 
         $this->loadHelper();
 
+        $this->registerComposers();
+
         //
     }
 
@@ -93,6 +96,11 @@ class AdminServiceProvider extends ServiceProvider
     protected function loadAdminAuthConfig()
     {
         config(array_dot(config('admin.auth', []), 'auth.'));
+    }
+
+    protected function registerComposers() {
+        // 使用类来指定视图组件
+        View::composer('admin::*', 'Modules\Admin\Composers\MenuComposer');
     }
 
     protected function loadHelper()
