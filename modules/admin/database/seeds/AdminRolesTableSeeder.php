@@ -23,7 +23,7 @@ class AdminRolesTableSeeder extends Seeder
 
         DB::table('admin_role_user')->insert([
             'user_id'=>1,
-            'admin_roles_id'=>1,
+            'roles_id'=>1,
         ]);
     }
 }

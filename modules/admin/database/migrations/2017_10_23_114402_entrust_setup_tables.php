@@ -25,14 +25,14 @@ class EntrustSetupTables extends Migration
         // Create table for associating roles to users (Many-to-Many)
         Schema::create('admin_role_user', function (Blueprint $table) {
             $table->integer('user_id')->unsigned();
-            $table->integer('admin_roles_id')->unsigned();
+            $table->integer('roles_id')->unsigned();
 
             $table->foreign('user_id')->references('id')->on('admin_user')
                 ->onUpdate('cascade')->onDelete('cascade');
-            $table->foreign('admin_roles_id')->references('id')->on('admin_roles')
+            $table->foreign('roles_id')->references('id')->on('admin_roles')
                 ->onUpdate('cascade')->onDelete('cascade');
 
-            $table->primary(['user_id', 'admin_roles_id']);
+            $table->primary(['user_id', 'roles_id']);
         });
 
         // Create table for storing permissions
@@ -46,15 +46,15 @@ class EntrustSetupTables extends Migration
 
         // Create table for associating permissions to roles (Many-to-Many)
         Schema::create('admin_permission_role', function (Blueprint $table) {
-            $table->integer('admin_permissions_id')->unsigned();
-            $table->integer('admin_roles_id')->unsigned();
+            $table->integer('permissions_id')->unsigned();
+            $table->integer('roles_id')->unsigned();
 
-            $table->foreign('admin_permissions_id')->references('id')->on('admin_permissions')
+            $table->foreign('permissions_id')->references('id')->on('admin_permissions')
                 ->onUpdate('cascade')->onDelete('cascade');
-            $table->foreign('admin_roles_id')->references('id')->on('admin_roles')
+            $table->foreign('roles_id')->references('id')->on('admin_roles')
                 ->onUpdate('cascade')->onDelete('cascade');
 
-            $table->primary(['admin_permissions_id', 'admin_roles_id'],'admin_permission_role_role_id_foreign');
+            $table->primary(['permissions_id', 'roles_id'],'admin_permission_role_role_id_foreign');
         });
 
         DB::commit();
