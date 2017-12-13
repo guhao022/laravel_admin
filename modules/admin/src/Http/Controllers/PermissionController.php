@@ -3,10 +3,9 @@
 namespace App\Http\Controllers\Admin;
 
 use Modules\Admin\Models\AdminPermissions;
-use App\Http\Requests\PermissionCreateRequest;
-use App\Http\Requests\PermissionEditRequest;
+use Modules\Admin\Requests\PermissionCreateRequest;
+use Modules\Admin\Requests\PermissionEditRequest;
 use Modules\Admin\Repositories\PermissionRepository;
-use App\Http\Controllers\Controller;
 
 class PermissionController extends Controller
 {

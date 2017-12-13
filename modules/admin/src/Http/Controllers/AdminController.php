@@ -4,11 +4,10 @@ namespace App\Http\Controllers\Admin;
 
 use Modules\Admin\Models\AdminUser;
 use Modules\Admin\Models\AdminRoles;
-use App\Http\Requests\AdminCreateRequest;
-use App\Http\Requests\EditAdminPostRequest;
-use App\Http\Requests\ProfileUpdateRequest;
+use Modules\Admin\Requests\AdminCreateRequest;
+use Modules\Admin\Requests\EditAdminPostRequest;
+use Modules\Admin\Requests\ProfileUpdateRequest;
 use Modules\Admin\Repositories\AdminRepository;
-use App\Http\Controllers\Controller;
 
 class AdminController extends Controller
 {

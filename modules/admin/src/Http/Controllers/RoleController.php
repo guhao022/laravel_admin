@@ -4,10 +4,9 @@ namespace App\Http\Controllers\Admin;
 
 use Modules\Admin\Models\AdminPermissions;
 use Modules\Admin\Models\AdminRoles;
-use App\Http\Requests\RoleCreateRequest;
+use Modules\Admin\Requests\RoleCreateRequest;
 use Modules\Admin\Repositories\RoleRepository;
 use Illuminate\Http\Request;
-use App\Http\Controllers\Controller;
 
 class RoleController extends Controller
 {

@@ -8,7 +8,6 @@
 
 namespace Modules\Admin\Controllers;
 
-use Illuminate\Support\Facades\Auth;
 use Modules\Admin\Facades\AdminHelper;
 
 class HomeController extends Controller {
