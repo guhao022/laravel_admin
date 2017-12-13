@@ -21,6 +21,7 @@ class AdminPermissionsTableSeeder extends Seeder
                 'name'=>'system',
                 'display_name'=>'系统管理',
                 'icon' => 'fa-cogs',
+                'is_menu' => '1',
                 'group_name'=>'',
                 'fid'=>0
             ],
@@ -29,6 +30,7 @@ class AdminPermissionsTableSeeder extends Seeder
                 'name'=>'admin.index',
                 'display_name'=>'用户列表',
                 'icon' => '',
+                'is_menu' => '1',
                 'group_name'=>'admin',
                 'fid'=>1
             ],
@@ -37,6 +39,7 @@ class AdminPermissionsTableSeeder extends Seeder
                 'name'=>'admin.store',
                 'display_name'=>'创建用户',
                 'icon' => '',
+                'is_menu' => '0',
                 'group_name'=>'admin',
                 'fid'=>1
             ],
@@ -45,6 +48,7 @@ class AdminPermissionsTableSeeder extends Seeder
                 'name'=>'admin.update',
                 'display_name'=>'编辑用户',
                 'icon' => '',
+                'is_menu' => '0',
                 'group_name'=>'admin',
                 'fid'=>1
             ],
@@ -53,6 +57,7 @@ class AdminPermissionsTableSeeder extends Seeder
                 'name'=>'role.index',
                 'display_name'=>'角色列表',
                 'icon' => '',
+                'is_menu' => '1',
                 'group_name'=>'role',
                 'fid'=>1
             ],
@@ -61,6 +66,7 @@ class AdminPermissionsTableSeeder extends Seeder
                 'name'=>'role.store',
                 'display_name'=>'创建角色',
                 'icon' => '',
+                'is_menu' => '0',
                 'group_name'=>'role',
                 'fid'=>1
             ],
@@ -69,6 +75,7 @@ class AdminPermissionsTableSeeder extends Seeder
                 'name'=>'role.update',
                 'display_name'=>'编辑角色',
                 'icon' => '',
+                'is_menu' => '0',
                 'group_name'=>'role',
                 'fid'=>1
             ],
@@ -77,6 +84,7 @@ class AdminPermissionsTableSeeder extends Seeder
                 'name'=>'role.destroy',
                 'display_name'=>'删除角色',
                 'icon' => '',
+                'is_menu' => '0',
                 'group_name'=>'role',
                 'fid'=>1
             ],
@@ -85,6 +93,7 @@ class AdminPermissionsTableSeeder extends Seeder
                 'name'=>'permission.index',
                 'display_name'=>'权限列表',
                 'icon' => '',
+                'is_menu' => '1',
                 'group_name'=>'permission',
                 'fid'=>1
             ],
@@ -93,6 +102,7 @@ class AdminPermissionsTableSeeder extends Seeder
                 'name'=>'permission.store',
                 'display_name'=>'创建权限',
                 'icon' => '',
+                'is_menu' => '0',
                 'group_name'=>'permission',
                 'fid'=>1
             ],
@@ -101,6 +111,7 @@ class AdminPermissionsTableSeeder extends Seeder
                 'name'=>'permission.update',
                 'display_name'=>'编辑权限',
                 'icon' => '',
+                'is_menu' => '0',
                 'group_name'=>'permission',
                 'fid'=>1
             ],
@@ -109,6 +120,7 @@ class AdminPermissionsTableSeeder extends Seeder
                 'name'=>'permission.destroy',
                 'display_name'=>'删除权限',
                 'icon' => '',
+                'is_menu' => '0',
                 'group_name'=>'permission',
                 'fid'=>1
             ],
@@ -117,6 +129,7 @@ class AdminPermissionsTableSeeder extends Seeder
                 'name'=>'permission.child',
                 'display_name'=>'子权限列表',
                 'icon' => '',
+                'is_menu' => '0',
                 'group_name'=>'permission',
                 'fid'=>1
             ],
@@ -125,6 +138,7 @@ class AdminPermissionsTableSeeder extends Seeder
                 'name'=>'admin.profile',
                 'display_name'=>'账户管理',
                 'icon' => '',
+                'is_menu' => '0',
                 'group_name'=>'admin.profile',
                 'fid'=>1
             ],
@@ -133,6 +147,7 @@ class AdminPermissionsTableSeeder extends Seeder
                 'name'=>'notification.show',
                 'display_name'=>'阅读通知',
                 'icon' => '',
+                'is_menu' => '0',
                 'group_name'=>'notification',
                 'fid'=>1
             ],
@@ -141,6 +156,7 @@ class AdminPermissionsTableSeeder extends Seeder
                 'name'=>'admin.edit',
                 'display_name'=>'显示用户信息',
                 'icon' => '',
+                'is_menu' => '0',
                 'group_name'=>'admin',
                 'fid'=>1
             ],
@@ -149,6 +165,7 @@ class AdminPermissionsTableSeeder extends Seeder
                 'name'=>'permission.edit',
                 'display_name'=>'显示权限',
                 'icon' => '',
+                'is_menu' => '0',
                 'group_name'=>'permission',
                 'fid'=>1
             ],
@@ -157,6 +174,7 @@ class AdminPermissionsTableSeeder extends Seeder
                 'name'=>'role.edit',
                 'display_name'=>'显示角色',
                 'icon' => '',
+                'is_menu' => '0',
                 'group_name'=>'role',
                 'fid'=>1
             ],
@@ -168,6 +186,7 @@ class AdminPermissionsTableSeeder extends Seeder
                 'name'=>$permission['name'],
                 'display_name'=>$permission['display_name'],
                 'icon'=>$permission['icon'],
+                'is_menu'=>$permission['is_menu'],
                 'group_name'=>$permission['group_name'],
                 'fid'=>$permission['fid']
             ]);

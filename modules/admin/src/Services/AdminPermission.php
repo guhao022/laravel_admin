@@ -30,7 +30,29 @@ class AdminPermission
 
         $treePermission = $this->roleRepository->tree($Permission);
 
+        print_r($treePermission);die;
+
         $currentPermission = AdminPermissions::where('name',Route::currentRouteName())->first();
+
+        /*$data = [];
+
+        foreach($treePermission as $fatherPermission) {
+
+            if($this->admin->can($fatherPermission['name']) || $this->admin->hasRole('admin')) {
+
+                $data =
+
+            }
+
+
+        }*/
+
+
+
+
+
+
+
 
         if(Route::currentRouteName() =='`dmin.home') {
             $html = '<li class="active">
