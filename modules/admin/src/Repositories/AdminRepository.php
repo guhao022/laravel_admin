@@ -1,5 +1,5 @@
 <?php
-namespace App\Repositories;
+namespace Modules\Admin\Repositories;
 
 use Modules\Admin\Models\AdminUser;
 use Modules\Admin\Models\AdminRoles;

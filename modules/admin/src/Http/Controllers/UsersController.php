@@ -32,8 +32,10 @@ class UsersController extends Controller {
      * @param $uid
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
-    public function getSetting($uid) {
+    public function getSetting($uid)
+    {
         $user = AdminUser::find($uid);
+
         return view("admin::user.setting", ['user'=>$user]);
     }
 
@@ -42,9 +44,12 @@ class UsersController extends Controller {
      * @param Request $request
      * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
      */
-    public function postSetting(Request $request) {
+    public function postSetting(Request $request)
+    {
         $uid = $request->input('uid');
+
         $user = AdminUser::find($uid);
+
         $email = $request->input("email");
 
         $user->email = $email;

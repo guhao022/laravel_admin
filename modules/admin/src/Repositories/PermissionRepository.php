@@ -6,8 +6,9 @@
  * Time: 11:08
  */
 
-namespace App\Repositories;
-use App\AdminPermissions;
+namespace Modules\Admin\Repositories;
+
+use Modules\Admin\Models\AdminPermissions;
 
 class PermissionRepository
 {

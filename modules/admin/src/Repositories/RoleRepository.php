@@ -6,9 +6,10 @@
  * Time: 10:57
  */
 
-namespace App\Repositories;
-use App\AdminRoles;
-use App\AdminPermissions;
+namespace Modules\Admin\Repositories;
+
+use Modules\Admin\Models\AdminRoles;
+use Modules\Admin\Models\AdminPermissions;
 
 class RoleRepository
 {
