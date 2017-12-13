@@ -1,0 +1,19 @@
+<?php
+
+namespace App\Http\Controllers\Admin;
+
+
+use App\Http\Controllers\Controller;
+use Illuminate\Notifications\DatabaseNotification;
+
+class NotificationController extends Controller
+{
+    //
+    public function show(DatabaseNotification $notification)
+    {
+
+        $notification->markAsRead();
+
+        return view('admin::notification.show',['notification'=>$notification]);
+    }
+}
