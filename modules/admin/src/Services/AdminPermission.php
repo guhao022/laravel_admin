@@ -75,8 +75,6 @@ class AdminPermission
                                 $childStyle = '';
                             }
 
-                            print_r($childPermission);die;
-
                             $html .= '<li><a style="'.$childStyle.'" href="'.route($childPermission['name']).'">'.$childPermission['display_name'].'</a></li>';
                         }
                     }
