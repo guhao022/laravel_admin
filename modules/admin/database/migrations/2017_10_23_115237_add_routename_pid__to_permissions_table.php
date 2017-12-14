@@ -18,7 +18,7 @@ class AddRoutenameFidToPermissionsTable extends Migration
             $table->string('icon')->nullable();
             $table->boolean('is_menu')->default(0);
             $table->string('group_name')->nullable();
-            $table->integer('fid')->nullable();
+            $table->integer('pid')->nullable();
         });
     }
 

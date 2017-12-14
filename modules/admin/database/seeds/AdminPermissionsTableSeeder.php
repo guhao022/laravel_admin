@@ -23,7 +23,7 @@ class AdminPermissionsTableSeeder extends Seeder
                 'icon' => 'fa-cogs',
                 'is_menu' => '1',
                 'group_name'=>'',
-                'fid'=>0
+                'pid'=>0
             ],
             [
                 'id'=>2,
@@ -32,7 +32,7 @@ class AdminPermissionsTableSeeder extends Seeder
                 'icon' => '',
                 'is_menu' => '1',
                 'group_name'=>'admin',
-                'fid'=>1
+                'pid'=>1
             ],
             [
                 'id'=>3,
@@ -41,7 +41,7 @@ class AdminPermissionsTableSeeder extends Seeder
                 'icon' => '',
                 'is_menu' => '0',
                 'group_name'=>'admin',
-                'fid'=>1
+                'pid'=>2
             ],
             [
                 'id'=>4,
@@ -50,7 +50,7 @@ class AdminPermissionsTableSeeder extends Seeder
                 'icon' => '',
                 'is_menu' => '0',
                 'group_name'=>'admin',
-                'fid'=>1
+                'pid'=>2
             ],
             [
                 'id'=>5,
@@ -59,7 +59,7 @@ class AdminPermissionsTableSeeder extends Seeder
                 'icon' => '',
                 'is_menu' => '1',
                 'group_name'=>'role',
-                'fid'=>1
+                'pid'=>1
             ],
             [
                 'id'=>6,
@@ -68,7 +68,7 @@ class AdminPermissionsTableSeeder extends Seeder
                 'icon' => '',
                 'is_menu' => '0',
                 'group_name'=>'role',
-                'fid'=>1
+                'pid'=>5
             ],
             [
                 'id'=>7,
@@ -77,7 +77,7 @@ class AdminPermissionsTableSeeder extends Seeder
                 'icon' => '',
                 'is_menu' => '0',
                 'group_name'=>'role',
-                'fid'=>1
+                'pid'=>5
             ],
             [
                 'id'=>8,
@@ -86,7 +86,7 @@ class AdminPermissionsTableSeeder extends Seeder
                 'icon' => '',
                 'is_menu' => '0',
                 'group_name'=>'role',
-                'fid'=>1
+                'pid'=>5
             ],
             [
                 'id'=>9,
@@ -95,7 +95,7 @@ class AdminPermissionsTableSeeder extends Seeder
                 'icon' => '',
                 'is_menu' => '1',
                 'group_name'=>'permission',
-                'fid'=>1
+                'pid'=>1
             ],
             [
                 'id'=>10,
@@ -104,7 +104,7 @@ class AdminPermissionsTableSeeder extends Seeder
                 'icon' => '',
                 'is_menu' => '0',
                 'group_name'=>'permission',
-                'fid'=>1
+                'pid'=>9
             ],
             [
                 'id'=>11,
@@ -113,7 +113,7 @@ class AdminPermissionsTableSeeder extends Seeder
                 'icon' => '',
                 'is_menu' => '0',
                 'group_name'=>'permission',
-                'fid'=>1
+                'pid'=>9
             ],
             [
                 'id'=>12,
@@ -122,7 +122,7 @@ class AdminPermissionsTableSeeder extends Seeder
                 'icon' => '',
                 'is_menu' => '0',
                 'group_name'=>'permission',
-                'fid'=>1
+                'pid'=>9
             ],
             [
                 'id'=>13,
@@ -131,7 +131,7 @@ class AdminPermissionsTableSeeder extends Seeder
                 'icon' => '',
                 'is_menu' => '0',
                 'group_name'=>'permission',
-                'fid'=>1
+                'pid'=>9
             ],
             [
                 'id'=>14,
@@ -140,7 +140,7 @@ class AdminPermissionsTableSeeder extends Seeder
                 'icon' => '',
                 'is_menu' => '0',
                 'group_name'=>'admin.profile',
-                'fid'=>1
+                'pid'=>1
             ],
             [
                 'id'=>15,
@@ -149,7 +149,7 @@ class AdminPermissionsTableSeeder extends Seeder
                 'icon' => '',
                 'is_menu' => '0',
                 'group_name'=>'notification',
-                'fid'=>1
+                'pid'=>14
             ],
             [
                 'id'=>16,
@@ -158,7 +158,7 @@ class AdminPermissionsTableSeeder extends Seeder
                 'icon' => '',
                 'is_menu' => '0',
                 'group_name'=>'admin',
-                'fid'=>1
+                'pid'=>14
             ],
             [
                 'id'=>17,
@@ -167,7 +167,7 @@ class AdminPermissionsTableSeeder extends Seeder
                 'icon' => '',
                 'is_menu' => '0',
                 'group_name'=>'permission',
-                'fid'=>1
+                'pid'=>14
             ],
             [
                 'id'=>18,
@@ -176,7 +176,7 @@ class AdminPermissionsTableSeeder extends Seeder
                 'icon' => '',
                 'is_menu' => '0',
                 'group_name'=>'role',
-                'fid'=>1
+                'pid'=>14
             ],
         ];
 
@@ -188,7 +188,7 @@ class AdminPermissionsTableSeeder extends Seeder
                 'icon'=>$permission['icon'],
                 'is_menu'=>$permission['is_menu'],
                 'group_name'=>$permission['group_name'],
-                'fid'=>$permission['fid']
+                'pid'=>$permission['pid']
             ]);
         }
 

@@ -22,7 +22,7 @@
     @if(Admin::user()->can($menu->name) || Admin::user()->hasRole('admin'))
 
         <li
-                @if (isset($current_menu->fid) && $current_menu->fid == $menu->id)
+                @if (isset($current_menu->pid) && $current_menu->pid == $menu->id)
 
                 class="active"
 

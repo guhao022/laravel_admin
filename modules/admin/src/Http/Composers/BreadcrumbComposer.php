@@ -11,17 +11,21 @@ use Illuminate\Support\Fluent;
 use Auth;
 
 /**
- * 后台视图组织.
+ * 面包屑导航.
  *
  * @author guhao <378999587@qq.com>
  */
-class MenuComposer
+class BreadcrumbComposer
 {
     private $roleRepository;
+
+    private $admin;
 
     public function __construct(RoleRepository $roleRepository)
     {
         $this->roleRepository = $roleRepository;
+
+        $this->admin = auth()->guard('admin')->user();
     }
 
     /**
@@ -32,13 +36,22 @@ class MenuComposer
     public function compose(View $view)
     {
 
-        $Permission = AdminPermissions::where('pid','0')->orWhere('is_menu', '1')->get();
-
-        $treeMenu = $this->roleRepository->tree($Permission);
-
         $currentMenu = AdminPermissions::where('name',Route::currentRouteName())->first();
 
-        $view->with(['menus' => $treeMenu, 'current_menu' => $currentMenu]);
+        if($this->admin->can($currentMenu->name) || $this->admin->hasRole('admin')) {
+            return response('您没有权限执行当前操作', 401);
+        }
 
+        if ($currentMenu->pid > 0) {
+            $parentMenu = AdminPermissions::find($currentMenu->pid);
+        }
+
+        $view->with(['current_menu' => $currentMenu]);
+
+    }
+
+    protected function getParentMenu($pid)
+    {
+        //
     }
 }
