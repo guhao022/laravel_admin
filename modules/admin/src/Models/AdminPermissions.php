@@ -8,12 +8,13 @@ class AdminPermissions extends EntrustPermission
 {
     //
 
-    public $fillable = ['name','display_name','description','route_name','fid'];
-    public function fatherName($fid)
+    public $fillable = ['name','display_name','description','route_name','pid'];
+
+    public function parentName($pid)
     {
-        switch($fid){
+        switch($pid){
             case '0': return '顶级分类';break;
-            default : $father = self::where('id',$fid)->first(); return $father->display_name;
+            default : $parent = self::where('id',$pid)->first(); return $parent->display_name;
         }
     }
 }

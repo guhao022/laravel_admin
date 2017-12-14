@@ -26,9 +26,9 @@ class PermissionController extends Controller
     public function index()
     {
         //
-        $topPermission = AdminPermissions::where('fid','0')->get();
+        $topPermission = AdminPermissions::where('pid','0')->get();
 
-        return view('admin.permission.index',['Permissions'=>$topPermission,'father'=>$topPermission,'is_child'=>'2']);
+        return view('admin.permission.index',['Permissions'=>$topPermission,'parent'=>$topPermission,'is_child'=>'2']);
     }
 
     /**
@@ -106,7 +106,7 @@ class PermissionController extends Controller
     public function destroy($id)
     {
         //
-        AdminPermissions::where('fid',$id)->delete();
+        AdminPermissions::where('pid',$id)->delete();
 
         AdminPermissions::find($id)->delete();
 
@@ -115,10 +115,10 @@ class PermissionController extends Controller
 
     public function childIndex($id)
     {
-        $topPermission = AdminPermissions::where('fid',$id)->get();
+        $topPermission = AdminPermissions::where('pid',$id)->get();
 
-        $father = AdminPermissions::where('id',$id)->get();
+        $parent = AdminPermissions::where('id',$id)->get();
 
-        return view('admin.permission.index',['Permissions'=>$topPermission,'father'=>$father,'is_child'=>'1']);
+        return view('admin.permission.index',['Permissions'=>$topPermission,'parent'=>$parent,'is_child'=>'1']);
     }
 }

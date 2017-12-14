@@ -27,7 +27,7 @@ class PermissionCreateRequest extends FormRequest
             //
             'name'=>'required|unique:admin_permissions|max:20',
             'display_name'=>'required',
-            'fid'=>'required',
+            'pid'=>'required',
         ];
     }
 
@@ -38,7 +38,7 @@ class PermissionCreateRequest extends FormRequest
             'name.unique'  => '权限已经存在',
             'name.max'  => '权限名称最长为20个字符',
             'display_name.required'  => '权限显示名称不能为空',
-            'fid.required'  => '分类不能为空',
+            'pid.required'  => '分类不能为空',
         ];
     }
 }

@@ -21,7 +21,7 @@ class PermissionEditRequest extends FormRequest
         return [
             //
             'display_name'=>'required',
-            'fid'=>'required',
+            'pid'=>'required',
         ];
     }
 
@@ -29,7 +29,7 @@ class PermissionEditRequest extends FormRequest
     {
         return [
             'display_name.required'  => '权限显示名称不能为空',
-            'fid.required'  => '分类不能为空',
+            'pid.required'  => '分类不能为空',
         ];
     }
 }

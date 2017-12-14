@@ -78,7 +78,7 @@ class RoleRepository
     public function tree($table,$p_id='0') {
         $tree = array();
         foreach($table as $row){
-            if($row['fid']==$p_id){
+            if($row['pid']==$p_id){
                 $tmp = $this->tree($table,$row['id']);
                 if($tmp){
                     $row['children']=$tmp;
