@@ -28,7 +28,7 @@ class AdminController extends Controller
 
         $roles = AdminRoles::all(['id','display_name']);
 
-        return view('admin::user.index',['admins'=>$admins,'roles'=>$roles]);
+        return admin_view('user.index',['admins'=>$admins,'roles'=>$roles]);
     }
 
     /**

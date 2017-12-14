@@ -6,8 +6,6 @@ use Illuminate\Support\Facades\Route;
 use Modules\Admin\Models\AdminPermissions;
 use Modules\Admin\Repositories\RoleRepository;
 use Illuminate\Contracts\View\View;
-use Illuminate\Http\Request;
-use Illuminate\Support\Fluent;
 use Auth;
 
 /**
@@ -21,11 +19,15 @@ class BreadcrumbComposer
 
     private $admin;
 
+    private $breadcrumb;
+
     public function __construct(RoleRepository $roleRepository)
     {
         $this->roleRepository = $roleRepository;
 
         $this->admin = auth()->guard('admin')->user();
+
+        $this->breadcrumb = [];
     }
 
     /**
@@ -36,22 +38,36 @@ class BreadcrumbComposer
     public function compose(View $view)
     {
 
-        $currentMenu = AdminPermissions::where('name',Route::currentRouteName())->first();
+        if(Route::currentRouteName() !=='admin.home') {
 
-        if($this->admin->can($currentMenu->name) || $this->admin->hasRole('admin')) {
-            return response('您没有权限执行当前操作', 401);
+            $currentMenu = AdminPermissions::where('name',Route::currentRouteName())->first();
+
+            $this->breadcrumb[] = $currentMenu;
+
+            if ($currentMenu->pid > 0) {
+
+                $this->getBreadcrumb($currentMenu->pid);
+
+            }
+
+            krsort($this->breadcrumb);
+
         }
 
-        if ($currentMenu->pid > 0) {
-            $parentMenu = AdminPermissions::find($currentMenu->pid);
-        }
-
-        $view->with(['current_menu' => $currentMenu]);
+        $view->with(['breadcrumb' => $this->breadcrumb]);
 
     }
 
-    protected function getParentMenu($pid)
+    protected function getBreadcrumb($pid)
     {
-        //
+        $menu = AdminPermissions::find($pid);
+
+        $this->breadcrumb[] = $menu;
+
+        if ($menu->pid > 0) {
+
+            $this->getBreadcrumb($menu->pid);
+
+        }
     }
 }

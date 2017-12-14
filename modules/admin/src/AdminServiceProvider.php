@@ -101,6 +101,7 @@ class AdminServiceProvider extends ServiceProvider
     protected function registerComposers() {
         // 使用类来指定视图组件
         View::composer('admin::*', 'Modules\Admin\Composers\MenuComposer');
+        View::composer('admin::*', 'Modules\Admin\Composers\BreadcrumbComposer');
     }
 
     protected function loadHelper()

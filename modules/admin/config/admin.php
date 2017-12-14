@@ -4,6 +4,8 @@ return [
 
     'title' => '后台管理',
 
+    'theme' => 'adminlte',
+
     'upload' => [
         "path" => "upload",
     ],
