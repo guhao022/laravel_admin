@@ -231,6 +231,7 @@ return [
 
         'Entrust' => Zizaco\Entrust\EntrustFacade::class,
         'Admin' => Modules\Admin\Facades\Admin::class,
+        'Avatar' =>Modules\Admin\Facades\Avatar::class,
 
     ],
 
