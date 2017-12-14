@@ -8,12 +8,16 @@
         <div class="col-lg-12">
             <div class="ibox float-e-margins">
                 <div class="ibox-title">
+                    <h5> 用户列表 </h5>
 
-                    <div class="row form-inline pull-right">
+                </div>
+                <div class="ibox-content">
+
+                    <div class="row form-inline">
 
                         <div class="form-group">
                             <div class="input-group">
-                                <span class="input-group-addon">@</span>
+                                <span class="input-group-addon">昵称</span>
                                 <input type="text" placeholder="Username" class="form-control">
                             </div>
                         </div>
@@ -26,10 +30,7 @@
 
                     </div>
 
-                    <h5> 用户列表 </h5>
 
-                </div>
-                <div class="ibox-content">
                     <div class="table-responsive">
                         <table class="table table-striped">
                             <thead>

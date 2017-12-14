@@ -15,10 +15,10 @@ class CreateAdminUserTable extends Migration
     {
         Schema::create('admin_user', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('email')->unique();
-            $table->string('password');
-            $table->string('name')->nullable();
-            $table->string('avatar')->nullable();
+            $table->string('email')->unique()->comment("登录邮箱");
+            $table->string('password')->comment("密码");
+            $table->string('name')->nullable()->comment("用户名称");
+            $table->string('avatar')->nullable()->comment("头像");
             $table->rememberToken();
             $table->timestamps();
         });
