@@ -11,7 +11,7 @@ if (!function_exists('admin_asset')) {
      */
     function admin_asset($url, $secure = false)
     {
-        return asset('packages/admin/' . config('admin.theme') . $url, $secure);
+        return asset('packages/admin/' . config('admin.theme') . '/' . $url, $secure);
     }
 }
 

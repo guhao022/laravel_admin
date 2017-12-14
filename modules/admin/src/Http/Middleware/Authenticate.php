@@ -28,7 +28,7 @@ class Authenticate
                 {
                     return response('非法用户！.', 401);
                 } else {
-                    return redirect()->guest(route('login'));
+                    return redirect()->guest(route('admin.login'));
                 }
             }
 

@@ -30,7 +30,7 @@ class AuthController extends Controller {
         if (!Auth::guard('admin')->guest()) {
             return redirect(config('admin.route.prefix'));
         }
-        return view('admin::login');
+        return admin_view('login');
     }
 
     /**
@@ -50,6 +50,10 @@ class AuthController extends Controller {
             return Redirect::back()->withInput()->withErrors($validator);
         }
         if (Auth::guard('admin')->attempt($credentials)) {
+
+            Auth::guard('admin')->user()->last_login = new \DateTime();
+            Auth::guard('admin')->user()->save();
+
             return redirect()->intended(config('admin.route.prefix'));
         }
         return Redirect::back()->withInput()->withErrors(['email' => $this->getFailedLoginMessage()]);

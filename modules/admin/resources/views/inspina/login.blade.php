@@ -9,7 +9,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Laravel') }} | 登录 </title>
+    <title>{{ config('app.name', 'Weasy') }} | 登录 </title>
 
     <link href="{{ admin_asset('css/bootstrap.min.css') }}" rel="stylesheet">
     <link href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
@@ -31,7 +31,7 @@
         <h3>欢迎登录 {{ config('app.name', 'Laravel') }} 管理系统</h3>
         <p>
         </p>
-        <form class="m-t" role="form" method="POST" action="{{ route('login') }}">
+        <form class="m-t" role="form" method="POST" action="{{ route('admin.login') }}">
             {{ csrf_field() }}
 
             <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">

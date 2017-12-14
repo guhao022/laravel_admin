@@ -26,7 +26,7 @@
 
     <div id="page-wrapper" class="gray-bg">
 
-        @include('admin::layouts_.topbar')
+        @include('admin::inspina.layouts.topbar')
 
         @if (Route::currentRouteName() !=='admin.home')
         <div class="row wrapper border-bottom white-bg page-heading">
@@ -74,7 +74,7 @@
 </footer>--}}
 
 <!-- Scripts -->
-@include('admin::layouts_.scripts')
+@include('admin::inspina.layouts.scripts')
 
 @yield('scripts')
 

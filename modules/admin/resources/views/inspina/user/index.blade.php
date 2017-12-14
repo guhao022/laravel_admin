@@ -1,4 +1,4 @@
-@extends('admin::'.config('admin.theme').'.layouts.app')
+@extends('admin::inspina.layouts.app')
 @section('title', '用户管理')
 
 @section('content')

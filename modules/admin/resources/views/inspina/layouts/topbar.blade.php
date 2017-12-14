@@ -48,7 +48,7 @@
                     <i class="fa fa-sign-out"></i> 注销
                 </a>
 
-                <form id="logout-form" action="{{route('logout')}}" method="POST" style="display: none;">
+                <form id="logout-form" action="{{route('admin.logout')}}" method="POST" style="display: none;">
                     {{ csrf_field() }}
                 </form>
             </li>

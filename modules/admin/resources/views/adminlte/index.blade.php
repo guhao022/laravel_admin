@@ -1,4 +1,4 @@
-@extends('admin::'.config('admin.theme').'.layouts.app')
+@extends('admin::adminlte.layouts.app')
 @section('title', '控制台')
 
 @section('content')

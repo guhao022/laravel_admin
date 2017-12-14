@@ -10,9 +10,9 @@ Route::group([
 
     // 验证
     Route::group(['prefix' => 'auth'], function (){
-        Route::get('login', 'AuthController@getlogin')->name('login');
+        Route::get('login', 'AuthController@getlogin')->name('admin.login');
         Route::post('login', 'AuthController@postlogin');
-        Route::post('logout', 'AuthController@postlogout')->name('logout');
+        Route::post('logout', 'AuthController@postlogout')->name('admin.logout');
     });
 
     // 账号管理

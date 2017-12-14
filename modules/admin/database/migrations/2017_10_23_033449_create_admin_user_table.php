@@ -19,6 +19,7 @@ class CreateAdminUserTable extends Migration
             $table->string('password')->comment("密码");
             $table->string('name')->nullable()->comment("用户名称");
             $table->string('avatar')->nullable()->comment("头像");
+            $table->timestamp('last_login')->nullable()->comment("最后登录时间");
             $table->rememberToken();
             $table->timestamps();
         });

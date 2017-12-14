@@ -38,7 +38,7 @@ class BreadcrumbComposer
     public function compose(View $view)
     {
 
-        if(Route::currentRouteName() !=='admin.home') {
+        if(!Auth::guard('admin')->guest() && Route::currentRouteName() !=='admin.home') {
 
             $currentMenu = AdminPermissions::where('name',Route::currentRouteName())->first();
 
