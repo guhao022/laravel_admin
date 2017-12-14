@@ -1,5 +1,5 @@
 @extends('admin::layouts.app')
-@section('title', '用户设置')
+@section('title', '用户管理')
 
 @section('content')
 
@@ -13,199 +13,1010 @@
                 </div>
                 <div class="ibox-content">
 
-                    <div class="row form-inline">
-
-                        <div class="form-group">
-                            <div class="input-group">
-                                <span class="input-group-addon">昵称</span>
-                                <input type="text" placeholder="Username" class="form-control">
+                    <div class="ibox-content m-b-sm border-bottom">
+                        <div class="row">
+                            <div class="col-sm-4">
+                                <div class="form-group">
+                                    <label class="control-label" for="order_id">Order ID</label>
+                                    <input type="text" id="order_id" name="order_id" value="" placeholder="Order ID" class="form-control">
+                                </div>
+                            </div>
+                            <div class="col-sm-4">
+                                <div class="form-group">
+                                    <label class="control-label" for="status">Order status</label>
+                                    <input type="text" id="status" name="status" value="" placeholder="Status" class="form-control">
+                                </div>
+                            </div>
+                            <div class="col-sm-4">
+                                <div class="form-group">
+                                    <label class="control-label" for="customer">Customer</label>
+                                    <input type="text" id="customer" name="customer" value="" placeholder="Customer" class="form-control">
+                                </div>
                             </div>
                         </div>
-                        <div class="form-group">
-                            <div class="input-group">
-                                <span class="input-group-addon">@</span>
-                                <input type="text" placeholder="Username" class="form-control">
+                        <div class="row">
+                            <div class="col-sm-4">
+                                <div class="form-group">
+                                    <label class="control-label" for="date_added">Date added</label>
+                                    <div class="input-group date">
+                                        <span class="input-group-addon"><i class="fa fa-calendar"></i></span><input id="date_added" type="text" class="form-control" value="03/04/2014">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-4">
+                                <div class="form-group">
+                                    <label class="control-label" for="date_modified">Date modified</label>
+                                    <div class="input-group date">
+                                        <span class="input-group-addon"><i class="fa fa-calendar"></i></span><input id="date_modified" type="text" class="form-control" value="03/06/2014">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-4">
+                                <div class="form-group">
+                                    <label class="control-label" for="amount">Amount</label>
+                                    <input type="text" id="amount" name="amount" value="" placeholder="Amount" class="form-control">
+                                </div>
                             </div>
                         </div>
 
                     </div>
 
+                </div>
 
-                    <div class="table-responsive">
-                        <table class="table table-striped">
-                            <thead>
-                            <tr>
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="ibox">
+                            <div class="ibox-content">
 
-                                <th>#</th>
-                                <th>Project </th>
-                                <th>Name </th>
-                                <th>Phone </th>
-                                <th>Company </th>
-                                <th>Completed </th>
-                                <th>Task</th>
-                                <th>Date</th>
-                                <th>Action</th>
-                            </tr>
-                            </thead>
-                            <tbody>
-                            <tr>
-                                <td>1</td>
-                                <td>Project <small>This is example of project</small></td>
-                                <td>Patrick Smith</td>
-                                <td>0800 051213</td>
-                                <td>Inceptos Hymenaeos Ltd</td>
-                                <td><span class="pie">0.52/1.561</span></td>
-                                <td>20%</td>
-                                <td>Jul 14, 2013</td>
-                                <td><a href="#"><i class="fa fa-check text-navy"></i></a></td>
-                            </tr>
-                            <tr>
-                                <td>2</td>
-                                <td>Alpha project</td>
-                                <td>Alice Jackson</td>
-                                <td>0500 780909</td>
-                                <td>Nec Euismod In Company</td>
-                                <td><span class="pie">6,9</span></td>
-                                <td>40%</td>
-                                <td>Jul 16, 2013</td>
-                                <td><a href="#"><i class="fa fa-check text-navy"></i></a></td>
-                            </tr>
-                            <tr>
-                                <td>3</td>
-                                <td>Betha project</td>
-                                <td>John Smith</td>
-                                <td>0800 1111</td>
-                                <td>Erat Volutpat</td>
-                                <td><span class="pie">3,1</span></td>
-                                <td>75%</td>
-                                <td>Jul 18, 2013</td>
-                                <td><a href="#"><i class="fa fa-check text-navy"></i></a></td>
-                            </tr>
-                            <tr>
-                                <td>4</td>
-                                <td>Gamma project</td>
-                                <td>Anna Jordan</td>
-                                <td>(016977) 0648</td>
-                                <td>Tellus Ltd</td>
-                                <td><span class="pie">4,9</span></td>
-                                <td>18%</td>
-                                <td>Jul 22, 2013</td>
-                                <td><a href="#"><i class="fa fa-check text-navy"></i></a></td>
-                            </tr>
-                            <tr>
-                                <td>2</td>
-                                <td>Alpha project</td>
-                                <td>Alice Jackson</td>
-                                <td>0500 780909</td>
-                                <td>Nec Euismod In Company</td>
-                                <td><span class="pie">6,9</span></td>
-                                <td>40%</td>
-                                <td>Jul 16, 2013</td>
-                                <td><a href="#"><i class="fa fa-check text-navy"></i></a></td>
-                            </tr>
-                            <tr>
-                                <td>1</td>
-                                <td>Project <small>This is example of project</small></td>
-                                <td>Patrick Smith</td>
-                                <td>0800 051213</td>
-                                <td>Inceptos Hymenaeos Ltd</td>
-                                <td><span class="pie">0.52/1.561</span></td>
-                                <td>20%</td>
-                                <td>Jul 14, 2013</td>
-                                <td><a href="#"><i class="fa fa-check text-navy"></i></a></td>
-                            </tr>
-                            <tr>
-                                <td>4</td>
-                                <td>Gamma project</td>
-                                <td>Anna Jordan</td>
-                                <td>(016977) 0648</td>
-                                <td>Tellus Ltd</td>
-                                <td><span class="pie">4,9</span></td>
-                                <td>18%</td>
-                                <td>Jul 22, 2013</td>
-                                <td><a href="#"><i class="fa fa-check text-navy"></i></a></td>
-                            </tr>
-                            <tr>
-                                <td>1</td>
-                                <td>Project <small>This is example of project</small></td>
-                                <td>Patrick Smith</td>
-                                <td>0800 051213</td>
-                                <td>Inceptos Hymenaeos Ltd</td>
-                                <td><span class="pie">0.52/1.561</span></td>
-                                <td>20%</td>
-                                <td>Jul 14, 2013</td>
-                                <td><a href="#"><i class="fa fa-check text-navy"></i></a></td>
-                            </tr>
-                            <tr>
-                                <td>2</td>
-                                <td>Alpha project</td>
-                                <td>Alice Jackson</td>
-                                <td>0500 780909</td>
-                                <td>Nec Euismod In Company</td>
-                                <td><span class="pie">6,9</span></td>
-                                <td>40%</td>
-                                <td>Jul 16, 2013</td>
-                                <td><a href="#"><i class="fa fa-check text-navy"></i></a></td>
-                            </tr>
-                            <tr>
-                                <td>3</td>
-                                <td>Betha project</td>
-                                <td>John Smith</td>
-                                <td>0800 1111</td>
-                                <td>Erat Volutpat</td>
-                                <td><span class="pie">3,1</span></td>
-                                <td>75%</td>
-                                <td>Jul 18, 2013</td>
-                                <td><a href="#"><i class="fa fa-check text-navy"></i></a></td>
-                            </tr>
-                            <tr>
-                                <td>4</td>
-                                <td>Gamma project</td>
-                                <td>Anna Jordan</td>
-                                <td>(016977) 0648</td>
-                                <td>Tellus Ltd</td>
-                                <td><span class="pie">4,9</span></td>
-                                <td>18%</td>
-                                <td>Jul 22, 2013</td>
-                                <td><a href="#"><i class="fa fa-check text-navy"></i></a></td>
-                            </tr>
-                            <tr>
-                                <td>2</td>
-                                <td>Alpha project</td>
-                                <td>Alice Jackson</td>
-                                <td>0500 780909</td>
-                                <td>Nec Euismod In Company</td>
-                                <td><span class="pie">6,9</span></td>
-                                <td>40%</td>
-                                <td>Jul 16, 2013</td>
-                                <td><a href="#"><i class="fa fa-check text-navy"></i></a></td>
-                            </tr>
-                            <tr>
-                                <td>1</td>
-                                <td>Project <small>This is example of project</small></td>
-                                <td>Patrick Smith</td>
-                                <td>0800 051213</td>
-                                <td>Inceptos Hymenaeos Ltd</td>
-                                <td><span class="pie">0.52/1.561</span></td>
-                                <td>20%</td>
-                                <td>Jul 14, 2013</td>
-                                <td><a href="#"><i class="fa fa-check text-navy"></i></a></td>
-                            </tr>
-                            <tr>
-                                <td>4</td>
-                                <td>Gamma project</td>
-                                <td>Anna Jordan</td>
-                                <td>(016977) 0648</td>
-                                <td>Tellus Ltd</td>
-                                <td><span class="pie">4,9</span></td>
-                                <td>18%</td>
-                                <td>Jul 22, 2013</td>
-                                <td><a href="#"><i class="fa fa-check text-navy"></i></a></td>
-                            </tr>
-                            </tbody>
-                        </table>
+                                <table class="footable table table-stripped toggle-arrow-tiny default footable-loaded" data-page-size="15">
+                                    <thead>
+                                    <tr>
+
+                                        <th class="footable-visible footable-first-column footable-sortable">Order ID<span class="footable-sort-indicator"></span></th>
+                                        <th data-hide="phone" class="footable-visible footable-sortable">Customer<span class="footable-sort-indicator"></span></th>
+                                        <th data-hide="phone" class="footable-visible footable-sortable">Amount<span class="footable-sort-indicator"></span></th>
+                                        <th data-hide="phone" class="footable-visible footable-sortable">Date added<span class="footable-sort-indicator"></span></th>
+                                        <th data-hide="phone,tablet" class="footable-visible footable-sortable">Date modified<span class="footable-sort-indicator"></span></th>
+                                        <th data-hide="phone" class="footable-visible footable-sortable">Status<span class="footable-sort-indicator"></span></th>
+                                        <th class="text-right footable-visible footable-last-column footable-sortable">Action<span class="footable-sort-indicator"></span></th>
+
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    <tr class="footable-even" style="">
+                                        <td class="footable-visible footable-first-column"><span class="footable-toggle"></span>
+                                            3214
+                                        </td>
+                                        <td class="footable-visible">
+                                            Customer example
+                                        </td>
+                                        <td class="footable-visible">
+                                            $500.00
+                                        </td>
+                                        <td class="footable-visible">
+                                            03/04/2015
+                                        </td>
+                                        <td class="footable-visible">
+                                            03/05/2015
+                                        </td>
+                                        <td class="footable-visible">
+                                            <span class="label label-primary">Pending</span>
+                                        </td>
+                                        <td class="text-right footable-visible footable-last-column">
+                                            <div class="btn-group">
+                                                <button class="btn-white btn btn-xs">View</button>
+                                                <button class="btn-white btn btn-xs">Edit</button>
+                                                <button class="btn-white btn btn-xs">Delete</button>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr class="footable-odd" style="">
+                                        <td class="footable-visible footable-first-column"><span class="footable-toggle"></span>
+                                            324
+                                        </td>
+                                        <td class="footable-visible">
+                                            Customer example
+                                        </td>
+                                        <td class="footable-visible">
+                                            $320.00
+                                        </td>
+                                        <td class="footable-visible">
+                                            12/04/2015
+                                        </td>
+                                        <td class="footable-visible">
+                                            21/07/2015
+                                        </td>
+                                        <td class="footable-visible">
+                                            <span class="label label-primary">Pending</span>
+                                        </td>
+                                        <td class="text-right footable-visible footable-last-column">
+                                            <div class="btn-group">
+                                                <button class="btn-white btn btn-xs">View</button>
+                                                <button class="btn-white btn btn-xs">Edit</button>
+                                                <button class="btn-white btn btn-xs">Delete</button>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr class="footable-even" style="">
+                                        <td class="footable-visible footable-first-column"><span class="footable-toggle"></span>
+                                            546
+                                        </td>
+                                        <td class="footable-visible">
+                                            Customer example
+                                        </td>
+                                        <td class="footable-visible">
+                                            $2770.00
+                                        </td>
+                                        <td class="footable-visible">
+                                            06/07/2015
+                                        </td>
+                                        <td class="footable-visible">
+                                            04/08/2015
+                                        </td>
+                                        <td class="footable-visible">
+                                            <span class="label label-primary">Pending</span>
+                                        </td>
+                                        <td class="text-right footable-visible footable-last-column">
+                                            <div class="btn-group">
+                                                <button class="btn-white btn btn-xs">View</button>
+                                                <button class="btn-white btn btn-xs">Edit</button>
+                                                <button class="btn-white btn btn-xs">Delete</button>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr class="footable-odd" style="">
+                                        <td class="footable-visible footable-first-column"><span class="footable-toggle"></span>
+                                            6327
+                                        </td>
+                                        <td class="footable-visible">
+                                            Customer example
+                                        </td>
+                                        <td class="footable-visible">
+                                            $8560.00
+                                        </td>
+                                        <td class="footable-visible">
+                                            01/12/2015
+                                        </td>
+                                        <td class="footable-visible">
+                                            05/12/2015
+                                        </td>
+                                        <td class="footable-visible">
+                                            <span class="label label-primary">Pending</span>
+                                        </td>
+                                        <td class="text-right footable-visible footable-last-column">
+                                            <div class="btn-group">
+                                                <button class="btn-white btn btn-xs">View</button>
+                                                <button class="btn-white btn btn-xs">Edit</button>
+                                                <button class="btn-white btn btn-xs">Delete</button>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr class="footable-even" style="">
+                                        <td class="footable-visible footable-first-column"><span class="footable-toggle"></span>
+                                            642
+                                        </td>
+                                        <td class="footable-visible">
+                                            Customer example
+                                        </td>
+                                        <td class="footable-visible">
+                                            $6843.00
+                                        </td>
+                                        <td class="footable-visible">
+                                            10/04/2015
+                                        </td>
+                                        <td class="footable-visible">
+                                            13/07/2015
+                                        </td>
+                                        <td class="footable-visible">
+                                            <span class="label label-success">Shipped</span>
+                                        </td>
+                                        <td class="text-right footable-visible footable-last-column">
+                                            <div class="btn-group">
+                                                <button class="btn-white btn btn-xs">View</button>
+                                                <button class="btn-white btn btn-xs">Edit</button>
+                                                <button class="btn-white btn btn-xs">Delete</button>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr class="footable-odd" style="">
+                                        <td class="footable-visible footable-first-column"><span class="footable-toggle"></span>
+                                            7435
+                                        </td>
+                                        <td class="footable-visible">
+                                            Customer example
+                                        </td>
+                                        <td class="footable-visible">
+                                            $750.00
+                                        </td>
+                                        <td class="footable-visible">
+                                            04/04/2015
+                                        </td>
+                                        <td class="footable-visible">
+                                            14/05/2015
+                                        </td>
+                                        <td class="footable-visible">
+                                            <span class="label label-success">Shipped</span>
+                                        </td>
+                                        <td class="text-right footable-visible footable-last-column">
+                                            <div class="btn-group">
+                                                <button class="btn-white btn btn-xs">View</button>
+                                                <button class="btn-white btn btn-xs">Edit</button>
+                                                <button class="btn-white btn btn-xs">Delete</button>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr class="footable-even" style="">
+                                        <td class="footable-visible footable-first-column"><span class="footable-toggle"></span>
+                                            3214
+                                        </td>
+                                        <td class="footable-visible">
+                                            Customer example
+                                        </td>
+                                        <td class="footable-visible">
+                                            $500.00
+                                        </td>
+                                        <td class="footable-visible">
+                                            03/04/2015
+                                        </td>
+                                        <td class="footable-visible">
+                                            03/05/2015
+                                        </td>
+                                        <td class="footable-visible">
+                                            <span class="label label-primary">Pending</span>
+                                        </td>
+                                        <td class="text-right footable-visible footable-last-column">
+                                            <div class="btn-group">
+                                                <button class="btn-white btn btn-xs">View</button>
+                                                <button class="btn-white btn btn-xs">Edit</button>
+                                                <button class="btn-white btn btn-xs">Delete</button>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr class="footable-odd" style="">
+                                        <td class="footable-visible footable-first-column"><span class="footable-toggle"></span>
+                                            324
+                                        </td>
+                                        <td class="footable-visible">
+                                            Customer example
+                                        </td>
+                                        <td class="footable-visible">
+                                            $320.00
+                                        </td>
+                                        <td class="footable-visible">
+                                            12/04/2015
+                                        </td>
+                                        <td class="footable-visible">
+                                            21/07/2015
+                                        </td>
+                                        <td class="footable-visible">
+                                            <span class="label label-primary">Pending</span>
+                                        </td>
+                                        <td class="text-right footable-visible footable-last-column">
+                                            <div class="btn-group">
+                                                <button class="btn-white btn btn-xs">View</button>
+                                                <button class="btn-white btn btn-xs">Edit</button>
+                                                <button class="btn-white btn btn-xs">Delete</button>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr class="footable-even" style="">
+                                        <td class="footable-visible footable-first-column"><span class="footable-toggle"></span>
+                                            546
+                                        </td>
+                                        <td class="footable-visible">
+                                            Customer example
+                                        </td>
+                                        <td class="footable-visible">
+                                            $2770.00
+                                        </td>
+                                        <td class="footable-visible">
+                                            06/07/2015
+                                        </td>
+                                        <td class="footable-visible">
+                                            04/08/2015
+                                        </td>
+                                        <td class="footable-visible">
+                                            <span class="label label-danger">Canceled</span>
+                                        </td>
+                                        <td class="text-right footable-visible footable-last-column">
+                                            <div class="btn-group">
+                                                <button class="btn-white btn btn-xs">View</button>
+                                                <button class="btn-white btn btn-xs">Edit</button>
+                                                <button class="btn-white btn btn-xs">Delete</button>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr class="footable-odd" style="">
+                                        <td class="footable-visible footable-first-column"><span class="footable-toggle"></span>
+                                            6327
+                                        </td>
+                                        <td class="footable-visible">
+                                            Customer example
+                                        </td>
+                                        <td class="footable-visible">
+                                            $8560.00
+                                        </td>
+                                        <td class="footable-visible">
+                                            01/12/2015
+                                        </td>
+                                        <td class="footable-visible">
+                                            05/12/2015
+                                        </td>
+                                        <td class="footable-visible">
+                                            <span class="label label-primary">Pending</span>
+                                        </td>
+                                        <td class="text-right footable-visible footable-last-column">
+                                            <div class="btn-group">
+                                                <button class="btn-white btn btn-xs">View</button>
+                                                <button class="btn-white btn btn-xs">Edit</button>
+                                                <button class="btn-white btn btn-xs">Delete</button>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr class="footable-even" style="">
+                                        <td class="footable-visible footable-first-column"><span class="footable-toggle"></span>
+                                            642
+                                        </td>
+                                        <td class="footable-visible">
+                                            Customer example
+                                        </td>
+                                        <td class="footable-visible">
+                                            $6843.00
+                                        </td>
+                                        <td class="footable-visible">
+                                            10/04/2015
+                                        </td>
+                                        <td class="footable-visible">
+                                            13/07/2015
+                                        </td>
+                                        <td class="footable-visible">
+                                            <span class="label label-success">Shipped</span>
+                                        </td>
+                                        <td class="text-right footable-visible footable-last-column">
+                                            <div class="btn-group">
+                                                <button class="btn-white btn btn-xs">View</button>
+                                                <button class="btn-white btn btn-xs">Edit</button>
+                                                <button class="btn-white btn btn-xs">Delete</button>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr class="footable-odd" style="">
+                                        <td class="footable-visible footable-first-column"><span class="footable-toggle"></span>
+                                            7435
+                                        </td>
+                                        <td class="footable-visible">
+                                            Customer example
+                                        </td>
+                                        <td class="footable-visible">
+                                            $750.00
+                                        </td>
+                                        <td class="footable-visible">
+                                            04/04/2015
+                                        </td>
+                                        <td class="footable-visible">
+                                            14/05/2015
+                                        </td>
+                                        <td class="footable-visible">
+                                            <span class="label label-primary">Pending</span>
+                                        </td>
+                                        <td class="text-right footable-visible footable-last-column">
+                                            <div class="btn-group">
+                                                <button class="btn-white btn btn-xs">View</button>
+                                                <button class="btn-white btn btn-xs">Edit</button>
+                                                <button class="btn-white btn btn-xs">Delete</button>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr class="footable-even" style="">
+                                        <td class="footable-visible footable-first-column"><span class="footable-toggle"></span>
+                                            324
+                                        </td>
+                                        <td class="footable-visible">
+                                            Customer example
+                                        </td>
+                                        <td class="footable-visible">
+                                            $320.00
+                                        </td>
+                                        <td class="footable-visible">
+                                            12/04/2015
+                                        </td>
+                                        <td class="footable-visible">
+                                            21/07/2015
+                                        </td>
+                                        <td class="footable-visible">
+                                            <span class="label label-warning">Expired</span>
+                                        </td>
+                                        <td class="text-right footable-visible footable-last-column">
+                                            <div class="btn-group">
+                                                <button class="btn-white btn btn-xs">View</button>
+                                                <button class="btn-white btn btn-xs">Edit</button>
+                                                <button class="btn-white btn btn-xs">Delete</button>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr class="footable-odd" style="">
+                                        <td class="footable-visible footable-first-column"><span class="footable-toggle"></span>
+                                            546
+                                        </td>
+                                        <td class="footable-visible">
+                                            Customer example
+                                        </td>
+                                        <td class="footable-visible">
+                                            $2770.00
+                                        </td>
+                                        <td class="footable-visible">
+                                            06/07/2015
+                                        </td>
+                                        <td class="footable-visible">
+                                            04/08/2015
+                                        </td>
+                                        <td class="footable-visible">
+                                            <span class="label label-primary">Pending</span>
+                                        </td>
+                                        <td class="text-right footable-visible footable-last-column">
+                                            <div class="btn-group">
+                                                <button class="btn-white btn btn-xs">View</button>
+                                                <button class="btn-white btn btn-xs">Edit</button>
+                                                <button class="btn-white btn btn-xs">Delete</button>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr class="footable-even" style="">
+                                        <td class="footable-visible footable-first-column"><span class="footable-toggle"></span>
+                                            6327
+                                        </td>
+                                        <td class="footable-visible">
+                                            Customer example
+                                        </td>
+                                        <td class="footable-visible">
+                                            $8560.00
+                                        </td>
+                                        <td class="footable-visible">
+                                            01/12/2015
+                                        </td>
+                                        <td class="footable-visible">
+                                            05/12/2015
+                                        </td>
+                                        <td class="footable-visible">
+                                            <span class="label label-primary">Pending</span>
+                                        </td>
+                                        <td class="text-right footable-visible footable-last-column">
+                                            <div class="btn-group">
+                                                <button class="btn-white btn btn-xs">View</button>
+                                                <button class="btn-white btn btn-xs">Edit</button>
+                                                <button class="btn-white btn btn-xs">Delete</button>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr class="footable-odd" style="display: none;">
+                                        <td class="footable-visible footable-first-column"><span class="footable-toggle"></span>
+                                            642
+                                        </td>
+                                        <td class="footable-visible">
+                                            Customer example
+                                        </td>
+                                        <td class="footable-visible">
+                                            $6843.00
+                                        </td>
+                                        <td class="footable-visible">
+                                            10/04/2015
+                                        </td>
+                                        <td class="footable-visible">
+                                            13/07/2015
+                                        </td>
+                                        <td class="footable-visible">
+                                            <span class="label label-success">Shipped</span>
+                                        </td>
+                                        <td class="text-right footable-visible footable-last-column">
+                                            <div class="btn-group">
+                                                <button class="btn-white btn btn-xs">View</button>
+                                                <button class="btn-white btn btn-xs">Edit</button>
+                                                <button class="btn-white btn btn-xs">Delete</button>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr class="footable-even" style="display: none;">
+                                        <td class="footable-visible footable-first-column"><span class="footable-toggle"></span>
+                                            7435
+                                        </td>
+                                        <td class="footable-visible">
+                                            Customer example
+                                        </td>
+                                        <td class="footable-visible">
+                                            $750.00
+                                        </td>
+                                        <td class="footable-visible">
+                                            04/04/2015
+                                        </td>
+                                        <td class="footable-visible">
+                                            14/05/2015
+                                        </td>
+                                        <td class="footable-visible">
+                                            <span class="label label-success">Shipped</span>
+                                        </td>
+                                        <td class="text-right footable-visible footable-last-column">
+                                            <div class="btn-group">
+                                                <button class="btn-white btn btn-xs">View</button>
+                                                <button class="btn-white btn btn-xs">Edit</button>
+                                                <button class="btn-white btn btn-xs">Delete</button>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr class="footable-odd" style="display: none;">
+                                        <td class="footable-visible footable-first-column"><span class="footable-toggle"></span>
+                                            3214
+                                        </td>
+                                        <td class="footable-visible">
+                                            Customer example
+                                        </td>
+                                        <td class="footable-visible">
+                                            $500.00
+                                        </td>
+                                        <td class="footable-visible">
+                                            03/04/2015
+                                        </td>
+                                        <td class="footable-visible">
+                                            03/05/2015
+                                        </td>
+                                        <td class="footable-visible">
+                                            <span class="label label-primary">Pending</span>
+                                        </td>
+                                        <td class="text-right footable-visible footable-last-column">
+                                            <div class="btn-group">
+                                                <button class="btn-white btn btn-xs">View</button>
+                                                <button class="btn-white btn btn-xs">Edit</button>
+                                                <button class="btn-white btn btn-xs">Delete</button>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr class="footable-even" style="display: none;">
+                                        <td class="footable-visible footable-first-column"><span class="footable-toggle"></span>
+                                            324
+                                        </td>
+                                        <td class="footable-visible">
+                                            Customer example
+                                        </td>
+                                        <td class="footable-visible">
+                                            $320.00
+                                        </td>
+                                        <td class="footable-visible">
+                                            12/04/2015
+                                        </td>
+                                        <td class="footable-visible">
+                                            21/07/2015
+                                        </td>
+                                        <td class="footable-visible">
+                                            <span class="label label-primary">Pending</span>
+                                        </td>
+                                        <td class="text-right footable-visible footable-last-column">
+                                            <div class="btn-group">
+                                                <button class="btn-white btn btn-xs">View</button>
+                                                <button class="btn-white btn btn-xs">Edit</button>
+                                                <button class="btn-white btn btn-xs">Delete</button>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr class="footable-odd" style="display: none;">
+                                        <td class="footable-visible footable-first-column"><span class="footable-toggle"></span>
+                                            546
+                                        </td>
+                                        <td class="footable-visible">
+                                            Customer example
+                                        </td>
+                                        <td class="footable-visible">
+                                            $2770.00
+                                        </td>
+                                        <td class="footable-visible">
+                                            06/07/2015
+                                        </td>
+                                        <td class="footable-visible">
+                                            04/08/2015
+                                        </td>
+                                        <td class="footable-visible">
+                                            <span class="label label-primary">Pending</span>
+                                        </td>
+                                        <td class="text-right footable-visible footable-last-column">
+                                            <div class="btn-group">
+                                                <button class="btn-white btn btn-xs">View</button>
+                                                <button class="btn-white btn btn-xs">Edit</button>
+                                                <button class="btn-white btn btn-xs">Delete</button>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr class="footable-even" style="display: none;">
+                                        <td class="footable-visible footable-first-column"><span class="footable-toggle"></span>
+                                            6327
+                                        </td>
+                                        <td class="footable-visible">
+                                            Customer example
+                                        </td>
+                                        <td class="footable-visible">
+                                            $8560.00
+                                        </td>
+                                        <td class="footable-visible">
+                                            01/12/2015
+                                        </td>
+                                        <td class="footable-visible">
+                                            05/12/2015
+                                        </td>
+                                        <td class="footable-visible">
+                                            <span class="label label-primary">Pending</span>
+                                        </td>
+                                        <td class="text-right footable-visible footable-last-column">
+                                            <div class="btn-group">
+                                                <button class="btn-white btn btn-xs">View</button>
+                                                <button class="btn-white btn btn-xs">Edit</button>
+                                                <button class="btn-white btn btn-xs">Delete</button>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr class="footable-odd" style="display: none;">
+                                        <td class="footable-visible footable-first-column"><span class="footable-toggle"></span>
+                                            642
+                                        </td>
+                                        <td class="footable-visible">
+                                            Customer example
+                                        </td>
+                                        <td class="footable-visible">
+                                            $6843.00
+                                        </td>
+                                        <td class="footable-visible">
+                                            10/04/2015
+                                        </td>
+                                        <td class="footable-visible">
+                                            13/07/2015
+                                        </td>
+                                        <td class="footable-visible">
+                                            <span class="label label-success">Shipped</span>
+                                        </td>
+                                        <td class="text-right footable-visible footable-last-column">
+                                            <div class="btn-group">
+                                                <button class="btn-white btn btn-xs">View</button>
+                                                <button class="btn-white btn btn-xs">Edit</button>
+                                                <button class="btn-white btn btn-xs">Delete</button>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr class="footable-even" style="display: none;">
+                                        <td class="footable-visible footable-first-column"><span class="footable-toggle"></span>
+                                            7435
+                                        </td>
+                                        <td class="footable-visible">
+                                            Customer example
+                                        </td>
+                                        <td class="footable-visible">
+                                            $750.00
+                                        </td>
+                                        <td class="footable-visible">
+                                            04/04/2015
+                                        </td>
+                                        <td class="footable-visible">
+                                            14/05/2015
+                                        </td>
+                                        <td class="footable-visible">
+                                            <span class="label label-primary">Pending</span>
+                                        </td>
+                                        <td class="text-right footable-visible footable-last-column">
+                                            <div class="btn-group">
+                                                <button class="btn-white btn btn-xs">View</button>
+                                                <button class="btn-white btn btn-xs">Edit</button>
+                                                <button class="btn-white btn btn-xs">Delete</button>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr class="footable-odd" style="display: none;">
+                                        <td class="footable-visible footable-first-column"><span class="footable-toggle"></span>
+                                            324
+                                        </td>
+                                        <td class="footable-visible">
+                                            Customer example
+                                        </td>
+                                        <td class="footable-visible">
+                                            $320.00
+                                        </td>
+                                        <td class="footable-visible">
+                                            12/04/2015
+                                        </td>
+                                        <td class="footable-visible">
+                                            21/07/2015
+                                        </td>
+                                        <td class="footable-visible">
+                                            <span class="label label-primary">Pending</span>
+                                        </td>
+                                        <td class="text-right footable-visible footable-last-column">
+                                            <div class="btn-group">
+                                                <button class="btn-white btn btn-xs">View</button>
+                                                <button class="btn-white btn btn-xs">Edit</button>
+                                                <button class="btn-white btn btn-xs">Delete</button>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr class="footable-even" style="display: none;">
+                                        <td class="footable-visible footable-first-column"><span class="footable-toggle"></span>
+                                            546
+                                        </td>
+                                        <td class="footable-visible">
+                                            Customer example
+                                        </td>
+                                        <td class="footable-visible">
+                                            $2770.00
+                                        </td>
+                                        <td class="footable-visible">
+                                            06/07/2015
+                                        </td>
+                                        <td class="footable-visible">
+                                            04/08/2015
+                                        </td>
+                                        <td class="footable-visible">
+                                            <span class="label label-primary">Pending</span>
+                                        </td>
+                                        <td class="text-right footable-visible footable-last-column">
+                                            <div class="btn-group">
+                                                <button class="btn-white btn btn-xs">View</button>
+                                                <button class="btn-white btn btn-xs">Edit</button>
+                                                <button class="btn-white btn btn-xs">Delete</button>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr class="footable-odd" style="display: none;">
+                                        <td class="footable-visible footable-first-column"><span class="footable-toggle"></span>
+                                            6327
+                                        </td>
+                                        <td class="footable-visible">
+                                            Customer example
+                                        </td>
+                                        <td class="footable-visible">
+                                            $8560.00
+                                        </td>
+                                        <td class="footable-visible">
+                                            01/12/2015
+                                        </td>
+                                        <td class="footable-visible">
+                                            05/12/2015
+                                        </td>
+                                        <td class="footable-visible">
+                                            <span class="label label-primary">Pending</span>
+                                        </td>
+                                        <td class="text-right footable-visible footable-last-column">
+                                            <div class="btn-group">
+                                                <button class="btn-white btn btn-xs">View</button>
+                                                <button class="btn-white btn btn-xs">Edit</button>
+                                                <button class="btn-white btn btn-xs">Delete</button>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr class="footable-even" style="display: none;">
+                                        <td class="footable-visible footable-first-column"><span class="footable-toggle"></span>
+                                            642
+                                        </td>
+                                        <td class="footable-visible">
+                                            Customer example
+                                        </td>
+                                        <td class="footable-visible">
+                                            $6843.00
+                                        </td>
+                                        <td class="footable-visible">
+                                            10/04/2015
+                                        </td>
+                                        <td class="footable-visible">
+                                            13/07/2015
+                                        </td>
+                                        <td class="footable-visible">
+                                            <span class="label label-success">Shipped</span>
+                                        </td>
+                                        <td class="text-right footable-visible footable-last-column">
+                                            <div class="btn-group">
+                                                <button class="btn-white btn btn-xs">View</button>
+                                                <button class="btn-white btn btn-xs">Edit</button>
+                                                <button class="btn-white btn btn-xs">Delete</button>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr class="footable-odd" style="display: none;">
+                                        <td class="footable-visible footable-first-column"><span class="footable-toggle"></span>
+                                            7435
+                                        </td>
+                                        <td class="footable-visible">
+                                            Customer example
+                                        </td>
+                                        <td class="footable-visible">
+                                            $750.00
+                                        </td>
+                                        <td class="footable-visible">
+                                            04/04/2015
+                                        </td>
+                                        <td class="footable-visible">
+                                            14/05/2015
+                                        </td>
+                                        <td class="footable-visible">
+                                            <span class="label label-success">Shipped</span>
+                                        </td>
+                                        <td class="text-right footable-visible footable-last-column">
+                                            <div class="btn-group">
+                                                <button class="btn-white btn btn-xs">View</button>
+                                                <button class="btn-white btn btn-xs">Edit</button>
+                                                <button class="btn-white btn btn-xs">Delete</button>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr class="footable-even" style="display: none;">
+                                        <td class="footable-visible footable-first-column"><span class="footable-toggle"></span>
+                                            3214
+                                        </td>
+                                        <td class="footable-visible">
+                                            Customer example
+                                        </td>
+                                        <td class="footable-visible">
+                                            $500.00
+                                        </td>
+                                        <td class="footable-visible">
+                                            03/04/2015
+                                        </td>
+                                        <td class="footable-visible">
+                                            03/05/2015
+                                        </td>
+                                        <td class="footable-visible">
+                                            <span class="label label-primary">Pending</span>
+                                        </td>
+                                        <td class="text-right footable-visible footable-last-column">
+                                            <div class="btn-group">
+                                                <button class="btn-white btn btn-xs">View</button>
+                                                <button class="btn-white btn btn-xs">Edit</button>
+                                                <button class="btn-white btn btn-xs">Delete</button>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr class="footable-odd" style="display: none;">
+                                        <td class="footable-visible footable-first-column"><span class="footable-toggle"></span>
+                                            324
+                                        </td>
+                                        <td class="footable-visible">
+                                            Customer example
+                                        </td>
+                                        <td class="footable-visible">
+                                            $320.00
+                                        </td>
+                                        <td class="footable-visible">
+                                            12/04/2015
+                                        </td>
+                                        <td class="footable-visible">
+                                            21/07/2015
+                                        </td>
+                                        <td class="footable-visible">
+                                            <span class="label label-primary">Pending</span>
+                                        </td>
+                                        <td class="text-right footable-visible footable-last-column">
+                                            <div class="btn-group">
+                                                <button class="btn-white btn btn-xs">View</button>
+                                                <button class="btn-white btn btn-xs">Edit</button>
+                                                <button class="btn-white btn btn-xs">Delete</button>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr class="footable-even" style="display: none;">
+                                        <td class="footable-visible footable-first-column"><span class="footable-toggle"></span>
+                                            546
+                                        </td>
+                                        <td class="footable-visible">
+                                            Customer example
+                                        </td>
+                                        <td class="footable-visible">
+                                            $2770.00
+                                        </td>
+                                        <td class="footable-visible">
+                                            06/07/2015
+                                        </td>
+                                        <td class="footable-visible">
+                                            04/08/2015
+                                        </td>
+                                        <td class="footable-visible">
+                                            <span class="label label-primary">Pending</span>
+                                        </td>
+                                        <td class="text-right footable-visible footable-last-column">
+                                            <div class="btn-group">
+                                                <button class="btn-white btn btn-xs">View</button>
+                                                <button class="btn-white btn btn-xs">Edit</button>
+                                                <button class="btn-white btn btn-xs">Delete</button>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr class="footable-odd" style="display: none;">
+                                        <td class="footable-visible footable-first-column"><span class="footable-toggle"></span>
+                                            6327
+                                        </td>
+                                        <td class="footable-visible">
+                                            Customer example
+                                        </td>
+                                        <td class="footable-visible">
+                                            $8560.00
+                                        </td>
+                                        <td class="footable-visible">
+                                            01/12/2015
+                                        </td>
+                                        <td class="footable-visible">
+                                            05/12/2015
+                                        </td>
+                                        <td class="footable-visible">
+                                            <span class="label label-primary">Pending</span>
+                                        </td>
+                                        <td class="text-right footable-visible footable-last-column">
+                                            <div class="btn-group">
+                                                <button class="btn-white btn btn-xs">View</button>
+                                                <button class="btn-white btn btn-xs">Edit</button>
+                                                <button class="btn-white btn btn-xs">Delete</button>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr class="footable-even" style="display: none;">
+                                        <td class="footable-visible footable-first-column"><span class="footable-toggle"></span>
+                                            642
+                                        </td>
+                                        <td class="footable-visible">
+                                            Customer example
+                                        </td>
+                                        <td class="footable-visible">
+                                            $6843.00
+                                        </td>
+                                        <td class="footable-visible">
+                                            10/04/2015
+                                        </td>
+                                        <td class="footable-visible">
+                                            13/07/2015
+                                        </td>
+                                        <td class="footable-visible">
+                                            <span class="label label-success">Shipped</span>
+                                        </td>
+                                        <td class="text-right footable-visible footable-last-column">
+                                            <div class="btn-group">
+                                                <button class="btn-white btn btn-xs">View</button>
+                                                <button class="btn-white btn btn-xs">Edit</button>
+                                                <button class="btn-white btn btn-xs">Delete</button>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr class="footable-odd" style="display: none;">
+                                        <td class="footable-visible footable-first-column"><span class="footable-toggle"></span>
+                                            7435
+                                        </td>
+                                        <td class="footable-visible">
+                                            Customer example
+                                        </td>
+                                        <td class="footable-visible">
+                                            $750.00
+                                        </td>
+                                        <td class="footable-visible">
+                                            04/04/2015
+                                        </td>
+                                        <td class="footable-visible">
+                                            14/05/2015
+                                        </td>
+                                        <td class="footable-visible">
+                                            <span class="label label-primary">Pending</span>
+                                        </td>
+                                        <td class="text-right footable-visible footable-last-column">
+                                            <div class="btn-group">
+                                                <button class="btn-white btn btn-xs">View</button>
+                                                <button class="btn-white btn btn-xs">Edit</button>
+                                                <button class="btn-white btn btn-xs">Delete</button>
+                                            </div>
+                                        </td>
+                                    </tr>
+
+
+
+                                    </tbody>
+                                    <tfoot>
+                                    <tr>
+                                        <td colspan="7" class="footable-visible">
+                                            <ul class="pagination pull-right"><li class="footable-page-arrow disabled"><a data-page="first" href="#first">«</a></li><li class="footable-page-arrow disabled"><a data-page="prev" href="#prev">‹</a></li><li class="footable-page active"><a data-page="0" href="#">1</a></li><li class="footable-page"><a data-page="1" href="#">2</a></li><li class="footable-page"><a data-page="2" href="#">3</a></li><li class="footable-page-arrow"><a data-page="next" href="#next">›</a></li><li class="footable-page-arrow"><a data-page="last" href="#last">»</a></li></ul>
+                                        </td>
+                                    </tr>
+                                    </tfoot>
+                                </table>
+
+                            </div>
+                        </div>
                     </div>
-
                 </div>
             </div>
         </div>

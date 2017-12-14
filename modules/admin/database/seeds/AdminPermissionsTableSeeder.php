@@ -28,7 +28,7 @@ class AdminPermissionsTableSeeder extends Seeder
             [
                 'id'=>2,
                 'name'=>'admin.index',
-                'display_name'=>'用户列表',
+                'display_name'=>'用户管理',
                 'icon' => '',
                 'is_menu' => '1',
                 'group_name'=>'admin',
@@ -55,7 +55,7 @@ class AdminPermissionsTableSeeder extends Seeder
             [
                 'id'=>5,
                 'name'=>'role.index',
-                'display_name'=>'角色列表',
+                'display_name'=>'角色管理',
                 'icon' => '',
                 'is_menu' => '1',
                 'group_name'=>'role',
@@ -91,7 +91,7 @@ class AdminPermissionsTableSeeder extends Seeder
             [
                 'id'=>9,
                 'name'=>'permission.index',
-                'display_name'=>'权限列表',
+                'display_name'=>'权限管理',
                 'icon' => '',
                 'is_menu' => '1',
                 'group_name'=>'permission',
