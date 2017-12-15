@@ -55,6 +55,7 @@
                         <td><span class="label label-success">Approved</span></td>
                         <td>Bacon ipsum dolor sit amet salami venison chicken flank fatback doner.</td>
                     </tr>
+
                     <tr>
                         <td>
                             <input type="checkbox" class="minimal grid-row-checkbox" data-id="1" />
