@@ -22,9 +22,4 @@ class AdminHelper
         return Auth::guard('admin')->user();
     }
 
-    public function admin_asset($asset)
-    {
-        return asset('vendor/admin/'.$asset);
-    }
-
 }

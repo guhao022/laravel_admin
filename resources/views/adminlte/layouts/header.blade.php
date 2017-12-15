@@ -26,7 +26,7 @@
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                         <img src="{{admin_asset('img/user2-160x160.jpg')}}" class="user-image" alt="">
                         <span class="hidden-xs">
-                            @if (Admin::user()->name) {{Admin::user()->name}} @else {{Admin::user()->email}} @endif
+                            @if (admin_user()->name) {{admin_user()->name}} @else {{admin_user()->email}} @endif
                         </span>
                     </a>
                     <ul class="dropdown-menu">
@@ -35,8 +35,8 @@
                             <img src="{{admin_asset('img/user2-160x160.jpg')}}" class="img-circle" alt="">
 
                             <p>
-                                @if (Admin::user()->name) {{Admin::user()->name}} @else {{Admin::user()->email}} @endif
-                                <small>最后登录于 <i class="fa fa-clock"></i> {{ Admin::user()->last_login }} </small>
+                                @if (admin_user()->name) {{admin_user()->name}} @else {{admin_user()->email}} @endif
+                                <small>最后登录于 <i class="fa fa-clock"></i> {{ admin_user()->last_login }} </small>
                             </p>
                         </li>
 

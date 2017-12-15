@@ -9,14 +9,14 @@
                             <span class="clear">
                                 <span class="block m-t-xs">
                                     <strong class="font-bold">
-                                        @if (Admin::user()->name) {{Admin::user()->name}} @else {{Admin::user()->email}} @endif
+                                        @if (admin_user()->name) {{admin_user()->name}} @else {{admin_user()->email}} @endif
                                     </strong>
                                 </span>
                                 <span class="text-muted text-xs block"> 超级管理员 <b class="caret"></b></span>
                             </span>
                     </a>
                     <ul class="dropdown-menu animated fadeInRight m-t-xs">
-                        <li><a href="/admin/user/setting/{{ Admin::user()->id }}">账号设置</a></li>
+                        <li><a href="/admin/user/setting/{{ admin_user()->id }}">账号设置</a></li>
                         <li class="divider"></li>
                         <li><a href="#"
                                onclick="event.preventDefault();

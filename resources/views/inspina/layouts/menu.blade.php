@@ -19,7 +19,7 @@
 
 {{--循环输出树形菜单--}}
 @foreach($menus as $menu)
-    @if(Admin::user()->can($menu->name) || Admin::user()->hasRole('admin'))
+    @if(admin_user()->can($menu->name) || admin_user()->hasRole('admin'))
 
         <li
                 @if (isset($current_menu->pid) && $current_menu->pid == $menu->id)
@@ -40,7 +40,7 @@
             @if(count($menu->children) > 0)
             <ul class="nav nav-second-level">
                 @foreach($menu->children as $child)
-                    @if(Admin::user()->can($child->name) || Admin::user()->hasRole('admin'))
+                    @if(admin_user()->can($child->name) || admin_user()->hasRole('admin'))
                         <li id="#parent_menu_{{$menu->id}}"
 
                             @if (isset($current_menu->id) && $current_menu->id == $child->id)

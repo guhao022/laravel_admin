@@ -61,3 +61,16 @@ if (!function_exists('admin_base_path')) {
         return $prefix.'/'.trim($path, '/');
     }
 }
+
+
+if (!function_exists('admin_user')) {
+    /**
+     * Get admin user.
+     *
+     * @return mixed
+     */
+    function admin_user()
+    {
+        return Auth::guard('admin')->user();
+    }
+}

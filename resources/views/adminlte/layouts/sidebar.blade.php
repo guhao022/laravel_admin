@@ -7,7 +7,7 @@
                 <img src="{{ admin_asset('img/user2-160x160.jpg') }}" class="img-circle" alt="">
             </div>
             <div class="pull-left info">
-                <p>@if (Admin::user()->name) {{Admin::user()->name}} @else {{Admin::user()->email}} @endif</p>
+                <p>@if (admin_user()->name) {{admin_user()->name}} @else {{admin_user()->email}} @endif</p>
                 <a><i class="fa fa-circle text-success"></i> 在线</a>
             </div>
         </div>

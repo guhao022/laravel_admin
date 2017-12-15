@@ -24,7 +24,7 @@
 
     {{--循环输出树形菜单--}}
     @foreach($menus as $menu)
-        @if(Admin::user()->can($menu->name) || Admin::user()->hasRole('admin'))
+        @if(admin_user()->can($menu->name) || admin_user()->hasRole('admin'))
 
             <li class="
             @if(count($menu->children) > 0)
@@ -48,7 +48,7 @@
                 @if(count($menu->children) > 0)
                     <ul class="treeview-menu">
                         @foreach($menu->children as $child)
-                            @if(Admin::user()->can($child->name) || Admin::user()->hasRole('admin'))
+                            @if(admin_user()->can($child->name) || admin_user()->hasRole('admin'))
                                 <li class="
                                     @if (isset($current_menu->id) && $current_menu->id == $child->id)
                                     active
