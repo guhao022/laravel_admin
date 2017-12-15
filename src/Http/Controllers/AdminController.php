@@ -26,9 +26,7 @@ class AdminController extends Controller
     {
         $admins = AdminUser::all();
 
-        $roles = AdminRoles::all(['id','display_name']);
-
-        return admin_view('user.index',['admins'=>$admins,'roles'=>$roles]);
+        return admin_view('user.index',['admins'=>$admins]);
     }
 
     /**
@@ -107,7 +105,7 @@ class AdminController extends Controller
         $delete =  AdminUser::find($id)->delete();
 
         if ($delete) {
-            return redirect()->back()->with('status', '删除用户成功');
+            return response()->json('status', true);
         }
 
     }
