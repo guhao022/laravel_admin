@@ -8,7 +8,8 @@
     }
   ],
   "require": {
-    "php": ">=7.0"
+    "php": ">=7.0",
+    "zizaco/entrust": "5.2.x-dev"
   },
   "autoload": {
     "psr-4": {
