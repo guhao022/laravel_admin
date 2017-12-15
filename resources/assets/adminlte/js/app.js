@@ -38,4 +38,9 @@ $(function () {
         }
     });
 
+    $('.history-back').on('click', function () {
+        event.preventDefault();
+        history.back(1);
+    });
+
 });

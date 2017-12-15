@@ -27,7 +27,7 @@
 
                 </div>
 
-                <div class="btn-group" style="margin-right: 10px">
+                <div class="btn-group">
                     <a href="{{ route('admin.create') }}" class="btn btn-sm btn-success">
                         <i class="fa fa-save"></i>&nbsp;&nbsp;新增
                     </a>
