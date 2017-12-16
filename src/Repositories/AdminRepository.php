@@ -12,13 +12,15 @@ class AdminRepository
     {
         $admin = new AdminUser();
 
+        $admin->email = $request->email;
+
         $admin->name = $request->name;
 
         $admin->password = bcrypt($request->password);
 
         $admin->save();
 
-        if(count($request->role_ids > 0)){
+        if(count($request->role_ids) > 0){
 
             $roles = AdminRoles::whereIn('id',$request->role_ids)->get();
 

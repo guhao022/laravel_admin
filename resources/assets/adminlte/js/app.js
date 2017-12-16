@@ -4,6 +4,9 @@ toastr.options = {
     showMethod: 'slideDown',
     timeOut: 4000
 };
+
+$('.select2').select2({allowClear: true});
+
 $(function () {
 
     $('input[type="checkbox"].minimal, input[type="radio"].minimal').iCheck({

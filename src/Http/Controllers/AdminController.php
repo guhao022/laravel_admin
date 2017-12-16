@@ -17,11 +17,7 @@ class AdminController extends Controller
     {
         $this->admin = $admin;
     }
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+
     public function index()
     {
         $admins = AdminUser::all();
@@ -29,79 +25,43 @@ class AdminController extends Controller
         return admin_view('user.index',['admins'=>$admins]);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function create()
     {
-        return admin_view('user.create');
+        $roles = AdminRoles::all();
+
+        return admin_view('user.create', ['roles' => $roles]);
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
     public function store(AdminCreateRequest $request)
     {
-        //
-
         $this->admin->createAdminAndSaveRole($request);
 
-        return response('success');
+        return redirect(route('admin.index'));
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function show($id)
     {
         //
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function edit($id)
     {
-        //
         $admin = AdminUser::find($id);
+
         $roles = AdminRoles::all(['id','name','display_name']);
+
         return view('admin::user.edit',['admin'=>$admin,'roles'=>$roles]);
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function update(EditAdminPostRequest $request, $id)
     {
         $admin = $this->admin->updateAdminAndRole($request,$id);
+
         return redirect(route('admin.index'))->with('status', '编辑用户:'.$admin->name.'成功');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function destroy($id)
     {
-        //
-
         $delete =  AdminUser::find($id)->delete();
 
         if ($delete) {

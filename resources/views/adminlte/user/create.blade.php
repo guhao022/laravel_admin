@@ -22,21 +22,32 @@
                 </div>
             </div>
 
-            <form class="form-horizontal">
+            <form class="form-horizontal" method="POST" action="{{ route('admin.store') }}">
+                {{ csrf_field() }}
                 <div class="box-body">
                     <div class="form-group">
                         <label for="email" class="col-sm-2 control-label">Email</label>
 
                         <div class="col-sm-8">
-                            <input type="email" name="email" class="form-control" id="email" placeholder="输入登录邮箱">
+                            <input type="email" name="email" class="form-control" id="email" value="{{ old('email') }}" placeholder="输入登录邮箱">
                         </div>
+                        @if ($errors->has('email'))
+                            <span class="help-block">
+                                <strong>{{ $errors->first('email') }}</strong>
+                            </span>
+                        @endif
                     </div>
                     <div class="form-group">
                         <label for="name" class="col-sm-2 control-label">名称</label>
 
                         <div class="col-sm-8">
-                            <input type="name" name="name" class="form-control" id="name" placeholder="输入显示名称">
+                            <input type="name" name="name" class="form-control" id="name" value="{{ old('name') }}" placeholder="输入显示名称">
                         </div>
+                        @if ($errors->has('name'))
+                            <span class="help-block">
+                                <strong>{{ $errors->first('name') }}</strong>
+                            </span>
+                        @endif
                     </div>
                     <div class="form-group">
                         <label for="password" class="col-sm-2 control-label">密码</label>
@@ -44,6 +55,11 @@
                         <div class="col-sm-8">
                             <input type="password" name="password" class="form-control" id="password" placeholder="输入登录密码">
                         </div>
+                        @if ($errors->has('password'))
+                            <span class="help-block">
+                                <strong>{{ $errors->first('password') }}</strong>
+                            </span>
+                        @endif
                     </div>
                     <div class="form-group">
                         <label for="password_confirmation" class="col-sm-2 control-label">重复密码</label>
@@ -51,10 +67,26 @@
                         <div class="col-sm-8">
                             <input type="password" name="password_confirmation" class="form-control" id="password_confirmation" placeholder="输入确认密码">
                         </div>
+                        @if ($errors->has('password_confirmation'))
+                            <span class="help-block">
+                                <strong>{{ $errors->first('password_confirmation') }}</strong>
+                            </span>
+                        @endif
+                    </div>
+
+                    <div class="form-group">
+                        <label for="role" class="col-sm-2 control-label">角色</label>
+                        <div class="col-sm-8">
+                            <select name="role_ids[]" class="form-control select2" multiple="multiple" data-placeholder="选择用户角色">
+                                @foreach($roles as $role)
+                                    <option value="{{ $role->id }}">{{ $role->display_name }}</option>
+                                @endforeach
+                            </select>
+                        </div>
                     </div>
 
                 </div>
-                <!-- /.box-body -->
+
                 <div class="box-footer">
                     <div class="col-sm-offset-2 col-md-8">
                         <button type="reset" class="btn btn-warning">撤销</button>
@@ -62,10 +94,16 @@
                     </div>
 
                 </div>
-                <!-- /.box-footer -->
+
             </form>
 
         </div>
     </div>
 
+@stop
+
+@section('script')
+<script type="text/javascript">
+
+</script>
 @stop
