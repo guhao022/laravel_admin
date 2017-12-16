@@ -20,7 +20,7 @@ class AdminRepository
 
         $admin->save();
 
-        if(count($request->role_ids) > 0){
+        if(is_array($request->role_ids) && count($request->role_ids) > 0){
 
             $roles = AdminRoles::whereIn('id',$request->role_ids)->get();
 

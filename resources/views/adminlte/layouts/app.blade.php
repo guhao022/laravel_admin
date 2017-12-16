@@ -87,11 +87,13 @@
 <script src="https://cdn.bootcss.com/iCheck/1.0.2/icheck.min.js"></script>
 <script src="{{ admin_asset('js/adminlte.min.js') }}"></script>
 <script src="{{ admin_asset('js/app.js') }}"></script>
-@yield('scripts')
 
 <script type="text/javascript">
-
+    function WE() {}
+    WE.token = "{{ csrf_token() }}";
 </script>
+
+@yield('scripts')
 
 </body>
 </html>

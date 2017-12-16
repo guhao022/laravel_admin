@@ -26,7 +26,7 @@ class AdminCreateRequest extends FormRequest
         return [
             'email'=>'required|email|unique:admin_user',
             'name'=>'required|unique:admin_user|max:20',
-            'password'=>'required|confirmed',
+            'password'=>'required|confirmed|min:6',
             'password_confirmation'=>'required',
         ];
     }
@@ -41,7 +41,8 @@ class AdminCreateRequest extends FormRequest
             'name.unique'  => '用户名已经存在',
             'name.max'  => '用户名最长为20个字符',
             'password.required'  => '密码不能为空',
-            'password.confirmed'  => '密码输入不一致',
+            'password.min'  => '密码最少6个字符',
+            'password.confirmed'  => '两次输入不一致',
             'password_confirmation.required'  => '验证密码不能为空',
         ];
     }

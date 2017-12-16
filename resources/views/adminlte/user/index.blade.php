@@ -49,7 +49,7 @@
                     </tr>
 
                     @foreach($admins as $admin)
-                    <tr>
+                    <tr id="tr_{{$admin->id}}">
                         <td>
                             @if($admin->id != '1')
                             <input type="checkbox" class="minimal grid-row-checkbox" data-id="{{ $admin->id }}" />
@@ -66,10 +66,10 @@
                         <td>{{$admin->last_login}}</td>
                         <td>
                             @if($admin->id != '1')
-                                <a href="#">
+                                <a href="{{ route('admin.edit', $admin->id) }}">
                                     <i class="fa fa-edit"></i>
                                 </a>
-                                <a href="javascript:void(0);" data-route="{{route('admin.destroy', $admin->id)}}" class="grid-row-delete">
+                                <a href="javascript:void(0);" data-id="{{$admin->id}}" data-route="{{route('admin.destroy', $admin->id)}}"class="grid-row-delete">
                                     <i class="fa fa-trash"></i>
                                 </a>
                             @endif
@@ -88,22 +88,23 @@
     <script type="text/javascript">
 
         $('.grid-row-delete').unbind('click').click(function() {
-            if ($(this).data('id') == 1) {
+            var id=$(this).data('id');
+            if (id == 1) {
                 alert('初始管理员不能删除');
             }
             if(confirm("确认删除?")) {
-                console.log($(this).data('route'))
                 $.ajax({
                     method: 'post',
                     url: $(this).data('route'),
                     data: {
                         _method:'delete',
-                        _token:LA.token,
+                        _token:WE.token,
                     },
                     success: function (data) {
 
                         if (typeof data === 'object') {
                             if (data.status) {
+                                $('#tr_'+id).remove();
                                 toastr.success(data.message);
                             } else {
                                 toastr.error(data.message);
