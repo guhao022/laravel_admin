@@ -69,7 +69,7 @@
                                 <a href="#">
                                     <i class="fa fa-edit"></i>
                                 </a>
-                                <a href="javascript:void(0);" data-id="{{$admin->id}}" class="grid-row-delete">
+                                <a href="javascript:void(0);" data-route="{{route('admin.destroy', $admin->id)}}" class="grid-row-delete">
                                     <i class="fa fa-trash"></i>
                                 </a>
                             @endif
@@ -92,9 +92,10 @@
                 alert('初始管理员不能删除');
             }
             if(confirm("确认删除?")) {
+                console.log($(this).data('route'))
                 $.ajax({
                     method: 'post',
-                    url: '/admin/admin/' + $(this).data('id'),
+                    url: $(this).data('route'),
                     data: {
                         _method:'delete',
                         _token:LA.token,

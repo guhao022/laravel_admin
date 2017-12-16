@@ -36,7 +36,7 @@ class AdminCreateRequest extends FormRequest
         return [
             'email.required' => '登录邮箱不能为空',
             'email.email' => '邮箱格式错误',
-            'email.uinque' => '登录邮箱已经存在',
+            'email.unique' => '登录邮箱已经注册',
             'name.required' => '用户名不能为空',
             'name.unique'  => '用户名已经存在',
             'name.max'  => '用户名最长为20个字符',

@@ -65,7 +65,9 @@ class AdminController extends Controller
         $delete =  AdminUser::find($id)->delete();
 
         if ($delete) {
-            return response()->json('status', true);
+            return response()->json(['status'=>true, 'message'=>'删除成功']);
+        } else {
+            return response()->json(['status'=>false, 'message'=>'删除失败']);
         }
 
     }
