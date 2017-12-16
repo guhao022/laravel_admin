@@ -11,11 +11,17 @@ class Update extends Validator
     public function rules()
     {
         $id = Request::segment(3);
-        return [
+
+        $rules = [
             'email'=>'required|email|unique:admin_user,email,'.$id,
             'name'=>'required|max:20|unique:admin_user,name,'.$id,
-            'password'=>'confirmed',
         ];
+
+        if (Request::filled('password')) {
+            $rules['password'] = 'confirmed|min:6';
+        }
+
+        return $rules;
     }
 
     public function messages()

@@ -36,10 +36,10 @@ class AdminRepository
 
         $admin->name = $request->name;
 
-        /*//1.有密码通过验证，修改密码
+        //1.有密码通过验证，修改密码
         if(strlen($request->password) > 0){
             $admin->password = bcrypt($request->password);
-        }*/
+        }
 
         $admin->save();
 
@@ -77,7 +77,7 @@ class AdminRepository
         return $admin;
     }
 
-    public function resetPassword($request, $id) {
+    public function changePassword($request, $id) {
         $admin = AdminUser::find($id);
 
         $admin->password = bcrypt($request->password);
@@ -86,16 +86,22 @@ class AdminRepository
 
     }
 
-    public function updateProfile($request)
+    public function resetPassword($request)
     {
         $admin = auth()->guard('admin')->user();
 
         if(strlen($request->old_password) > 0 && strlen($request->password) > 0){
+
             if(Hash::check($request->old_password, $admin->password)){
+
                 $admin->password = bcrypt($request->password);
+
                 return $admin->save();
+
             }else{
+
                 return false;
+
             }
         }
         return true;
