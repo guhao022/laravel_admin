@@ -6,6 +6,7 @@ use Modules\Admin\Models\AdminPermissions;
 use Modules\Admin\Models\AdminRoles;
 use Modules\Admin\Repositories\RoleRepository;
 use Illuminate\Http\Request;
+use Modules\Admin\Validation\Role\Create;
 
 class RoleController extends Controller
 {
@@ -30,12 +31,12 @@ class RoleController extends Controller
     {
         $permissions = AdminPermissions::all();
 
-        $treeMenu = $this->roleRepository->tree($permissions);
+        $treeMenu = $this->role->tree($permissions);
 
-        return admin_view('role.create', ['permissions' => $permissions]);
+        return admin_view('role.create', ['tree_menu' => $treeMenu]);
     }
 
-    public function store(RoleCreateRequest $request)
+    public function store(Create $request)
     {
         $this->role->createRoleAndSavePermission($request);
     }

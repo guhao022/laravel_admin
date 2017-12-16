@@ -109,23 +109,25 @@
                         <span aria-hidden="true">&times;</span></button>
                     <h4 class="modal-title">选择权限</h4>
                 </div>
-                <div class="modal-body">
+                <div class="modal-body col-md-12">
                     <ul class="list-unstyled">
-                        <li>Lorem ipsum dolor sit amet</li>
-                        <li>Consectetur adipiscing elit</li>
-                        <li>Integer molestie lorem at massa</li>
-                        <li>Facilisis in pretium nisl aliquet</li>
-                        <li>Nulla volutpat aliquam velit
-                            <ul>
-                                <li>Phasellus iaculis neque</li>
-                                <li>Purus sodales ultricies</li>
-                                <li>Vestibulum laoreet porttitor sem</li>
-                                <li>Ac tristique libero volutpat at</li>
-                            </ul>
+
+                        @foreach($tree_menu as $tm)
+                        <li>
+                            <input type="checkbox" class="minimal-red grid-row-checkbox" data-id="{{ $tm->id }}" />
+                            &nbsp; {{ $tm->display_name }}
+                            @if(count($tm->children) > 0)
+                                <ul class="list-inline">
+                                    @foreach($tm->children as $child)
+                                    <li class="col-md-3 col-sm-4">
+                                        <input type="checkbox" class="minimal grid-row-checkbox" data-id="{{ $child->id }}" />
+                                        &nbsp; {{ $child->display_name }}
+                                    </li>
+                                    @endforeach
+                                </ul>
+                            @endif
                         </li>
-                        <li>Faucibus porta lacus fringilla vel</li>
-                        <li>Aenean sit amet erat nunc</li>
-                        <li>Eget porttitor lorem</li>
+                        @endforeach
                     </ul>
                 </div>
                 <div class="modal-footer">
