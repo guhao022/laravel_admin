@@ -32,9 +32,9 @@ class MenuComposer
     public function compose(View $view)
     {
 
-        $Permission = AdminPermissions::where('pid','0')->orWhere('is_menu', '1')->get();
+        $permission = AdminPermissions::where('pid','0')->orWhere('is_menu', '1')->get();
 
-        $treeMenu = $this->roleRepository->tree($Permission);
+        $treeMenu = $this->roleRepository->tree($permission);
 
         $currentMenu = AdminPermissions::where('name',Route::currentRouteName())->first();
 
