@@ -39,7 +39,7 @@
                 {{$current_menu->display_name}}
                 <small>{{$current_menu->description}}</small>
             </h1>
-            <ol class="breadcrumb">
+            {{--<ol class="breadcrumb">
 
                 <li>
                     <a href="{{ admin_url() }}">首页</a>
@@ -58,7 +58,7 @@
                     </li>
                 @endforeach
 
-            </ol>
+            </ol>--}}
         </section>
         @endif
 

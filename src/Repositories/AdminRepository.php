@@ -30,16 +30,21 @@ class AdminRepository
 
     public function updateAdminAndRole($request,$id)
     {
-        //1.有密码通过验证，修改密码
         $admin = AdminUser::find($id);
 
+        $admin->email = $request->email;
+
+        $admin->name = $request->name;
+
+        /*//1.有密码通过验证，修改密码
         if(strlen($request->password) > 0){
             $admin->password = bcrypt($request->password);
-            $admin->save();
-        }
+        }*/
+
+        $admin->save();
 
         //2.修改角色
-        if(count($request->role_ids) <=0 ){
+        if(!is_array($request->role_ids) || count($request->role_ids) <=0 ){
             $admin->detachRoles($admin->roles);
         }else{
             $newRoles = AdminRoles::whereIn('id',$request->role_ids)->get();
@@ -70,6 +75,15 @@ class AdminRepository
             }
         }
         return $admin;
+    }
+
+    public function resetPassword($request, $id) {
+        $admin = AdminUser::find($id);
+
+        $admin->password = bcrypt($request->password);
+
+        $admin->save();
+
     }
 
     public function updateProfile($request)

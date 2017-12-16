@@ -4,10 +4,10 @@ namespace Modules\Admin\Controllers;
 
 use Modules\Admin\Models\AdminUser;
 use Modules\Admin\Models\AdminRoles;
-use Modules\Admin\Requests\AdminCreateRequest;
-use Modules\Admin\Requests\EditAdminPostRequest;
 use Modules\Admin\Requests\ProfileUpdateRequest;
 use Modules\Admin\Repositories\AdminRepository;
+use Modules\Admin\Validation\Admin\Create;
+use Modules\Admin\Validation\Admin\Update;
 
 class AdminController extends Controller
 {
@@ -32,7 +32,7 @@ class AdminController extends Controller
         return admin_view('user.create', ['roles' => $roles]);
     }
 
-    public function store(AdminCreateRequest $request)
+    public function store(Create $request)
     {
         $this->admin->createAdminAndSaveRole($request);
 
@@ -50,10 +50,11 @@ class AdminController extends Controller
 
         $roles = AdminRoles::all(['id','name','display_name']);
 
-        return view('admin::user.edit',['admin'=>$admin,'roles'=>$roles]);
+        return admin_view('user.edit', ['admin'=>$admin,'roles'=>$roles]);
+
     }
 
-    public function update(EditAdminPostRequest $request, $id)
+    public function update(Update $request, $id)
     {
         $admin = $this->admin->updateAdminAndRole($request,$id);
 

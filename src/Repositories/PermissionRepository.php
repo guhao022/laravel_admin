@@ -26,7 +26,12 @@ class PermissionRepository
 
         $permission->description = $request->description;
 
-        $permission->save();
+        if ($permission->save()) {
+            return true;
+        } else {
+            return false;
+        }
+
     }
 
     public function getPermissionInfo($id)

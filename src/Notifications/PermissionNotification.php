@@ -18,7 +18,6 @@ class PermissionNotification extends Notification
      */
     public function __construct($roles)
     {
-        //
         $this->roles = $roles;
     }
 

@@ -37,9 +37,9 @@
                 <table class="table table-hover">
                     <tbody>
                     <tr>
-                        <th width="3%">
+                        {{--<th width="3%">
                             <input type="checkbox" class="minimal-red grid-select-all">
-                        </th>
+                        </th>--}}
                         <th>ID</th>
                         <th>Email</th>
                         <th>名称</th>
@@ -50,11 +50,11 @@
 
                     @foreach($admins as $admin)
                     <tr id="tr_{{$admin->id}}">
-                        <td>
+                        {{--<td>
                             @if($admin->id != '1')
                             <input type="checkbox" class="minimal grid-row-checkbox" data-id="{{ $admin->id }}" />
                             @endif
-                        </td>
+                        </td>--}}
                         <td>{{$admin->id}}</td>
                         <td>{{$admin->email}}</td>
                         <td>{{$admin->name}}</td>
