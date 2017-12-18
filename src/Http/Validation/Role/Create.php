@@ -11,6 +11,7 @@ class Create extends Validator
     {
         return [
             'display_name'=>'required',
+            'permission_ids'=>'array'
         ];
     }
 
@@ -18,6 +19,7 @@ class Create extends Validator
     {
         return [
             'display_name.required'  => '角色显示名称不能为空',
+            'permission_ids.array'  => '权限选择不正确',
         ];
     }
 }

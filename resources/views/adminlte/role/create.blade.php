@@ -96,47 +96,50 @@
 
                 </div>
 
+
+                <div class="modal fade" id="chose-permission">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span></button>
+                                <h4 class="modal-title">选择权限</h4>
+                            </div>
+                            <div class="modal-body col-md-12">
+                                <ul class="list-unstyled">
+
+                                    @foreach($tree_menu as $tm)
+                                        <li>
+                                            <input type="checkbox" class="minimal-red grid-select-all _menu" data-id="{{ $tm->id }}" />
+                                            &nbsp; {{ $tm->display_name }}
+                                            @if(count($tm->children) > 0)
+                                                <ul class="list-inline">
+                                                    @foreach($tm->children as $child)
+                                                        <li class="col-md-3 col-sm-4">
+                                                            <input type="checkbox" class="minimal grid-row-checkbox _menu" data-id="{{ $child->id }}" />
+                                                            &nbsp; {{ $child->display_name }}
+                                                        </li>
+                                                    @endforeach
+                                                </ul>
+                                            @endif
+                                        </li>
+                                    @endforeach
+                                </ul>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-default pull-left" data-dismiss="modal">关闭</button>
+                                <button type="button" class="btn btn-primary" id="submit">确认</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
             </form>
 
         </div>
     </div>
 
-    <div class="modal fade" id="chose-permission">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span></button>
-                    <h4 class="modal-title">选择权限</h4>
-                </div>
-                <div class="modal-body col-md-12">
-                    <ul class="list-unstyled">
 
-                        @foreach($tree_menu as $tm)
-                        <li>
-                            <input type="checkbox" class="minimal-red grid-select-all _menu" data-id="{{ $tm->id }}" />
-                            &nbsp; {{ $tm->display_name }}
-                            @if(count($tm->children) > 0)
-                                <ul class="list-inline">
-                                    @foreach($tm->children as $child)
-                                    <li class="col-md-3 col-sm-4">
-                                        <input type="checkbox" class="minimal grid-row-checkbox _menu" data-id="{{ $child->id }}" />
-                                        &nbsp; {{ $child->display_name }}
-                                    </li>
-                                    @endforeach
-                                </ul>
-                            @endif
-                        </li>
-                        @endforeach
-                    </ul>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-default pull-left" data-dismiss="modal">关闭</button>
-                    <button type="button" class="btn btn-primary" id="submit">确认</button>
-                </div>
-            </div>
-        </div>
-    </div>
 
 @stop
 
