@@ -71,7 +71,7 @@
                         <label for="Permission" class="col-sm-2 control-label">权限</label>
                         <div class="col-sm-8">
 
-                            <input type="hidden" name="permission_ids">
+                            <input type="hidden" id="permission_ids" name="permission_ids">
                             <button type="button" class="btn btn-sm btn-social btn-success" data-toggle="modal" data-target="#chose-permission">
                                 <i class="fa fa-lock"></i> 选择权限
                             </button>
@@ -114,13 +114,13 @@
 
                         @foreach($tree_menu as $tm)
                         <li>
-                            <input type="checkbox" class="minimal-red grid-row-checkbox" data-id="{{ $tm->id }}" />
+                            <input type="checkbox" class="minimal-red grid-select-all _menu" data-id="{{ $tm->id }}" />
                             &nbsp; {{ $tm->display_name }}
                             @if(count($tm->children) > 0)
                                 <ul class="list-inline">
                                     @foreach($tm->children as $child)
                                     <li class="col-md-3 col-sm-4">
-                                        <input type="checkbox" class="minimal grid-row-checkbox" data-id="{{ $child->id }}" />
+                                        <input type="checkbox" class="minimal grid-row-checkbox _menu" data-id="{{ $child->id }}" />
                                         &nbsp; {{ $child->display_name }}
                                     </li>
                                     @endforeach
@@ -137,5 +137,20 @@
             </div>
         </div>
     </div>
+
+@stop
+
+@section('scripts')
+    <script type="text/javascript">
+        $("#submit").click(function () {
+            var ids = []
+            $('._menu:checked').each(function(){
+                ids.push($(this).data("id"));
+            });
+
+            $("#permission_ids").val(ids)
+            $("#chose-permission").modal('hide')
+        })
+    </script>
 
 @stop

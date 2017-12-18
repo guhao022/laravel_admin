@@ -25,7 +25,7 @@ $(function () {
     });
 
     //全选
-    $('.grid-select-all').on('ifChanged', function(event) {
+    $('.grid-select-all').on('ifClicked', function(event) {
         if (this.checked) {
             $('.grid-row-checkbox').iCheck('check');
         } else {
