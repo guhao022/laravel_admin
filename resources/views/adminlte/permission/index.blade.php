@@ -27,6 +27,14 @@
 
                 </div>--}}
 
+                @if($has_child->pid)
+                <div class="btn-group pull-right">
+                    <a class="btn btn-sm btn-default history-back">
+                        <i class="fa fa-arrow-left"></i>&nbsp;返回
+                    </a>
+                </div>
+                @endif
+
                 <div class="btn-group">
                     <a href="{{ route('permission.create') }}" class="btn btn-sm btn-success">
                         <i class="fa fa-save"></i>&nbsp;&nbsp;新增
