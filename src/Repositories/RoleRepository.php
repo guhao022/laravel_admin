@@ -8,6 +8,7 @@
 
 namespace Modules\Admin\Repositories;
 
+use Modules\Admin\Models\AdminPermissionRole;
 use Modules\Admin\Models\AdminRoles;
 use Modules\Admin\Models\AdminPermissions;
 
@@ -20,6 +21,8 @@ class RoleRepository
         $role->name = $request->name;
 
         $role->display_name = $request->display_name;
+
+        $role->description = $request->description;
 
         $role->save();
 
@@ -42,6 +45,9 @@ class RoleRepository
         $role = AdminRoles::find($id);
 
         $role->display_name = $request->display_name;
+
+        $role->description = $request->description;
+
         $role->save();
 
 

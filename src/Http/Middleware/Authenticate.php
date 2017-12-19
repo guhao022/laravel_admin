@@ -39,7 +39,7 @@ class Authenticate
 
             if(!Auth::guard('admin')->user()->can(Route::currentRouteName()) && Route::currentRouteName()!='admin.home')
             {
-                return response('您没有权限执行当前操作', 401);
+                return response('您没有权限执行当前操作1', 401);
             }
         }
 
@@ -57,7 +57,7 @@ class Authenticate
     protected function shouldPassThrough($request)
     {
         $excepts = [
-            '*admin/auth/login',
+            '*admin/auth*',
         ];
 
         foreach ($excepts as $except) {

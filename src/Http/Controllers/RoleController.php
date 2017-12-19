@@ -7,6 +7,7 @@ use Modules\Admin\Models\AdminRoles;
 use Modules\Admin\Repositories\RoleRepository;
 use Illuminate\Http\Request;
 use Modules\Admin\Validation\Role\Create;
+use Modules\Admin\Validation\Role\Update;
 
 class RoleController extends Controller
 {
@@ -55,10 +56,13 @@ class RoleController extends Controller
         return admin_view('role.edit',$return_array);
     }
 
-    public function update(Request $request, $id)
+    public function update(Update $request, $id)
     {
+
         $role = $this->role->updateRoleAndPermission($request,$id);
-        return redirect(route('role.index'))->with('status', '编辑角色:'.$role->display_name.'成功');
+
+        return redirect(route('role.index'))->with('message', '编辑角色:'.$role->display_name.'成功');
+
     }
 
     public function destroy($id)
