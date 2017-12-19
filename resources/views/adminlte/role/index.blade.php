@@ -40,6 +40,7 @@
                         <th>ID</th>
                         <th>标识</th>
                         <th>名称</th>
+                        <th>简介</th>
                         <th>创建时间</th>
                         <th>更新时间</th>
                         <th>管理</th>
@@ -50,6 +51,7 @@
                             <td>{{$role->id}}</td>
                             <td>{{$role->name}}</td>
                             <td>{{$role->display_name}}</td>
+                            <td>{{$role->description}}</td>
                             <td>
                                 {{$role->created_at}}
                             </td>
@@ -69,6 +71,7 @@
                     @endforeach
                 </table>
             </div>
+            <div class="pull-right">{{ $roles->links() }}</div>
 
         </div>
     </div>

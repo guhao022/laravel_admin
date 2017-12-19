@@ -88,6 +88,7 @@
                 </table>
             </div>
 
+            <div class="pull-right">{{ $admins->links() }}</div>
         </div>
     </div>
 @stop

@@ -20,7 +20,7 @@ class AdminController extends Controller
 
     public function index()
     {
-        $admins = AdminUser::all();
+        $admins = AdminUser::paginate(config('admin.pagination.number'));
 
         return admin_view('user.index',['admins'=>$admins]);
     }

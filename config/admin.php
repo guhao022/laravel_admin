@@ -10,6 +10,10 @@ return [
         "path" => "upload",
     ],
 
+    'pagination' => [
+        'number' => 20,
+    ],
+
     'route' => [
 
         'prefix' => 'admin',

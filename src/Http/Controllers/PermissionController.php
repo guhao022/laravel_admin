@@ -8,7 +8,6 @@ use Modules\Admin\Repositories\PermissionRepository;
 class PermissionController extends Controller
 {
 
-
     protected $permission;
 
     public function __construct(PermissionRepository $permission)
@@ -23,9 +22,9 @@ class PermissionController extends Controller
      */
     public function index()
     {
-        $topPermission = AdminPermissions::where('pid','0')->get();
+        $permission = AdminPermissions::where("pid", "0")->paginate(config('admin.pagination.number'));
 
-        return admin_view('permission.index',['permissions'=>$topPermission]);
+        return admin_view('permission.index',['permissions'=>$permission]);
     }
 
     /**
@@ -102,7 +101,6 @@ class PermissionController extends Controller
      */
     public function destroy($id)
     {
-        //
         AdminPermissions::where('pid',$id)->delete();
 
         AdminPermissions::find($id)->delete();
@@ -112,10 +110,8 @@ class PermissionController extends Controller
 
     public function childIndex($id)
     {
-        $topPermission = AdminPermissions::where('pid',$id)->get();
+        $permission = AdminPermissions::where('pid',$id)->paginate(config('admin.pagination.number'));
 
-        $parent = AdminPermissions::where('id',$id)->get();
-
-        return view('admin.permission.index',['Permissions'=>$topPermission,'parent'=>$parent,'is_child'=>'1']);
+        return admin_view('permission.index',['permissions'=>$permission]);
     }
 }

@@ -40,26 +40,35 @@
                         <th>ID</th>
                         <th>标识</th>
                         <th>名称</th>
+                        <th>简介</th>
                         <th>创建时间</th>
                         <th>更新时间</th>
                         <th>管理</th>
                     </tr>
+                    </tbody>
 
-                    @foreach($permissions as $per)
-                        <tr id="tr_{{$per->id}}">
-                            <td>{{$per->id}}</td>
-                            <td>{{$per->name}}</td>
-                            <td>{{$per->display_name}}</td>
+                    @foreach($permissions as $permission)
+                        <tr id="tr_{{$permission->id}}">
+                            <td>{{$permission->id}}</td>
+                            <td>{{$permission->name}}</td>
+                            <td>{{$permission->display_name}}</td>
+                            <td>{{$permission->description}}</td>
                             <td>
-                                {{$per->created_at}}
+                                {{$permission->created_at}}
                             </td>
-                            <td>{{$per->updated_at}}</td>
+                            <td>{{$permission->updated_at}}</td>
                             <td>
-                                <a href="{{ route('permission.edit', $per->id) }}">
-                                    <i class="fa fa-edit"></i>
+                                @if($permission->pid == 0)
+                                    <a href="{{ route('permission.child', $permission->id) }}">
+                                        <i class="fa fa-puzzle-piece"></i> &nbsp;
+                                    </a>
+                                @endif
+
+                                <a href="{{ route('permission.edit', $permission->id) }}">
+                                    <i class="fa fa-edit"></i>&nbsp;
                                 </a>
-                                <a href="javascript:void(0);" data-id="{{$per->id}}" data-route="{{route('permission.destroy', $per->id)}}"class="grid-row-delete">
-                                    <i class="fa fa-trash"></i>
+                                <a href="javascript:void(0);" data-id="{{$permission->id}}" data-route="{{route('permission.destroy', $permission->id)}}"class="grid-row-delete">
+                                    <i class="fa fa-trash"></i>&nbsp;
                                 </a>
 
                             </td>
@@ -67,6 +76,8 @@
                     @endforeach
                 </table>
             </div>
+
+            <div class="pull-right">{{ $permissions->links() }}</div>
 
         </div>
     </div>

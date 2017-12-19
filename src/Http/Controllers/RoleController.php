@@ -21,11 +21,9 @@ class RoleController extends Controller
 
     public function index()
     {
-        $roles = AdminRoles::all();
+        $roles = AdminRoles::paginate(config('admin.pagination.number'));
 
-        $permission = AdminPermissions::all();
-
-        return admin_view('role.index',['roles'=>$roles,'permission'=>$permission]);
+        return admin_view('role.index',['roles'=>$roles]);
     }
 
     public function create()
