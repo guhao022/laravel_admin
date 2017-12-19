@@ -39,6 +39,8 @@ class RoleController extends Controller
     public function store(Create $request)
     {
         $this->role->createRoleAndSavePermission($request);
+
+        return redirect(route('role.index'));
     }
 
     public function show($id)
@@ -48,10 +50,9 @@ class RoleController extends Controller
 
     public function edit($id)
     {
-        //
         $return_array = $this->role->getRoleInfo($id);
 
-        return view('admin::role.edit',$return_array);
+        return admin_view('role.edit',$return_array);
     }
 
     public function update(Request $request, $id)
@@ -62,11 +63,12 @@ class RoleController extends Controller
 
     public function destroy($id)
     {
-        //
         $delete =  AdminRoles::find($id)->delete();
 
         if ($delete) {
-            return redirect()->back()->with('status', '删除角色成功');
+            return response()->json(['status'=>true, 'message'=>'删除成功']);
+        } else {
+            return response()->json(['status'=>false, 'message'=>'删除失败']);
         }
 
     }

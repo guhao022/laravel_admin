@@ -71,18 +71,31 @@
                         <label for="Permission" class="col-sm-2 control-label">权限</label>
                         <div class="col-sm-8">
 
-                            <input type="hidden" id="permission_ids" name="permission_ids">
-                            <button type="button" class="btn btn-sm btn-social btn-success" data-toggle="modal" data-target="#chose-permission">
-                                <i class="fa fa-lock"></i> 选择权限
-                            </button>
+                            @if ($errors->has('permission_ids'))
+                                <span class="help-block text-red">
+                                    <p><i class="fa fa-info-circle"></i> {{ $errors->first('permission_ids') }}</p>
+                                </span>
+                            @endif
 
-                            {{--<select name="permission_ids[]" class="form-control select2" multiple="multiple" data-placeholder="选择角色权限">
-                                @foreach($permissions as $permission)
-                                    <option value="{{ $permission->id }}"
-                                            @if(!empty(old('permission_ids')) && in_array($permission->id, old('permission_ids'))) selected @endif
-                                    >{{ $permission->display_name }}</option>
+                            <ul class="list-unstyled">
+
+                                @foreach($tree_menu as $tm)
+                                    <li>
+                                        <input type="checkbox" name="permission_ids[]" @if(is_array(old('permission_ids')) && in_array($tm->id, old('permission_ids'))) checked @endif class="minimal-red grid-select-all _menu" value="{{$tm->id}}" />
+                                        &nbsp; <b class="text-aqua">{{ $tm->display_name }}</b>
+                                        @if(count($tm->children) > 0)
+                                            <ul class="list-inline">
+                                                @foreach($tm->children as $child)
+                                                    <li class="col-md-2 col-sm-3 col-xs-4">
+                                                        <input type="checkbox" name="permission_ids[]" @if(is_array(old('permission_ids')) && in_array($child->id, old('permission_ids'))) checked @endif class="minimal grid-row-checkbox _menu" value="{{ $child->id }}" />
+                                                        &nbsp; {{ $child->display_name }}
+                                                    </li>
+                                                @endforeach
+                                            </ul>
+                                        @endif
+                                    </li>
                                 @endforeach
-                            </select>--}}
+                            </ul>
                         </div>
                     </div>
 
@@ -96,64 +109,10 @@
 
                 </div>
 
-
-                <div class="modal fade" id="chose-permission">
-                    <div class="modal-dialog">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                    <span aria-hidden="true">&times;</span></button>
-                                <h4 class="modal-title">选择权限</h4>
-                            </div>
-                            <div class="modal-body col-md-12">
-                                <ul class="list-unstyled">
-
-                                    @foreach($tree_menu as $tm)
-                                        <li>
-                                            <input type="checkbox" class="minimal-red grid-select-all _menu" data-id="{{ $tm->id }}" />
-                                            &nbsp; {{ $tm->display_name }}
-                                            @if(count($tm->children) > 0)
-                                                <ul class="list-inline">
-                                                    @foreach($tm->children as $child)
-                                                        <li class="col-md-3 col-sm-4">
-                                                            <input type="checkbox" class="minimal grid-row-checkbox _menu" data-id="{{ $child->id }}" />
-                                                            &nbsp; {{ $child->display_name }}
-                                                        </li>
-                                                    @endforeach
-                                                </ul>
-                                            @endif
-                                        </li>
-                                    @endforeach
-                                </ul>
-                            </div>
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-default pull-left" data-dismiss="modal">关闭</button>
-                                <button type="button" class="btn btn-primary" id="submit">确认</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
             </form>
 
         </div>
     </div>
 
-
-
 @stop
 
-@section('scripts')
-    <script type="text/javascript">
-        $("#submit").click(function () {
-            var ids = []
-            $('._menu:checked').each(function(){
-                ids.push($(this).data("id"));
-            });
-
-            $("#permission_ids").val(ids)
-            $("#chose-permission").modal('hide')
-        })
-    </script>
-
-@stop
