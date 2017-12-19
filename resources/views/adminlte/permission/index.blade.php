@@ -7,21 +7,13 @@
             <div class="box-header with-border">
                 <h3 class="box-title"></h3>
 
-                <div class="pull-right">
+                {{--<div class="pull-right">
                     <div class="form-inline pull-right">
                         <form action="" method="get">
                             <fieldset>
                                 <div class="input-group input-group-sm">
-                                    <span class="input-group-addon alert-info"><strong>ID</strong></span>
+                                    <span class="input-group-addon"><strong>ID</strong></span>
                                     <input type="text" class="form-control" placeholder="Id" name="id" value="">
-                                </div>
-                                <div class="input-group input-group-sm">
-                                    <span class="input-group-addon alert-info"><strong>Email</strong></span>
-                                    <input type="text" class="form-control" placeholder="邮箱" name="email" value="">
-                                </div>
-                                <div class="input-group input-group-sm">
-                                    <span class="input-group-addon alert-info"><strong>名称</strong></span>
-                                    <input type="text" class="form-control" placeholder="名称" name="name" value="">
                                 </div>
 
                                 <div class="btn-group btn-group-sm">
@@ -33,10 +25,10 @@
                         </form>
                     </div>
 
-                </div>
+                </div>--}}
 
                 <div class="btn-group">
-                    <a href="{{ route('admin.create') }}" class="btn btn-sm btn-success">
+                    <a href="{{ route('permission.create') }}" class="btn btn-sm btn-success">
                         <i class="fa fa-save"></i>&nbsp;&nbsp;新增
                     </a>
                 </div>
@@ -45,45 +37,33 @@
                 <table class="table table-hover">
                     <tbody>
                     <tr>
-                        {{--<th width="3%">
-                            <input type="checkbox" class="minimal-red grid-select-all">
-                        </th>--}}
                         <th>ID</th>
-                        <th>Email</th>
+                        <th>标识</th>
                         <th>名称</th>
-                        <th>角色</th>
-                        <th>最后登录</th>
+                        <th>创建时间</th>
+                        <th>更新时间</th>
                         <th>管理</th>
                     </tr>
 
-                    @foreach($admins as $admin)
-                    <tr id="tr_{{$admin->id}}">
-                        {{--<td>
-                            @if($admin->id != '1')
-                            <input type="checkbox" class="minimal grid-row-checkbox" data-id="{{ $admin->id }}" />
-                            @endif
-                        </td>--}}
-                        <td>{{$admin->id}}</td>
-                        <td>{{$admin->email}}</td>
-                        <td>{{$admin->name}}</td>
-                        <td>
-                            @foreach($admin->roles as $role)
-                                <span class="label label-success">{{ $role->display_name }}</span>
-                            @endforeach
-                        </td>
-                        <td>{{$admin->last_login}}</td>
-                        <td>
-                            @if($admin->id != '1')
-                                <a href="{{ route('admin.edit', $admin->id) }}">
+                    @foreach($permissions as $per)
+                        <tr id="tr_{{$per->id}}">
+                            <td>{{$per->id}}</td>
+                            <td>{{$per->name}}</td>
+                            <td>{{$per->display_name}}</td>
+                            <td>
+                                {{$per->created_at}}
+                            </td>
+                            <td>{{$per->updated_at}}</td>
+                            <td>
+                                <a href="{{ route('permission.edit', $per->id) }}">
                                     <i class="fa fa-edit"></i>
                                 </a>
-                                <a href="javascript:void(0);" data-id="{{$admin->id}}" data-route="{{route('admin.destroy', $admin->id)}}"class="grid-row-delete">
+                                <a href="javascript:void(0);" data-id="{{$per->id}}" data-route="{{route('permission.destroy', $per->id)}}"class="grid-row-delete">
                                     <i class="fa fa-trash"></i>
                                 </a>
-                            @endif
 
-                        </td>
-                    </tr>
+                            </td>
+                        </tr>
                     @endforeach
                 </table>
             </div>
@@ -97,9 +77,7 @@
 
         $('.grid-row-delete').unbind('click').click(function() {
             var id=$(this).data('id');
-            if (id == 1) {
-                alert('初始管理员不能删除');
-            }
+
             if(confirm("确认删除?")) {
                 $.ajax({
                     method: 'post',

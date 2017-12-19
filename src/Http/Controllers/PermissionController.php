@@ -3,8 +3,6 @@
 namespace Modules\Admin\Controllers;
 
 use Modules\Admin\Models\AdminPermissions;
-use Modules\Admin\Requests\PermissionCreateRequest;
-use Modules\Admin\Requests\PermissionEditRequest;
 use Modules\Admin\Repositories\PermissionRepository;
 
 class PermissionController extends Controller
@@ -25,10 +23,9 @@ class PermissionController extends Controller
      */
     public function index()
     {
-        //
         $topPermission = AdminPermissions::where('pid','0')->get();
 
-        return view('admin.permission.index',['Permissions'=>$topPermission,'parent'=>$topPermission,'is_child'=>'2']);
+        return admin_view('permission.index',['permissions'=>$topPermission]);
     }
 
     /**

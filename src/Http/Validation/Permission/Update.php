@@ -1,10 +1,11 @@
 <?php
 
-namespace Modules\Admin\Requests;
+namespace Modules\Admin\Validation\Permission;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Http\Request;
 
-class PermissionCreateRequest extends FormRequest
+class Update extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -16,28 +17,25 @@ class PermissionCreateRequest extends FormRequest
         return true;
     }
 
-    /**
-     * Get the validation rules that apply to the request.
-     *
-     * @return array
-     */
     public function rules()
     {
-        return [
+        $id = Request::segment(3);
+
+        $rules = [
             //
-            'name'=>'required|unique:admin_permissions|max:20',
-            'display_name'=>'required',
+            'display_name'=>'required|max:20|unique:admin_permissions,display_name,'.$id,
             'pid'=>'required',
         ];
+
+        return $rules;
     }
 
     public function messages()
     {
         return [
-            'name.required' => '权限名称不能为空',
-            'name.unique'  => '权限已经存在',
-            'name.max'  => '权限名称最长为20个字符',
             'display_name.required'  => '权限显示名称不能为空',
+            'display_name.unique'  => '权限名称已经存在',
+            'display_name.max'  => '权限名最长为20个字符',
             'pid.required'  => '分类不能为空',
         ];
     }

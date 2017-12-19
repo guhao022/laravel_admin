@@ -7,7 +7,7 @@
             <div class="box-header with-border">
                 <h3 class="box-title"></h3>
 
-                <div class="pull-right">
+                {{--<div class="pull-right">
                     <div class="form-inline pull-right">
                         <form action="" method="get">
                             <fieldset>
@@ -25,7 +25,7 @@
                         </form>
                     </div>
 
-                </div>
+                </div>--}}
 
                 <div class="btn-group">
                     <a href="{{ route('role.create') }}" class="btn btn-sm btn-success">

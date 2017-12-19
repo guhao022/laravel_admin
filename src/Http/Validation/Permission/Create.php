@@ -1,10 +1,10 @@
 <?php
 
-namespace Modules\Admin\Requests;
+namespace Modules\Admin\Validation\Permission;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class PermissionEditRequest extends FormRequest
+class Create extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -16,10 +16,16 @@ class PermissionEditRequest extends FormRequest
         return true;
     }
 
+    /**
+     * Get the validation rules that apply to the request.
+     *
+     * @return array
+     */
     public function rules()
     {
         return [
             //
+            'name'=>'required|unique:admin_permissions|max:20',
             'display_name'=>'required',
             'pid'=>'required',
         ];
@@ -28,6 +34,9 @@ class PermissionEditRequest extends FormRequest
     public function messages()
     {
         return [
+            'name.required' => '权限名称不能为空',
+            'name.unique'  => '权限已经存在',
+            'name.max'  => '权限名称最长为20个字符',
             'display_name.required'  => '权限显示名称不能为空',
             'pid.required'  => '分类不能为空',
         ];

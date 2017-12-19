@@ -62,4 +62,20 @@ class PermissionRepository
             return false;
         }
     }
+
+    public function tree($table,$p_id='0') {
+        $tree = array();
+        foreach($table as $row){
+            if($row['pid']==$p_id){
+                $tmp = $this->tree($table,$row['id']);
+                if($tmp){
+                    $row['children']=$tmp;
+                }else{
+                    $row['leaf'] = true;
+                }
+                $tree[]=$row;
+            }
+        }
+        return $tree;
+    }
 }

@@ -94,6 +94,6 @@ class RoleRepository
                 $tree[]=$row;
             }
         }
-        Return $tree;
+        return $tree;
     }
 }
