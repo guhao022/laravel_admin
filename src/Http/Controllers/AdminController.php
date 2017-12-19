@@ -58,7 +58,7 @@ class AdminController extends Controller
     {
         $admin = $this->admin->updateAdminAndRole($request,$id);
 
-        return redirect(route('admin.index'))->with('status', '编辑用户:'.$admin->name.'成功');
+        return redirect(route('admin.index'))->with('message', '编辑用户: '.$admin->name.' 成功');
     }
 
     public function destroy($id)

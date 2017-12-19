@@ -120,9 +120,7 @@
 @section('script')
     <script type="text/javascript">
 
-        @if(!empty($message))
-            toastr.success({{ $message }});
-        @endif
+
 
     </script>
 @stop

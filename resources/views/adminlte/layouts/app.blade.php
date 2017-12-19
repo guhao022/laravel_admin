@@ -69,6 +69,8 @@
         </section>
     </div>
 
+
+
     <footer class="main-footer">
         <div class="pull-right hidden-xs">
             <b>Version</b> 2.4.0
@@ -91,6 +93,11 @@
 <script type="text/javascript">
     function WE() {}
     WE.token = "{{ csrf_token() }}";
+
+    @if(session("message"))
+        toastr.success('{{ session("message") }}');
+    @endif
+
 </script>
 
 @yield('scripts')
