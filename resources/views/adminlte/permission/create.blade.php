@@ -3,6 +3,11 @@
 
 @section("css")
     <link rel="stylesheet" href="{{ admin_asset('plugins/iconpicker/css/fontawesome-iconpicker.min.css') }}">
+    <style type="text/css">
+        .iconpicker-popover.popover {
+            width: 385px !important;
+        }
+    </style>
 @stop
 
 @section('content')
@@ -30,7 +35,7 @@
                 {{ csrf_field() }}
                 <div class="box-body">
                     <div class="form-group">
-                        <label for="name" class="col-sm-2 control-label">权限名称</label>
+                        <label for="name" class="col-sm-2 control-label">权限标识</label>
 
                         <div class="col-sm-8">
                             <input type="name" name="name" class="form-control" id="name" value="{{ old('name') }}" placeholder="输入权限名称">
@@ -94,6 +99,22 @@
                     </div>
 
                     <div class="form-group">
+                        <label for="is_menu" class="col-sm-2 control-label">注册菜单</label>
+
+                        <div class="col-sm-8">
+                            <label class="control-label">
+                                <input type="radio" name="is_menu" class="minimal-red" value="1">&nbsp;注册
+                            </label>
+                            &nbsp;&nbsp;
+                            <label class="control-label">
+                                <input type="radio" name="is_menu" class="minimal-red" value="0" checked> 不注册
+                            </label>
+
+                        </div>
+
+                    </div>
+
+                    <div class="form-group">
                         <label for="Permission" class="col-sm-2 control-label">权限</label>
                         <div class="col-sm-8">
                             <select name="pid" class="form-control" data-placeholder="选择上级菜单">
@@ -102,8 +123,7 @@
                                 @foreach($top_menu as $tm)
 
                                     <option value="{{ $tm->id }}" @if(old('pid') == $tm->id) selected @endif >
-
-                                        {{ $tm->display_name }}
+                                        |-- {{ $tm->display_name }}
                                     </option>
                                 @endforeach
                             </select>
@@ -113,42 +133,7 @@
 
                 </div>
 
-                <div class="form-group">
-                    <label for="is_menu" class="col-sm-2 control-label">注册菜单</label>
 
-                    <div class="col-sm-8">
-                        <label class="control-label">
-                            <input type="radio" name="is_menu" class="minimal-red" value="1">&nbsp;注册
-                        </label>
-                        &nbsp;&nbsp;
-                        <label class="control-label">
-                            <input type="radio" name="is_menu" class="minimal-red" value="0" checked> 不注册
-                        </label>
-
-                    </div>
-
-                </div>
-
-                <div class="form-group">
-                    <label for="is_menu" class="col-sm-2 control-label">是否启用</label>
-
-                    <div class="col-sm-8">
-                        <label class="control-label">
-                            <input type="radio" name="is_show" class="minimal-red" value="1">&nbsp;显示
-                        </label>
-                        &nbsp;&nbsp;
-                        <label class="control-label">
-                            <input type="radio" name="is_show" class="minimal-red" value="0" checked> 不显示
-                        </label>
-
-                        @if ($errors->has('is_menu'))
-                            <span class="help-block text-red">
-                                    <p><i class="fa fa-info-circle"></i> {{ $errors->first('is_menu') }}</p>
-                                </span>
-                        @endif
-                    </div>
-
-                </div>
 
                 <div class="box-footer">
                     <div class="col-sm-offset-2 col-md-8">

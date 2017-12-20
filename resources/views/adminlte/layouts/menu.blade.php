@@ -45,7 +45,7 @@
                         </span>
                     @endif
                 </a>
-                @if(count($menu->children) > 0)
+                @if(is_array($menu->children) && count($menu->children) > 0)
                     <ul class="treeview-menu">
                         @foreach($menu->children as $child)
                             @if(admin_user()->can($child->name) || admin_user()->hasRole('admin'))
