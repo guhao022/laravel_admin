@@ -24,7 +24,7 @@ class PermissionController extends Controller
     {
         $permission = AdminPermissions::where("pid", "0")->paginate(config('admin.pagination.number'));
 
-        return admin_view('permission.index',['permissions'=>$permission, ]);
+        return admin_view('permission.index',['permissions'=>$permission, 'has_child'=>true]);
     }
 
     /**
@@ -112,6 +112,6 @@ class PermissionController extends Controller
     {
         $permission = AdminPermissions::where('pid',$id)->paginate(config('admin.pagination.number'));
 
-        return admin_view('permission.index',['permissions'=>$permission]);
+        return admin_view('permission.index',['permissions'=>$permission, 'has_child'=>false]);
     }
 }

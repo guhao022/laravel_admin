@@ -27,7 +27,7 @@
 
                 </div>--}}
 
-                @if($has_child->pid)
+                @if($has_child)
                 <div class="btn-group pull-right">
                     <a class="btn btn-sm btn-default history-back">
                         <i class="fa fa-arrow-left"></i>&nbsp;返回
@@ -49,8 +49,8 @@
                         <th>标识</th>
                         <th>名称</th>
                         <th>简介</th>
+                        <th>类别</th>
                         <th>创建时间</th>
-                        <th>更新时间</th>
                         <th>管理</th>
                     </tr>
                     </tbody>
@@ -61,10 +61,10 @@
                             <td>{{$permission->name}}</td>
                             <td>{{$permission->display_name}}</td>
                             <td>{{$permission->description}}</td>
+                            <td>{{$permission->parentName($permission->pid)}}</td>
                             <td>
                                 {{$permission->created_at}}
                             </td>
-                            <td>{{$permission->updated_at}}</td>
                             <td>
                                 @if($permission->pid == 0)
                                     <a href="{{ route('permission.child', $permission->id) }}">
