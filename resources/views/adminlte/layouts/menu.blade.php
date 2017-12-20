@@ -54,7 +54,14 @@
                                     active
                                     @endif
                                 ">
-                                    <a href="@if(){{ route($child->name) }} @endif">
+                                    <a href="
+
+                                    <?php
+                                            try(route($child->name))
+
+                                    ?>
+
+">
                                         <i class="fa fa-circle-o"></i>
                                         {{ $child->display_name }}
                                     </a>
