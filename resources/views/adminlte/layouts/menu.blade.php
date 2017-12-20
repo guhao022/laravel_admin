@@ -27,7 +27,7 @@
         @if(admin_user()->can($menu->name) || admin_user()->hasRole('admin'))
 
             <li class="
-            @if(count($menu->children) > 0)
+            @if(is_array($menu->children) && count($menu->children) > 0)
                 treeview
             @endif
             @if (isset($current_menu->pid) && $current_menu->pid == $menu->id)
@@ -39,7 +39,7 @@
                     <i class="fa {{$menu->icon}}"></i>
                     <span class="nav-label">{{ $menu->display_name }}</span>
 
-                    @if(count($menu->children) > 0)
+                    @if(is_array($menu->children) && count($menu->children) > 0)
                         <span class="pull-right-container">
                             <i class="fa fa-angle-left pull-right"></i>
                         </span>
