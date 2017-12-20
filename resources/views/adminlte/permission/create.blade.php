@@ -1,6 +1,10 @@
 @extends('admin::adminlte.layouts.app')
 @section('title', $current_menu->display_name)
 
+@section("css")
+    <link rel="stylesheet" href="{{ admin_asset('plugins/iconpicker/css/fontawesome-iconpicker.min.css') }}">
+@stop
+
 @section('content')
 
     <div class="row col-md-12">
@@ -22,14 +26,14 @@
                 </div>
             </div>
 
-            <form class="form-horizontal" method="POST" action="{{ route('role.store') }}">
+            <form class="form-horizontal" method="POST" action="{{ route('permission.store') }}">
                 {{ csrf_field() }}
                 <div class="box-body">
                     <div class="form-group">
-                        <label for="name" class="col-sm-2 control-label">标识</label>
+                        <label for="name" class="col-sm-2 control-label">权限名称</label>
 
                         <div class="col-sm-8">
-                            <input type="name" name="name" class="form-control" id="name" value="{{ old('name') }}" placeholder="输入角色标识">
+                            <input type="name" name="name" class="form-control" id="name" value="{{ old('name') }}" placeholder="输入权限名称">
                             @if ($errors->has('name'))
                                 <span class="help-block text-red">
                                     <p><i class="fa fa-info-circle"></i> {{ $errors->first('name') }}</p>
@@ -40,10 +44,10 @@
                     </div>
 
                     <div class="form-group">
-                        <label for="display_name" class="col-sm-2 control-label">角色名</label>
+                        <label for="display_name" class="col-sm-2 control-label">显示名称</label>
 
                         <div class="col-sm-8">
-                            <input type="display_name" name="display_name" class="form-control" id="display_name" value="{{ old('display_name') }}" placeholder="输入角色名称">
+                            <input type="display_name" name="display_name" class="form-control" id="display_name" value="{{ old('display_name') }}" placeholder="输入权限显示名称">
                             @if ($errors->has('display_name'))
                                 <span class="help-block text-red">
                                     <p><i class="fa fa-info-circle"></i> {{ $errors->first('display_name') }}</p>
@@ -54,13 +58,35 @@
                     </div>
 
                     <div class="form-group">
-                        <label for="description" class="col-sm-2 control-label">简介</label>
+                        <label for="description" class="col-sm-2 control-label">图标</label>
+
+                        <div class="col-sm-2">
+
+                            <div class="input-group">
+                                <span class="input-group-addon"></span>
+                                <input data-placement="bottomLeft" name="icon" class="form-control icp icp-auto" type="text" value="@if(empty(old('icon'))) fa-arrow-right @else {{ old('icon') }} @endif" placeholder="输入显示图标" />
+
+                            </div>
+
+
+                            @if ($errors->has('icon'))
+                                <span class="help-block text-red">
+                                    <p><i class="fa fa-info-circle"></i> {{ $errors->first('icon') }}</p>
+                                </span>
+                            @endif
+                        </div>
+
+                    </div>
+
+
+                    <div class="form-group">
+                        <label for="group_name" class="col-sm-2 control-label">分组</label>
 
                         <div class="col-sm-8">
-                            <input type="description" name="description" class="form-control" id="description" value="{{ old('description') }}" placeholder="输入角色简介">
-                            @if ($errors->has('description'))
+                            <input type="group_name" name="group_name" class="form-control" id="group_name" value="{{ old('group_name') }}" placeholder="输入权限分组名称">
+                            @if ($errors->has('group_name'))
                                 <span class="help-block text-red">
-                                    <p><i class="fa fa-info-circle"></i> {{ $errors->first('description') }}</p>
+                                    <p><i class="fa fa-info-circle"></i> {{ $errors->first('group_name') }}</p>
                                 </span>
                             @endif
                         </div>
@@ -70,33 +96,56 @@
                     <div class="form-group">
                         <label for="Permission" class="col-sm-2 control-label">权限</label>
                         <div class="col-sm-8">
+                            <select name="pid" class="form-control" data-placeholder="选择上级菜单">
 
-                            @if ($errors->has('permission_ids'))
-                                <span class="help-block text-red">
-                                    <p><i class="fa fa-info-circle"></i> {{ $errors->first('permission_ids') }}</p>
-                                </span>
-                            @endif
+                                <option value="0" class="text-aqua">顶级权限</option>
+                                @foreach($top_menu as $tm)
 
-                            <ul class="list-unstyled">
+                                    <option value="{{ $tm->id }}" @if(old('pid') == $tm->id) selected @endif >
 
-                                @foreach($tree_menu as $tm)
-                                    <li>
-                                        <input type="checkbox" name="permission_ids[]" @if(is_array(old('permission_ids')) && in_array($tm->id, old('permission_ids'))) checked @endif class="minimal-red grid-select-all _menu" value="{{$tm->id}}" />
-                                        &nbsp; <b class="text-aqua">{{ $tm->display_name }}</b>
-                                        @if(count($tm->children) > 0)
-                                            <ul class="list-inline">
-                                                @foreach($tm->children as $child)
-                                                    <li class="col-md-2 col-sm-3 col-xs-4">
-                                                        <input type="checkbox" name="permission_ids[]" @if(is_array(old('permission_ids')) && in_array($child->id, old('permission_ids'))) checked @endif class="minimal grid-row-checkbox _menu" value="{{ $child->id }}" />
-                                                        &nbsp; {{ $child->display_name }}
-                                                    </li>
-                                                @endforeach
-                                            </ul>
-                                        @endif
-                                    </li>
+                                        {{ $tm->display_name }}
+                                    </option>
                                 @endforeach
-                            </ul>
+                            </select>
+
                         </div>
+                    </div>
+
+                </div>
+
+                <div class="form-group">
+                    <label for="is_menu" class="col-sm-2 control-label">注册菜单</label>
+
+                    <div class="col-sm-8">
+                        <label class="control-label">
+                            <input type="radio" name="is_menu" class="minimal-red" value="1">&nbsp;注册
+                        </label>
+                        &nbsp;&nbsp;
+                        <label class="control-label">
+                            <input type="radio" name="is_menu" class="minimal-red" value="0" checked> 不注册
+                        </label>
+
+                    </div>
+
+                </div>
+
+                <div class="form-group">
+                    <label for="is_menu" class="col-sm-2 control-label">是否启用</label>
+
+                    <div class="col-sm-8">
+                        <label class="control-label">
+                            <input type="radio" name="is_show" class="minimal-red" value="1">&nbsp;显示
+                        </label>
+                        &nbsp;&nbsp;
+                        <label class="control-label">
+                            <input type="radio" name="is_show" class="minimal-red" value="0" checked> 不显示
+                        </label>
+
+                        @if ($errors->has('is_menu'))
+                            <span class="help-block text-red">
+                                    <p><i class="fa fa-info-circle"></i> {{ $errors->first('is_menu') }}</p>
+                                </span>
+                        @endif
                     </div>
 
                 </div>
@@ -115,4 +164,17 @@
     </div>
 
 @stop
+
+@section("scripts")
+
+    <script src="{{ admin_asset('plugins/iconpicker/js/fontawesome-iconpicker.min.js') }}"></script>
+
+    <script type="text/javascript">
+        $(function() {
+            $('.icp-auto').iconpicker();
+        });
+    </script>
+
+@stop
+
 

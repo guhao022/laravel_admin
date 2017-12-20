@@ -15,6 +15,8 @@
     <link rel="stylesheet" href="{{ admin_asset('css/AdminLTE.min.css') }}">
     <link rel="stylesheet" href="{{ admin_asset('css/skins/_all-skins.min.css') }}">
 
+    @yield("css")
+
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>

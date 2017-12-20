@@ -4,6 +4,8 @@ namespace Modules\Admin\Controllers;
 
 use Modules\Admin\Models\AdminPermissions;
 use Modules\Admin\Repositories\PermissionRepository;
+use Modules\Admin\Validation\Permission\Create;
+use Modules\Admin\Validation\Permission\Update;
 
 class PermissionController extends Controller
 {
@@ -15,11 +17,6 @@ class PermissionController extends Controller
         $this->permission = $permission;
     }
 
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function index()
     {
         $permission = AdminPermissions::where("pid", "0")->paginate(config('admin.pagination.number'));
@@ -27,46 +24,30 @@ class PermissionController extends Controller
         return admin_view('permission.index',['permissions'=>$permission, 'has_child'=>true]);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function create()
     {
-        return admin_view('permission.create');
+        $top_permission = AdminPermissions::where("pid", "0")->get();
+        return admin_view('permission.create', ["top_menu"=>$top_permission]);
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(PermissionCreateRequest $request)
+    public function store(Create $request)
     {
-        //
-        $this->permission->createPermission($request);
+
+        $create = $this->permission->createPermission($request);
+
+        if($create){
+            return redirect(route('permission.index'))->with('message', '创建成功');
+        }else{
+            return redirect(route('permission.index'))->withErrors( '创建失败');
+        }
 
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function show($id)
     {
         //
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function edit($id)
     {
         $return_array = $this->permission->getPermissionInfo($id);
@@ -74,14 +55,7 @@ class PermissionController extends Controller
         return view('admin.permission.edit',$return_array);
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(PermissionEditRequest $request, $id)
+    public function update(Update $request, $id)
     {
         //
         $update = $this->permission->updatePermissionInfo($request,$id);
@@ -93,12 +67,6 @@ class PermissionController extends Controller
         }
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function destroy($id)
     {
         AdminPermissions::where('pid',$id)->delete();

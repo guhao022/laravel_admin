@@ -22,6 +22,8 @@ class PermissionRepository
 
         $permission->group_name = $request->group_name;
 
+        $permission->icon = $request->icon;
+
         $permission->pid = $request->pid;
 
         $permission->description = $request->description;
