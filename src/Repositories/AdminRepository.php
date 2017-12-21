@@ -32,7 +32,7 @@ class AdminRepository
     {
         $admin = AdminUser::find($id);
 
-        $admin->email = $request->email;
+        //$admin->email = $request->email;
 
         $admin->name = $request->name;
 

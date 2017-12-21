@@ -81,6 +81,15 @@ class AdminPermissionsTableSeeder extends Seeder
             ],
             [
                 'id'=>8,
+                'name'=>'admin.reset',
+                'display_name'=>'重置密码',
+                'icon' => '',
+                'is_menu' => '0',
+                'group_name'=>'admin',
+                'pid'=>1
+            ],
+            [
+                'id'=>9,
                 'name'=>'role.index',
                 'display_name'=>'角色管理',
                 'icon' => '',
@@ -89,7 +98,7 @@ class AdminPermissionsTableSeeder extends Seeder
                 'pid'=>1
             ],
             [
-                'id'=>9,
+                'id'=>10,
                 'name'=>'role.create',
                 'display_name'=>'创建角色',
                 'icon' => '',
@@ -98,7 +107,7 @@ class AdminPermissionsTableSeeder extends Seeder
                 'pid'=>1
             ],
             [
-                'id'=>10,
+                'id'=>11,
                 'name'=>'role.store',
                 'display_name'=>'保存角色',
                 'icon' => '',
@@ -107,7 +116,7 @@ class AdminPermissionsTableSeeder extends Seeder
                 'pid'=>1
             ],
             [
-                'id'=>11,
+                'id'=>12,
                 'name'=>'role.show',
                 'display_name'=>'显示角色信息',
                 'icon' => '',
@@ -116,7 +125,7 @@ class AdminPermissionsTableSeeder extends Seeder
                 'pid'=>1
             ],
             [
-                'id'=>12,
+                'id'=>13,
                 'name'=>'role.edit',
                 'display_name'=>'编辑角色',
                 'icon' => '',
@@ -125,7 +134,7 @@ class AdminPermissionsTableSeeder extends Seeder
                 'pid'=>1
             ],
             [
-                'id'=>13,
+                'id'=>14,
                 'name'=>'role.update',
                 'display_name'=>'保存角色信息',
                 'icon' => '',
@@ -134,7 +143,7 @@ class AdminPermissionsTableSeeder extends Seeder
                 'pid'=>1
             ],
             [
-                'id'=>14,
+                'id'=>15,
                 'name'=>'role.destroy',
                 'display_name'=>'删除角色',
                 'icon' => '',
@@ -143,7 +152,7 @@ class AdminPermissionsTableSeeder extends Seeder
                 'pid'=>1
             ],
             [
-                'id'=>15,
+                'id'=>16,
                 'name'=>'permission.index',
                 'display_name'=>'权限管理',
                 'icon' => '',
@@ -152,7 +161,7 @@ class AdminPermissionsTableSeeder extends Seeder
                 'pid'=>1
             ],
             [
-                'id'=>16,
+                'id'=>17,
                 'name'=>'permission.create',
                 'display_name'=>'创建权限',
                 'icon' => '',
@@ -161,7 +170,7 @@ class AdminPermissionsTableSeeder extends Seeder
                 'pid'=>1
             ],
             [
-                'id'=>17,
+                'id'=>18,
                 'name'=>'permission.store',
                 'display_name'=>'保存权限',
                 'icon' => '',
@@ -170,7 +179,7 @@ class AdminPermissionsTableSeeder extends Seeder
                 'pid'=>1
             ],
             [
-                'id'=>18,
+                'id'=>19,
                 'name'=>'permission.show',
                 'display_name'=>'显示权限信息',
                 'icon' => '',
@@ -179,7 +188,7 @@ class AdminPermissionsTableSeeder extends Seeder
                 'pid'=>1
             ],
             [
-                'id'=>19,
+                'id'=>20,
                 'name'=>'permission.edit',
                 'display_name'=>'编辑权限',
                 'icon' => '',
@@ -188,7 +197,7 @@ class AdminPermissionsTableSeeder extends Seeder
                 'pid'=>1
             ],
             [
-                'id'=>20,
+                'id'=>21,
                 'name'=>'permission.update',
                 'display_name'=>'保存权限信息',
                 'icon' => '',
@@ -197,7 +206,7 @@ class AdminPermissionsTableSeeder extends Seeder
                 'pid'=>1
             ],
             [
-                'id'=>21,
+                'id'=>22,
                 'name'=>'permission.destroy',
                 'display_name'=>'删除权限',
                 'icon' => '',
@@ -206,21 +215,12 @@ class AdminPermissionsTableSeeder extends Seeder
                 'pid'=>1
             ],
             [
-                'id'=>22,
+                'id'=>23,
                 'name'=>'permission.child',
                 'display_name'=>'子权限列表',
                 'icon' => '',
                 'is_menu' => '0',
                 'group_name'=>'permission',
-                'pid'=>1
-            ],
-            [
-                'id'=>23,
-                'name'=>'admin.profile',
-                'display_name'=>'账户管理',
-                'icon' => '',
-                'is_menu' => '0',
-                'group_name'=>'admin.profile',
                 'pid'=>1
             ],
             [

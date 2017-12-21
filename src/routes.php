@@ -16,7 +16,7 @@ Route::group([
     });
 
     // 账号管理
-    Route::get('profile','AdminController@profileForm')->name('admin.profile');
+    Route::get('profile','AdminController@profile')->name('admin.profile');
     Route::post('profile','AdminController@profileUpdate')->name('admin.profile');
     Route::resource('admin','AdminController');
 

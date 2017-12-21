@@ -75,17 +75,22 @@ class AdminController extends Controller
 
     }
 
-    public function profileForm()
+    public function profile()
     {
-        return view('admin::user.profile');
+        return admin_view('user.profile');
     }
 
-    public function profileUpdate(ProfileUpdateRequest $request)
+    public function resetPassword()
+    {
+        return admin_view('user.reset');
+    }
+
+    public function resetUpdate(ProfileUpdateRequest $request)
     {
 
-        if($this->admin->updateProfile($request)) {
-            return redirect()->back()->with('status', '修改账户信息成功');
+        if($this->admin->resetPassword($request)) {
+            return redirect()->back()->with('message', '修改账户信息成功');
         }
-        return redirect()->back()->withErrors( '修改账户信息失败，原密码错误');
+        return redirect()->back()->with('message', '修改账户信息失败，原密码错误');
     }
 }
