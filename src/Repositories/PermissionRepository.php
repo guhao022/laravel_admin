@@ -40,9 +40,9 @@ class PermissionRepository
     {
         $permission = AdminPermissions::find($id);
 
-        $parents = ['顶级分类']+AdminPermissions::where('pid','0')->where('id','<>',$id)->pluck('display_name','id')->toArray();
+        $top_permission = AdminPermissions::where("pid", "0")->get();
 
-        return ['permission'=>$permission,'father'=>$parents];
+        return ['permission'=>$permission,'top_menu'=>$top_permission];
     }
 
     public function updatePermissionInfo($request,$id)
@@ -53,6 +53,10 @@ class PermissionRepository
         $permission->display_name = $request->display_name;
 
         $permission->group_name = $request->group_name;
+
+        $permission->icon = $request->icon;
+
+        $permission->is_menu = $request->is_menu;
 
         $permission->pid = $request->pid;
 

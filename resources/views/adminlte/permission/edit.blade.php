@@ -15,7 +15,7 @@
     <div class="row col-md-12">
         <div class="box box-success">
             <div class="box-header with-border">
-                <h3 class="box-title"> 新增权限</h3>
+                <h3 class="box-title"> 修改权限</h3>
                 <div class="box-tools">
                     <div class="btn-group">
                         <a class="btn btn-sm btn-default history-back">
@@ -31,14 +31,14 @@
                 </div>
             </div>
 
-            <form class="form-horizontal" method="POST" action="{{ route('permission.store') }}">
+            <form class="form-horizontal" method="POST" action="{{ route('permission.update', $permission->id) }}">
                 {{ csrf_field() }}
                 <div class="box-body">
                     <div class="form-group">
                         <label for="name" class="col-sm-2 control-label">权限标识</label>
 
                         <div class="col-sm-8">
-                            <input type="name" name="name" class="form-control" id="name" value="{{ old('name') }}" placeholder="输入权限名称">
+                            <input type="name" name="name" class="form-control" id="name" value="{{ $permission->name }}" placeholder="输入权限名称">
                             @if ($errors->has('name'))
                                 <span class="help-block text-red">
                                     <p><i class="fa fa-info-circle"></i> {{ $errors->first('name') }}</p>
@@ -52,7 +52,7 @@
                         <label for="display_name" class="col-sm-2 control-label">显示名称</label>
 
                         <div class="col-sm-8">
-                            <input type="display_name" name="display_name" class="form-control" id="display_name" value="{{ old('display_name') }}" placeholder="输入权限显示名称">
+                            <input type="display_name" name="display_name" class="form-control" id="display_name" value="{{ $permission->display_name }}" placeholder="输入权限显示名称">
                             @if ($errors->has('display_name'))
                                 <span class="help-block text-red">
                                     <p><i class="fa fa-info-circle"></i> {{ $errors->first('display_name') }}</p>
@@ -69,7 +69,7 @@
 
                             <div class="input-group">
                                 <span class="input-group-addon"></span>
-                                <input data-placement="bottomLeft" name="icon" class="form-control icp icp-auto" type="text" value="@if(empty(old('icon'))) fa-arrow-right @else {{ old('icon') }} @endif" placeholder="输入显示图标" />
+                                <input data-placement="bottomLeft" name="icon" class="form-control icp icp-auto" type="text" value="{{ $permission->icon }} " placeholder="输入显示图标" />
 
                             </div>
 
@@ -88,7 +88,7 @@
                         <label for="group_name" class="col-sm-2 control-label">分组</label>
 
                         <div class="col-sm-8">
-                            <input type="group_name" name="group_name" class="form-control" id="group_name" value="{{ old('group_name') }}" placeholder="输入权限分组名称">
+                            <input type="group_name" name="group_name" class="form-control" id="group_name" value="{{ $permission->group_name }}" placeholder="输入权限分组名称">
                             @if ($errors->has('group_name'))
                                 <span class="help-block text-red">
                                     <p><i class="fa fa-info-circle"></i> {{ $errors->first('group_name') }}</p>
@@ -97,27 +97,12 @@
                         </div>
 
                     </div>
-
-                    <div class="form-group">
-                        <label for="group_name" class="col-sm-2 control-label">分组</label>
-
-                        <div class="col-sm-8">
-                            <input type="group_name" name="group_name" class="form-control" id="group_name" value="{{ old('group_name') }}" placeholder="输入权限分组名称">
-                            @if ($errors->has('group_name'))
-                                <span class="help-block text-red">
-                                    <p><i class="fa fa-info-circle"></i> {{ $errors->first('group_name') }}</p>
-                                </span>
-                            @endif
-                        </div>
-
-                    </div>
-
 
                     <div class="form-group">
                         <label for="description" class="col-sm-2 control-label">简介</label>
 
                         <div class="col-sm-8">
-                            <textarea name="description" class="form-control" id="description" placeholder="输入权限简介">{{ old('description') }}</textarea>
+                            <textarea name="description" class="form-control" id="description" placeholder="输入权限简介">{{ $permission->description }}</textarea>
 
                             @if ($errors->has('description'))
                                 <span class="help-block text-red">
@@ -133,14 +118,15 @@
 
                         <div class="col-sm-8">
                             <label class="control-label">
-                                <input type="radio" name="is_menu" class="minimal-red" value="1">&nbsp;注册
+                                <input type="radio" name="is_menu" class="minimal-red" @if($permission->is_menu == 1) checked @endif value="1">&nbsp;注册
                             </label>
                             &nbsp;&nbsp;
                             <label class="control-label">
-                                <input type="radio" name="is_menu" class="minimal-red" value="0" checked> 不注册
+                                <input type="radio" name="is_menu" class="minimal-red" @if($permission->is_menu == 0) checked @endif  value="0"> 不注册
                             </label>
 
                         </div>
+                        {{ method_field('PUT') }}
 
                     </div>
 
@@ -151,10 +137,11 @@
 
                                 <option value="0" class="text-aqua">顶级权限</option>
                                 @foreach($top_menu as $tm)
-
-                                    <option value="{{ $tm->id }}" @if(old('pid') == $tm->id) selected @endif >
+                                    @if($tm->id != $permission->id)
+                                    <option value="{{ $tm->id }}" @if($permission->pid == $tm->id) selected @endif >
                                         |-- {{ $tm->display_name }}
                                     </option>
+                                    @endif
                                 @endforeach
                             </select>
 

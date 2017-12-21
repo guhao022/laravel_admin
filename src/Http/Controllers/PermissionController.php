@@ -52,7 +52,7 @@ class PermissionController extends Controller
     {
         $return_array = $this->permission->getPermissionInfo($id);
 
-        return view('admin.permission.edit',$return_array);
+        return admin_view('permission.edit',$return_array);
     }
 
     public function update(Update $request, $id)
