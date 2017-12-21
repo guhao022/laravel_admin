@@ -9,16 +9,17 @@
 
                 <div class="pull-right">
                     <div class="form-inline pull-right">
-                        <form action="" method="get">
+                        {{--<form action="" method="get">
                             <fieldset>
-                                <div class="input-group input-group-sm">
-                                    <span class="input-group-addon alert-info"><strong>ID</strong></span>
-                                    <input type="text" class="form-control" placeholder="Id" name="id" value="">
-                                </div>
                                 <div class="input-group input-group-sm">
                                     <span class="input-group-addon alert-info"><strong>Email</strong></span>
                                     <input type="text" class="form-control" placeholder="邮箱" name="email" value="">
                                 </div>
+                                <div class="input-group input-group-sm">
+                                    <span class="input-group-addon alert-info"><strong>名称</strong></span>
+                                    <input type="text" class="form-control" placeholder="名称" name="name" value="">
+                                </div>
+
                                 <div class="input-group input-group-sm">
                                     <span class="input-group-addon alert-info"><strong>名称</strong></span>
                                     <input type="text" class="form-control" placeholder="名称" name="name" value="">
@@ -30,7 +31,7 @@
                                 </div>
 
                             </fieldset>
-                        </form>
+                        </form>--}}
                     </div>
 
                 </div>
@@ -41,28 +42,22 @@
                     </a>
                 </div>
             </div>
-            <div class="box-body table-responsive no-padding">
-                <table class="table table-hover">
-                    <tbody>
+            <div class="box-body table-responsive ">
+                <table class="table table-hover dataTable" data-nosort="1,6">
+                    <thead>
                     <tr>
-                        {{--<th width="3%">
-                            <input type="checkbox" class="minimal-red grid-select-all">
-                        </th>--}}
-                        <th>ID</th>
-                        <th>Email</th>
-                        <th>名称</th>
-                        <th>角色</th>
-                        <th>最后登录</th>
-                        <th>管理</th>
+                        <th width="5%">ID</th>
+                        <th width="15%">Email</th>
+                        <th width="15%">名称</th>
+                        <th width="">角色</th>
+                        <th  width="15%">最后登录</th>
+                        <th  width="8%">管理</th>
                     </tr>
+                    </thead>
+                    <tbody>
 
                     @foreach($admins as $admin)
                     <tr id="tr_{{$admin->id}}">
-                        {{--<td>
-                            @if($admin->id != '1')
-                            <input type="checkbox" class="minimal grid-row-checkbox" data-id="{{ $admin->id }}" />
-                            @endif
-                        </td>--}}
                         <td>{{$admin->id}}</td>
                         <td>{{$admin->email}}</td>
                         <td>{{$admin->name}}</td>
@@ -85,16 +80,36 @@
                         </td>
                     </tr>
                     @endforeach
+                    </tbody>
                 </table>
             </div>
-
-            <div class="pull-right">{{ $admins->links() }}</div>
         </div>
     </div>
 @stop
 @section('scripts')
 
     <script type="text/javascript">
+
+        $('.dataTable').dataTable( {
+
+            "oLanguage": {
+                "sLengthMenu": "每页显示 _MENU_ 条记录",
+                "sInfo": "显示第 _START_ 至 _END_ 项结果，共 _TOTAL_ 项",
+                "sInfoEmpty": "没有数据",
+                "sSearch": "搜索:",
+                "sInfoFiltered": "(从 _MAX_ 条数据中检索)",
+                "sLoadingRecords": "载入中...",
+                "oPaginate": {
+                    "sFirst": "首页",
+                    "sPrevious": "前一页",
+                    "sNext": "后一页",
+                    "sLast": "尾页"
+                },
+                "sZeroRecords": "没有检索到数据",
+            },
+            "aLengthMenu": [[20, 50, 100, -1], [20, 50, 100, "所有"]],
+            "aoColumnDefs": [ { "bSortable": false, "aTargets": [ 5 ] }]
+        } );
 
         $('.grid-row-delete').unbind('click').click(function() {
             var id=$(this).data('id');

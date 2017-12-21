@@ -46,8 +46,8 @@
                     <tbody>
                     <tr>
                         <th>ID</th>
-                        <th>标识</th>
                         <th>名称</th>
+                        <th>标识</th>
                         <th>简介</th>
                         <th>类别</th>
                         <th>创建时间</th>
@@ -58,8 +58,8 @@
                     @foreach($permissions as $permission)
                         <tr id="tr_{{$permission->id}}">
                             <td>{{$permission->id}}</td>
-                            <td>{{$permission->name}}</td>
                             <td>{{$permission->display_name}}</td>
+                            <td>{{$permission->name}}</td>
                             <td>{{$permission->description}}</td>
                             <td>{{$permission->parentName($permission->pid)}}</td>
                             <td>

@@ -98,20 +98,6 @@
 
                     </div>
 
-                    <div class="form-group">
-                        <label for="group_name" class="col-sm-2 control-label">分组</label>
-
-                        <div class="col-sm-8">
-                            <input type="group_name" name="group_name" class="form-control" id="group_name" value="{{ old('group_name') }}" placeholder="输入权限分组名称">
-                            @if ($errors->has('group_name'))
-                                <span class="help-block text-red">
-                                    <p><i class="fa fa-info-circle"></i> {{ $errors->first('group_name') }}</p>
-                                </span>
-                            @endif
-                        </div>
-
-                    </div>
-
 
                     <div class="form-group">
                         <label for="description" class="col-sm-2 control-label">简介</label>

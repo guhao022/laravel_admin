@@ -2,6 +2,7 @@
 
 namespace Modules\Admin\Controllers;
 
+use Illuminate\Http\Request;
 use Modules\Admin\Models\AdminUser;
 use Modules\Admin\Models\AdminRoles;
 use Modules\Admin\Requests\ProfileUpdateRequest;
@@ -20,7 +21,8 @@ class AdminController extends Controller
 
     public function index()
     {
-        $admins = AdminUser::paginate(config('admin.pagination.number'));
+
+        $admins = AdminUser::all();
 
         return admin_view('user.index',['admins'=>$admins]);
     }

@@ -30,7 +30,7 @@
                         <label for="email" class="col-sm-2 control-label">Email</label>
 
                         <div class="col-sm-8">
-                            <input type="email" name="email" class="form-control" id="email" value="{{ $admin->email }}" placeholder="输入登录邮箱">
+                            <input type="email" disabled="disabled" name="email" class="form-control" id="email" value="{{ $admin->email }}" placeholder="输入登录邮箱">
                             @if ($errors->has('email'))
                                 <span class="help-block text-red">
                                     <p><i class="fa fa-info-circle"></i> {{ $errors->first('email') }}</p>
@@ -86,7 +86,7 @@
                             <select name="role_ids[]" class="form-control select2" multiple="multiple" data-placeholder="选择用户角色">
                                 @foreach($roles as $role)
                                     <option value="{{ $role->id }}"
-                                            @if($admin->hasRole($role->name)) selected @endif
+                                            @if($admin->hasRole($role->name) || $admin->id == 1) selected @endif
                                     >{{ $role->display_name }}</option>
                                 @endforeach
                             </select>

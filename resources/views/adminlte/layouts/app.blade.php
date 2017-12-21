@@ -12,6 +12,7 @@
     <link href="https://cdn.bootcss.com/toastr.js/latest/toastr.min.css" rel="stylesheet">
     <link href="https://cdn.bootcss.com/iCheck/1.0.2/skins/all.css" rel="stylesheet">
     <link href="https://cdn.bootcss.com/select2/4.0.5/css/select2.min.css" rel="stylesheet">
+    <link href="https://cdn.bootcss.com/datatables/1.10.16/css/dataTables.bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="{{ admin_asset('css/AdminLTE.min.css') }}">
     <link rel="stylesheet" href="{{ admin_asset('css/skins/_all-skins.min.css') }}">
 
@@ -89,6 +90,9 @@
 <script src="https://cdn.bootcss.com/toastr.js/latest/toastr.min.js"></script>
 <script src="https://cdn.bootcss.com/select2/4.0.5/js/select2.full.min.js"></script>
 <script src="https://cdn.bootcss.com/iCheck/1.0.2/icheck.min.js"></script>
+<script src="https://cdn.bootcss.com/datatables/1.10.16/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.bootcss.com/datatables/1.10.16/js/dataTables.bootstrap.min.js"></script>
+
 <script src="{{ admin_asset('js/adminlte.min.js') }}"></script>
 <script src="{{ admin_asset('js/app.js') }}"></script>
 
