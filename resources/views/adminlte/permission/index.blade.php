@@ -27,7 +27,7 @@
 
                 </div>--}}
 
-                @if($has_child)
+                @if(!$has_child)
                 <div class="btn-group pull-right">
                     <a class="btn btn-sm btn-default history-back">
                         <i class="fa fa-arrow-left"></i>&nbsp;返回
