@@ -3,6 +3,7 @@
 namespace Modules\Admin\Controllers;
 
 use Illuminate\Http\Request;
+use Modules\Admin\Facades\Avatar;
 use Modules\Admin\Models\AdminUser;
 use Modules\Admin\Models\AdminRoles;
 use Modules\Admin\Requests\ProfileUpdateRequest;
@@ -36,6 +37,7 @@ class AdminController extends Controller
 
     public function store(Create $request)
     {
+
         $this->admin->createAdminAndSaveRole($request);
 
         return redirect(route('admin.index'));
