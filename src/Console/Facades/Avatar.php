@@ -14,6 +14,6 @@ class Avatar extends Facade
 {
     protected static function getFacadeAccessor()
     {
-        return \Modules\Admin\Handle\AvatarGenerator::class;
+        return "avatar";
     }
 }

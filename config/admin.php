@@ -37,4 +37,17 @@ return [
         ],
     ],
 
+    'avatar' => [
+        // 生成图片大小
+        'size' => 256,
+
+        // 生成字符串的数量
+        'chars'    => 2,
+
+        // 字母字体
+        'letter_font' => public_path("packages/admin/fonts/SourceHanSansCN-Normal.ttf"),
+
+        // 亚洲字体
+        'asian_font' =>public_path("packages/admin/fonts/SourceHanSansCN-Normal.ttf")
+    ],
 ];

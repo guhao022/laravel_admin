@@ -8,9 +8,11 @@
 
 namespace Modules\Admin;
 
+use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\View;
 use Illuminate\Support\ServiceProvider;
 use Modules\Admin\Commands\AdminCommand;
+use Modules\Admin\Handle\AvatarGenerator;
 
 class AdminServiceProvider extends ServiceProvider
 {
@@ -90,7 +92,19 @@ class AdminServiceProvider extends ServiceProvider
     {
         $this->loadAdminAuthConfig();
 
+        $this->registerAvatar();
+
         $this->registerRouteMiddleware();
+    }
+
+    protected function registerAvatar() {
+        $this->app->bind('avatar', function (Application $app) {
+            $config = $app->make('config');
+
+            $avatar = new AvatarGenerator($config->get('admin.avatar'));
+
+            return $avatar;
+        });
     }
 
     protected function loadAdminAuthConfig()

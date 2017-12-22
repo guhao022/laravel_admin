@@ -11,8 +11,7 @@ namespace Modules\Admin\Handle;
 
 class AvatarGenerator
 {
-
-    protected $char;
+    protected $chars;
     protected $size;
     protected $padding;
     protected $avatar;
@@ -21,14 +20,26 @@ class AvatarGenerator
     protected $letterFont;
     protected $asianFont;
     protected $enableAsianChar;
-    function __construct($char, $size = 256)
+    function __construct($config = [])
     {
-        $this->char            = mb_strtoupper(mb_substr($char, 0, 1, "UTF-8"));
-        $this->size      = $size;
-        $this->padding         = 30 * ($this->size / 256);
-        $this->letterFont      = public_path('packages/admin/fonts/SourceCodePro-Light.ttf');
-        $this->asianFont       = public_path('packages/admin/fonts/SourceHanSansCN-Normal.ttf');
+        $default = [
+            'size' => 256,
+            'chars' => 1,
+            'letter_font' => public_path("packages/admin/fonts/SourceHanSansCN-Normal.ttf"),
+            'asian_font' =>public_path("packages/admin/fonts/SourceHanSansCN-Normal.ttf"),
+        ];
+
+        $config += $default;
+
+        $this->padding         = 30 * ($config["size"] / 256);
+        $this->letterFont      = $config["letter_font"];
+        $this->asianFont       = $config["asian_font"];
         $this->enableAsianChar = is_file($this->asianFont);
+    }
+
+    public function create($name) {
+        $this->char = mb_strtoupper(mb_substr($name, 0, $this->chars, "UTF-8"));
+
         $CNChar = ord($this->char);
         if (!$this->enableAsianChar &&
             preg_match("/^[\x7f-\xff]/", $this->char) &&
@@ -68,11 +79,11 @@ class AvatarGenerator
             $this->isNotLetter = true;
             $this->fontFile    = $this->asianFont;
         }
-        $this->initialize();
+        $this->buildInitialize();
     }
-    private function initialize()
+
+    private function buildInitialize()
     {
-        //extension_loaded('gd')
         $width        = $this->size;//Width of avatar
         $height       = $this->size;//Height of avatar
         $padding      = $this->padding;
