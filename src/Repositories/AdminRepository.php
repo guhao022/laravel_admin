@@ -1,6 +1,7 @@
 <?php
 namespace Modules\Admin\Repositories;
 
+use Modules\Admin\Facades\Avatar;
 use Modules\Admin\Models\AdminUser;
 use Modules\Admin\Models\AdminRoles;
 use Modules\Admin\Notifications\PermissionNotification;
@@ -18,7 +19,14 @@ class AdminRepository
 
         $admin->password = bcrypt($request->password);
 
+        $admin->avatar = "";
+
         // 生成头像
+        $avatar = config("admin.upload") . "/avatar/" . str_random(22) . ".png";
+
+        if (Avatar::create($admin->name)->save($avatar)) {
+            $admin->avatar = $avatar;
+        }
 
         $admin->save();
 

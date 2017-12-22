@@ -48,6 +48,7 @@ return [
         'letter_font' => public_path("packages/admin/fonts/SourceHanSansCN-Normal.ttf"),
 
         // 亚洲字体
-        'asian_font' =>public_path("packages/admin/fonts/SourceHanSansCN-Normal.ttf")
+        'asian_font' => public_path("packages/admin/fonts/SourceHanSansCN-Normal.ttf"),
+
     ],
 ];
