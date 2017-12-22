@@ -13,81 +13,81 @@ class AvatarGenerator
 {
 
     protected $char;
-    public $AvatarSize;
-    public $Padding;
-    public $Avatar;
-    public $FontFile;
-    public $IsNotLetter;
-    public $LetterFont;
-    public $AsianFont;
-    public $EnableAsianChar;
-    function __construct($char, $AvatarSize = 256)
+    protected $size;
+    protected $padding;
+    protected $avatar;
+    protected $fontFile;
+    protected $isNotLetter;
+    protected $letterFont;
+    protected $asianFont;
+    protected $enableAsianChar;
+    function __construct($char, $size = 256)
     {
         $this->char            = mb_strtoupper(mb_substr($char, 0, 1, "UTF-8"));
-        $this->AvatarSize      = $AvatarSize;
-        $this->Padding         = 30 * ($this->AvatarSize / 256);
-        $this->LetterFont      = public_path('packages/admin/fonts/SourceCodePro-Light.ttf');
-        $this->AsianFont       = public_path('packages/admin/fonts/SourceHanSansCN-Normal.ttf');
-        $this->EnableAsianChar = is_file($this->AsianFont);
-        $CNChar = ord($this->Char);
-        if (!$this->EnableAsianChar &&
-            preg_match("/^[\x7f-\xff]/", $this->Char) &&
+        $this->size      = $size;
+        $this->padding         = 30 * ($this->size / 256);
+        $this->letterFont      = public_path('packages/admin/fonts/SourceCodePro-Light.ttf');
+        $this->asianFont       = public_path('packages/admin/fonts/SourceHanSansCN-Normal.ttf');
+        $this->enableAsianChar = is_file($this->asianFont);
+        $CNChar = ord($this->char);
+        if (!$this->enableAsianChar &&
+            preg_match("/^[\x7f-\xff]/", $this->char) &&
             !($CNChar >= ord("A") && $CNChar <= ord("z"))
         ) {
             //如果是中文，并且没有中文字体包，则按拼音首字母对其进行转换
-            $CNByte = iconv("UTF-8", "gb2312", $this->Char);
-            $Code   = ord($CNByte{0}) * 256 + ord($CNByte{1}) - 65536;//求其偏移量
-            if ($Code >= -20319 and $Code <= -20284) $this->Char = "A";
-            if ($Code >= -20283 and $Code <= -19776) $this->Char = "B";
-            if ($Code >= -19775 and $Code <= -19219) $this->Char = "C";
-            if ($Code >= -19218 and $Code <= -18711) $this->Char = "D";
-            if ($Code >= -18710 and $Code <= -18527) $this->Char = "E";
-            if ($Code >= -18526 and $Code <= -18240) $this->Char = "F";
-            if ($Code >= -18239 and $Code <= -17923) $this->Char = "G";
-            if ($Code >= -17922 and $Code <= -17418) $this->Char = "H";
-            if ($Code >= -17417 and $Code <= -16475) $this->Char = "J";
-            if ($Code >= -16474 and $Code <= -16213) $this->Char = "K";
-            if ($Code >= -16212 and $Code <= -15641) $this->Char = "L";
-            if ($Code >= -15640 and $Code <= -15166) $this->Char = "M";
-            if ($Code >= -15165 and $Code <= -14923) $this->Char = "N";
-            if ($Code >= -14922 and $Code <= -14915) $this->Char = "O";
-            if ($Code >= -14914 and $Code <= -14631) $this->Char = "P";
-            if ($Code >= -14630 and $Code <= -14150) $this->Char = "Q";
-            if ($Code >= -14149 and $Code <= -14091) $this->Char = "R";
-            if ($Code >= -14090 and $Code <= -13319) $this->Char = "S";
-            if ($Code >= -13318 and $Code <= -12839) $this->Char = "T";
-            if ($Code >= -12838 and $Code <= -12557) $this->Char = "W";
-            if ($Code >= -12556 and $Code <= -11848) $this->Char = "X";
-            if ($Code >= -11847 and $Code <= -11056) $this->Char = "Y";
-            if ($Code >= -11055 and $Code <= -10247) $this->Char = "Z";
+            $CNByte = iconv("UTF-8", "gb2312", $this->char);
+            $code   = ord($CNByte{0}) * 256 + ord($CNByte{1}) - 65536;//求其偏移量
+            if ($code >= -20319 and $code <= -20284) $this->char = "A";
+            if ($code >= -20283 and $code <= -19776) $this->char = "B";
+            if ($code >= -19775 and $code <= -19219) $this->char = "C";
+            if ($code >= -19218 and $code <= -18711) $this->char = "D";
+            if ($code >= -18710 and $code <= -18527) $this->char = "E";
+            if ($code >= -18526 and $code <= -18240) $this->char = "F";
+            if ($code >= -18239 and $code <= -17923) $this->char = "G";
+            if ($code >= -17922 and $code <= -17418) $this->char = "H";
+            if ($code >= -17417 and $code <= -16475) $this->char = "J";
+            if ($code >= -16474 and $code <= -16213) $this->char = "K";
+            if ($code >= -16212 and $code <= -15641) $this->char = "L";
+            if ($code >= -15640 and $code <= -15166) $this->char = "M";
+            if ($code >= -15165 and $code <= -14923) $this->char = "N";
+            if ($code >= -14922 and $code <= -14915) $this->char = "O";
+            if ($code >= -14914 and $code <= -14631) $this->char = "P";
+            if ($code >= -14630 and $code <= -14150) $this->char = "Q";
+            if ($code >= -14149 and $code <= -14091) $this->char = "R";
+            if ($code >= -14090 and $code <= -13319) $this->char = "S";
+            if ($code >= -13318 and $code <= -12839) $this->char = "T";
+            if ($code >= -12838 and $code <= -12557) $this->char = "W";
+            if ($code >= -12556 and $code <= -11848) $this->char = "X";
+            if ($code >= -11847 and $code <= -11056) $this->char = "Y";
+            if ($code >= -11055 and $code <= -10247) $this->char = "Z";
         }
-        if (in_array($this->Char, str_split('QWERTYUIOPASDFGHJKLZXCVBNM0123456789', 1))) {
-            $this->IsNotLetter = false;
-            $this->FontFile    = $this->LetterFont;
+        if (in_array($this->char, str_split('QWERTYUIOPASDFGHJKLZXCVBNM0123456789', 1))) {
+            $this->isNotLetter = false;
+            $this->fontFile    = $this->letterFont;
         } else {
-            $this->IsNotLetter = true;
-            $this->FontFile    = $this->AsianFont;
+            $this->isNotLetter = true;
+            $this->fontFile    = $this->asianFont;
         }
-        $this->Initialize();
+        $this->initialize();
     }
-    private function Initialize()
+    private function initialize()
     {
         //extension_loaded('gd')
-        $Width        = $this->AvatarSize;//Width of avatar
-        $Height       = $this->AvatarSize;//Height of avatar
-        $Padding      = $this->Padding;
-        $this->Avatar = imagecreatetruecolor($Width, $Height);
+        $width        = $this->size;//Width of avatar
+        $height       = $this->size;//Height of avatar
+        $padding      = $this->padding;
+        $this->avatar = imagecreatetruecolor($width, $height);
         //全透明背景
-        imageSaveAlpha($this->Avatar, true);
-        $BackgroundAlpha = imagecolorallocatealpha($this->Avatar, 255, 255, 255, 127);
-        imagefill($this->Avatar, 0, 0, $BackgroundAlpha);
+        imageSaveAlpha($this->avatar, true);
+        $backgroundAlpha = imagecolorallocatealpha($this->avatar, 255, 255, 255, 127);
+        imagefill($this->avatar, 0, 0, $backgroundAlpha);
         //抗锯齿
         if (function_exists('imageantialias')) {
-            imageantialias($this->Avatar, true);
+            imageantialias($this->avatar, true);
         }
         //Material Design参考颜色
         //http://www.google.com/design/spec/style/color.html#color-color-palette
-        $MaterialDesignColor  = array(
+        $materialDesignColor  = array(
             array(255, 235, 238),
             array(255, 205, 210),
             array(239, 154, 154),
@@ -345,110 +345,110 @@ class AvatarGenerator
             array(55, 71, 79),
             array(38, 50, 56)
         );
-        $BackgroundColorIndex = mt_rand(0, count($MaterialDesignColor) - 1);
-        $BackgroundColor      = imagecolorallocate($this->Avatar,
-            $MaterialDesignColor[$BackgroundColorIndex][0],
-            $MaterialDesignColor[$BackgroundColorIndex][1],
-            $MaterialDesignColor[$BackgroundColorIndex][2]
+        $backgroundColorIndex = mt_rand(0, count($materialDesignColor) - 1);
+        $backgroundColor      = imagecolorallocate($this->avatar,
+            $materialDesignColor[$backgroundColorIndex][0],
+            $materialDesignColor[$backgroundColorIndex][1],
+            $materialDesignColor[$backgroundColorIndex][2]
         );
         //画一个居中圆形
-        imagefilledellipse($this->Avatar,
-            $Width / 2,
-            $Height / 2,
-            $Width,
-            $Height,
-            $BackgroundColor
+        imagefilledellipse($this->avatar,
+            $width / 2,
+            $height / 2,
+            $width,
+            $height,
+            $backgroundColor
         );
         //字体
-        $FontColor = imagecolorallocate($this->Avatar, 255, 255, 255);
-        if ($this->IsNotLetter) {
+        $fontColor = imagecolorallocate($this->avatar, 255, 255, 255);
+        if ($this->isNotLetter) {
             //中文字符偏移
-            $FontSize = $Width - $Padding * 3.5;
-            $X        = $Padding + (-2 / 166) * $FontSize;
-            $Y        = $Height - $Padding - (23.5 / 166) * $FontSize;
+            $fontSize = $width - $padding * 3.5;
+            $x        = $padding + (-2 / 166) * $fontSize;
+            $y        = $height - $padding - (23.5 / 166) * $fontSize;
         } else {
-            $FontSize = $Width - $Padding * 2;
-            $X        = $Padding + (20 / 196) * $FontSize;
-            $Y        = $Height - $Padding - (13 / 196) * $FontSize;
+            $fontSize = $width - $padding * 2;
+            $x        = $padding + (20 / 196) * $fontSize;
+            $y        = $height - $padding - (13 / 196) * $fontSize;
         }
         // 在圆正中央填入字符
-        imagettftext($this->Avatar,
-            $FontSize,
+        imagettftext($this->avatar,
+            $fontSize,
             0,
-            $X,
-            $Y,
-            $FontColor,
-            $this->FontFile,
-            $this->Char
+            $x,
+            $y,
+            $fontColor,
+            $this->fontFile,
+            $this->char
         );
     }
-    private function Resize($TargetSize)
+    private function resize($targetSize)
     {
-        if (isset($this->Avatar)) {
-            if ($this->AvatarSize > $TargetSize) {
-                $Percent         = $TargetSize / $this->AvatarSize;
-                $TargetWidth     = round($this->AvatarSize * $Percent);
-                $TargetHeight    = round($this->AvatarSize * $Percent);
-                $TargetImageData = imagecreatetruecolor($TargetWidth, $TargetHeight);
+        if (isset($this->avatar)) {
+            if ($this->size > $targetSize) {
+                $percent         = $targetSize / $this->size;
+                $targetWidth     = round($this->size * $percent);
+                $targetHeight    = round($this->size * $percent);
+                $targetImageData = imagecreatetruecolor($targetWidth, $targetHeight);
                 //全透明背景
-                imageSaveAlpha($TargetImageData, true);
-                $BackgroundAlpha = imagecolorallocatealpha($TargetImageData, 255, 255, 255, 127);
-                imagefill($TargetImageData, 0, 0, $BackgroundAlpha);
-                imagecopyresampled($TargetImageData, $this->Avatar, 0, 0, 0, 0, $TargetWidth, $TargetHeight, $this->AvatarSize, $this->AvatarSize);
-                return $TargetImageData;
+                imageSaveAlpha($targetImageData, true);
+                $backgroundAlpha = imagecolorallocatealpha($targetImageData, 255, 255, 255, 127);
+                imagefill($targetImageData, 0, 0, $backgroundAlpha);
+                imagecopyresampled($targetImageData, $this->avatar, 0, 0, 0, 0, $targetWidth, $targetHeight, $this->size, $this->size);
+                return $targetImageData;
             } else {
-                return $this->Avatar;
+                return $this->avatar;
             }
         } else {
             return false;
         }
     }
-    public function Free()
+    public function free()
     {
-        imagedestroy($this->Avatar);
+        imagedestroy($this->avatar);
     }
-    public function Output2Browser($AvatarSize = 0)
+    public function toBrowser($size = 0)
     {
-        if (!$AvatarSize) {
-            $AvatarSize = $this->AvatarSize;
+        if (!$size) {
+            $size = $this->size;
         }
         header('Content-Type: image/png');
-        return imagepng($this->Resize($AvatarSize));
+        return imagepng($this->resize($size));
     }
     /**
      * Get image resource identifier
-     * @param int $AvatarSize
+     * @param int $size
      * @return resource
      */
-    public function Output2ImageResource($AvatarSize = 0)
+    public function toImageResource($size = 0)
     {
-        if (!$AvatarSize) {
-            $AvatarSize = $this->AvatarSize;
+        if (!$size) {
+            $size = $this->size;
         }
-        return $this->Resize($AvatarSize);
+        return $this->resize($size);
     }
     /**
      * Output Base64 encoded image data
-     * @param int $AvatarSize
+     * @param int $size
      * @return string
      */
-    public function Output2Base64($AvatarSize = 0)
+    public function toBase64($size = 0)
     {
-        if (!$AvatarSize) {
-            $AvatarSize = $this->AvatarSize;
+        if (!$size) {
+            $size = $this->size;
         }
         ob_start();
-        imagepng($this->Resize($AvatarSize));
+        imagepng($this->resize($size));
         $content = ob_get_contents();
         ob_end_clean();
         return 'data:image/png;base64,' . base64_encode($content);
     }
-    public function Save($Path, $AvatarSize = 0)
+    public function save($path, $size = 0)
     {
-        if (!$AvatarSize) {
-            $AvatarSize = $this->AvatarSize;
+        if (!$size) {
+            $size = $this->size;
         }
-        return imagepng($this->Resize($AvatarSize), $Path);
+        return imagepng($this->resize($size), $path);
     }
 
 }
