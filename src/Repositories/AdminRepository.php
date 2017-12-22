@@ -22,9 +22,11 @@ class AdminRepository
         $admin->avatar = "";
 
         // 生成头像
-        $avatar = public_path(config("admin.upload.avatar") . DIRECTORY_SEPARATOR . str_random(22) . ".png");
+        $path = public_path(config("admin.upload.avatar"));
 
-        if (Avatar::create($admin->name)->save($avatar)) {
+        $avatar = str_random(22) . ".png";
+
+        if (Avatar::create($admin->name)->save($path, $avatar)) {
             $admin->avatar = $avatar;
         }
 

@@ -29,6 +29,7 @@ class AvatarGenerator
             'chars' => 1,
             'letter_font' => public_path("packages/admin/fonts/SourceHanSansCN-Normal.ttf"),
             'asian_font' =>public_path("packages/admin/fonts/SourceHanSansCN-Normal.ttf"),
+            'font_size' => 128
         ];
 
         $config += $default;
@@ -38,6 +39,7 @@ class AvatarGenerator
         $this->padding         = 30 * ($this->size / 256);
         $this->letterFont      = $config["letter_font"];
         $this->asianFont       = $config["asian_font"];
+        $this->fontSize       = $config["font_size"];
         $this->enableAsianChar = is_file($this->asianFont);
     }
 
@@ -382,11 +384,11 @@ class AvatarGenerator
         $fontColor = imagecolorallocate($this->avatar, 255, 255, 255);
         if ($this->isNotLetter) {
             //中文字符偏移
-            $fontSize = $width - $padding * 3.5;
+            $fontSize = $this->fontSize * 1.75;
             $x        = $padding + (-2 / 166) * $fontSize;
             $y        = $height - $padding - (23.5 / 166) * $fontSize;
         } else {
-            $fontSize = $width - $padding * 2;
+            $fontSize = $this->fontSize;
             $x        = $padding + (20 / 196) * $fontSize;
             $y        = $height - $padding - (13 / 196) * $fontSize;
         }
@@ -462,12 +464,19 @@ class AvatarGenerator
         ob_end_clean();
         return 'data:image/png;base64,' . base64_encode($content);
     }
-    public function save($path, $size = 0)
+    public function save($path, $avatar_name, $size = 0)
     {
         if (!$size) {
             $size = $this->size;
         }
-        return imagepng($this->resize($size), $path);
+
+        if (!file_exists($path)) {
+            mkdir($path);
+        }
+
+        $avatar = $path . DIRECTORY_SEPARATOR . $avatar_name;
+
+        return imagepng($this->resize($size), $avatar);
     }
 
 }
