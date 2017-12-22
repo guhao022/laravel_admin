@@ -15,6 +15,7 @@ class Update extends Validator
         $rules = [
             'email'=>'required|email|unique:admin_user,email,'.$id,
             'name'=>'required|max:20|unique:admin_user,name,'.$id,
+            'role_ids'=>'required|array'
         ];
 
         if (Request::filled('password')) {
@@ -35,6 +36,8 @@ class Update extends Validator
             'name.max'  => '用户名最长为20个字符',
             'password.confirmed'  => '两次输入不一致',
             'password.min'  => '密码最少6个字符',
+            'role_ids.required'  => '请选择权限',
+            'role_ids.array'  => '权限格式错误',
         ];
     }
 }

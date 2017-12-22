@@ -90,6 +90,12 @@
                                     >{{ $role->display_name }}</option>
                                 @endforeach
                             </select>
+
+                            @if ($errors->has('role_ids'))
+                                <span class="help-block text-red">
+                                    <p><i class="fa fa-info-circle"></i> {{ $errors->first('role_ids') }}</p>
+                                </span>
+                            @endif
                         </div>
                     </div>
 

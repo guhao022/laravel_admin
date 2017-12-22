@@ -22,7 +22,7 @@ class AdminRepository
         $admin->avatar = "";
 
         // 生成头像
-        $avatar = config("admin.upload") . "/avatar/" . str_random(22) . ".png";
+        $avatar = config("admin.upload.avatar") . str_random(22) . ".png";
 
         if (Avatar::create($admin->name)->save($avatar)) {
             $admin->avatar = $avatar;

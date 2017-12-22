@@ -14,6 +14,7 @@ class Create extends Validator
             'name'=>'required|unique:admin_user|max:20',
             'password'=>'required|confirmed|min:6',
             'password_confirmation'=>'required',
+            'role_ids'=>'required|array'
         ];
     }
 
@@ -30,6 +31,8 @@ class Create extends Validator
             'password.min'  => '密码最少6个字符',
             'password.confirmed'  => '两次输入不一致',
             'password_confirmation.required'  => '验证密码不能为空',
+            'role_ids.required'  => '请选择权限',
+            'role_ids.array'  => '权限格式错误',
         ];
     }
 }
