@@ -7,6 +7,9 @@ return [
     'theme' => 'adminlte',
 
     'upload' => [
+
+        "avatar" => "avatar",
+
         "path" => "upload",
     ],
 

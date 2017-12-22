@@ -20,6 +20,7 @@ class AvatarGenerator
     protected $isNotLetter;
     protected $letterFont;
     protected $asianFont;
+    protected $fontSize;
     protected $enableAsianChar;
     function __construct($config = [])
     {
@@ -32,8 +33,9 @@ class AvatarGenerator
 
         $config += $default;
 
+        $this->size = $config["size"];
         $this->chars = $config["chars"];
-        $this->padding         = 30 * ($config["size"] / 256);
+        $this->padding         = 30 * ($this->size / 256);
         $this->letterFont      = $config["letter_font"];
         $this->asianFont       = $config["asian_font"];
         $this->enableAsianChar = is_file($this->asianFont);
@@ -83,6 +85,8 @@ class AvatarGenerator
             $this->fontFile    = $this->asianFont;
         }
         $this->buildInitialize();
+
+        return $this;
     }
 
     private function buildInitialize()
@@ -90,6 +94,7 @@ class AvatarGenerator
         $width        = $this->size;//Width of avatar
         $height       = $this->size;//Height of avatar
         $padding      = $this->padding;
+
         $this->avatar = imagecreatetruecolor($width, $height);
         //全透明背景
         imageSaveAlpha($this->avatar, true);
