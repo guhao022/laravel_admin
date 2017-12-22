@@ -11,8 +11,7 @@ namespace Modules\Admin\Handle;
 
 class AvatarGenerator
 {
-    protected $word;
-    protected $chars;
+    protected $char;
     protected $size;
     protected $padding;
     protected $avatar;
@@ -26,7 +25,6 @@ class AvatarGenerator
     {
         $default = [
             'size' => 256,
-            'chars' => 1,
             'letter_font' => public_path("packages/admin/fonts/SourceHanSansCN-Normal.ttf"),
             'asian_font' =>public_path("packages/admin/fonts/SourceHanSansCN-Normal.ttf"),
         ];
@@ -34,7 +32,6 @@ class AvatarGenerator
         $config += $default;
 
         $this->size = $config["size"];
-        $this->chars = $config["chars"];
         $this->padding = 30 * ($this->size / 256);
         $this->letterFont = $config["letter_font"];
         $this->asianFont = $config["asian_font"];
@@ -43,41 +40,41 @@ class AvatarGenerator
 
     public function create($name) {
 
-        $this->word = mb_strtoupper(mb_substr($name, 0, $this->chars, "UTF-8"));
+        $this->char = mb_strtoupper(mb_substr($name, 0, 1, "UTF-8"));
 
-        $CNChar = ord($this->word);
+        $CNChar = ord($this->char);
         if (!$this->enableAsianChar &&
-            preg_match("/^[\x7f-\xff]/", $this->word) &&
+            preg_match("/^[\x7f-\xff]/", $this->char) &&
             !($CNChar >= ord("A") && $CNChar <= ord("z"))
         ) {
             //如果是中文，并且没有中文字体包，则按拼音首字母对其进行转换
-            $CNByte = iconv("UTF-8", "gb2312", $this->word);
+            $CNByte = iconv("UTF-8", "gb2312", $this->char);
             $code   = ord($CNByte{0}) * 256 + ord($CNByte{1}) - 65536;//求其偏移量
-            if ($code >= -20319 and $code <= -20284) $this->word = "A";
-            if ($code >= -20283 and $code <= -19776) $this->word = "B";
-            if ($code >= -19775 and $code <= -19219) $this->word = "C";
-            if ($code >= -19218 and $code <= -18711) $this->word = "D";
-            if ($code >= -18710 and $code <= -18527) $this->word = "E";
-            if ($code >= -18526 and $code <= -18240) $this->word = "F";
-            if ($code >= -18239 and $code <= -17923) $this->word = "G";
-            if ($code >= -17922 and $code <= -17418) $this->word = "H";
-            if ($code >= -17417 and $code <= -16475) $this->word = "J";
-            if ($code >= -16474 and $code <= -16213) $this->word = "K";
-            if ($code >= -16212 and $code <= -15641) $this->word = "L";
-            if ($code >= -15640 and $code <= -15166) $this->word = "M";
-            if ($code >= -15165 and $code <= -14923) $this->word = "N";
-            if ($code >= -14922 and $code <= -14915) $this->word = "O";
-            if ($code >= -14914 and $code <= -14631) $this->word = "P";
-            if ($code >= -14630 and $code <= -14150) $this->word = "Q";
-            if ($code >= -14149 and $code <= -14091) $this->word = "R";
-            if ($code >= -14090 and $code <= -13319) $this->word = "S";
-            if ($code >= -13318 and $code <= -12839) $this->word = "T";
-            if ($code >= -12838 and $code <= -12557) $this->word = "W";
-            if ($code >= -12556 and $code <= -11848) $this->word = "X";
-            if ($code >= -11847 and $code <= -11056) $this->word = "Y";
-            if ($code >= -11055 and $code <= -10247) $this->word = "Z";
+            if ($code >= -20319 and $code <= -20284) $this->char = "A";
+            if ($code >= -20283 and $code <= -19776) $this->char = "B";
+            if ($code >= -19775 and $code <= -19219) $this->char = "C";
+            if ($code >= -19218 and $code <= -18711) $this->char = "D";
+            if ($code >= -18710 and $code <= -18527) $this->char = "E";
+            if ($code >= -18526 and $code <= -18240) $this->char = "F";
+            if ($code >= -18239 and $code <= -17923) $this->char = "G";
+            if ($code >= -17922 and $code <= -17418) $this->char = "H";
+            if ($code >= -17417 and $code <= -16475) $this->char = "J";
+            if ($code >= -16474 and $code <= -16213) $this->char = "K";
+            if ($code >= -16212 and $code <= -15641) $this->char = "L";
+            if ($code >= -15640 and $code <= -15166) $this->char = "M";
+            if ($code >= -15165 and $code <= -14923) $this->char = "N";
+            if ($code >= -14922 and $code <= -14915) $this->char = "O";
+            if ($code >= -14914 and $code <= -14631) $this->char = "P";
+            if ($code >= -14630 and $code <= -14150) $this->char = "Q";
+            if ($code >= -14149 and $code <= -14091) $this->char = "R";
+            if ($code >= -14090 and $code <= -13319) $this->char = "S";
+            if ($code >= -13318 and $code <= -12839) $this->char = "T";
+            if ($code >= -12838 and $code <= -12557) $this->char = "W";
+            if ($code >= -12556 and $code <= -11848) $this->char = "X";
+            if ($code >= -11847 and $code <= -11056) $this->char = "Y";
+            if ($code >= -11055 and $code <= -10247) $this->char = "Z";
         }
-        if (in_array($this->word, str_split('QWERTYUIOPASDFGHJKLZXCVBNM0123456789', 1))) {
+        if (in_array($this->char, str_split('QWERTYUIOPASDFGHJKLZXCVBNM0123456789', 1))) {
             $this->isNotLetter = false;
             $this->fontFile    = $this->letterFont;
         } else {
@@ -398,7 +395,7 @@ class AvatarGenerator
             $y,
             $fontColor,
             $this->fontFile,
-            $this->word
+            $this->char
         );
     }
     private function resize($targetSize)

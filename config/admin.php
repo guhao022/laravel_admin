@@ -44,16 +44,11 @@ return [
         // 生成图片大小
         'size' => 256,
 
-        // 生成字符串的数量
-        'chars' => 1,
-
         // 字母字体
         'letter_font' => public_path("packages/admin/fonts/SourceHanSansCN-Normal.ttf"),
 
         // 亚洲字体
         'asian_font' => public_path("packages/admin/fonts/SourceHanSansCN-Normal.ttf"),
 
-        // 字体大小
-        'font_size' => 128,
     ],
 ];
