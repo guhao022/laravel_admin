@@ -10,6 +10,7 @@
   "require": {
     "php": ">=7.0",
     "maatwebsite/excel": "~2.1.0",
+    "laravolt/avatar": "^2.0",
     "zizaco/entrust": "5.2.x-dev"
 
   },

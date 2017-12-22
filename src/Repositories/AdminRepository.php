@@ -18,6 +18,9 @@ class AdminRepository
 
         $admin->password = bcrypt($request->password);
 
+        // 生成头像
+
+
         $admin->save();
 
         if(is_array($request->role_ids) && count($request->role_ids) > 0){
