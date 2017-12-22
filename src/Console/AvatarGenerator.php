@@ -29,17 +29,15 @@ class AvatarGenerator
             'chars' => 1,
             'letter_font' => public_path("packages/admin/fonts/SourceHanSansCN-Normal.ttf"),
             'asian_font' =>public_path("packages/admin/fonts/SourceHanSansCN-Normal.ttf"),
-            'font_size' => 128
         ];
 
         $config += $default;
 
         $this->size = $config["size"];
         $this->chars = $config["chars"];
-        $this->padding         = 30 * ($this->size / 256);
-        $this->letterFont      = $config["letter_font"];
-        $this->asianFont       = $config["asian_font"];
-        $this->fontSize       = $config["font_size"];
+        $this->padding = 30 * ($this->size / 256);
+        $this->letterFont = $config["letter_font"];
+        $this->asianFont = $config["asian_font"];
         $this->enableAsianChar = is_file($this->asianFont);
     }
 
@@ -384,11 +382,11 @@ class AvatarGenerator
         $fontColor = imagecolorallocate($this->avatar, 255, 255, 255);
         if ($this->isNotLetter) {
             //中文字符偏移
-            $fontSize = $this->fontSize * 1.75;
+            $fontSize = $width - $padding * 3.5;
             $x        = $padding + (-2 / 166) * $fontSize;
             $y        = $height - $padding - (23.5 / 166) * $fontSize;
         } else {
-            $fontSize = $this->fontSize;
+            $fontSize = $width - $padding * 2;
             $x        = $padding + (20 / 196) * $fontSize;
             $y        = $height - $padding - (13 / 196) * $fontSize;
         }

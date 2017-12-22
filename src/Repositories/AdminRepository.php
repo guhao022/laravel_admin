@@ -22,7 +22,7 @@ class AdminRepository
         $admin->avatar = "";
 
         // 生成头像
-        $path = public_path(config("admin.upload.avatar"));
+        $path = config("admin.upload.avatar");
 
         $avatar = str_random(22) . ".png";
 
