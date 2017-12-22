@@ -18,7 +18,7 @@ return [
 
         'prefix' => 'admin',
 
-        'namespace' => 'App\\Admin\\Controllers',
+        'namespace' => 'Modules\\Admin\\Controllers',
     ],
 
     'auth' => [
@@ -36,10 +36,5 @@ return [
             ],
         ],
     ],
-
-    'avatar' => [
-        'size' => 256,
-
-    ]
 
 ];

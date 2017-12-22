@@ -2,8 +2,8 @@
 
 Route::group([
     'middleware' => ['web', 'admin'],
-    'prefix' => 'admin',
-    'namespace' => 'Modules\Admin\Controllers',
+    'prefix' => config("admin.route.prefix"),
+    'namespace' => config("admin.route.namespace"),
 ], function() {
 
     Route::get('/', 'HomeController@index')->name('admin.home');
