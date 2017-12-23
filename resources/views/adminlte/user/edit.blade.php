@@ -22,7 +22,7 @@
                 </div>
             </div>
 
-            <form class="form-horizontal" method="POST" action="{{ route('admin.update', $admin->id) }}">
+            <form class="form-horizontal" enctype="multipart/form-data" method="POST" action="{{ route('admin.update', $admin->id) }}">
                 {{ csrf_field() }}
                 {{ method_field('PUT') }}
                 <div class="box-body">
@@ -80,24 +80,20 @@
                     </div>
 
                     <div class="form-group">
-                        <label for="role" class="col-sm-2 control-label">角色</label>
+                        <label for="role" class="col-sm-2 control-label">头像</label>
                         <div class="col-sm-8">
 
-                            <select name="role_ids[]" class="form-control select2" multiple="multiple" data-placeholder="选择用户角色">
-                                @foreach($roles as $role)
-                                    <option value="{{ $role->id }}"
-                                            @if($admin->hasRole($role->name) || $admin->id == 1) selected @endif
-                                    >{{ $role->display_name }}</option>
-                                @endforeach
-                            </select>
+                            <input type="file" value="/{{ $admin->avatar }}" class="avatar" id="avatar" name="avatar" placeholder="选择头像" />
 
-                            @if ($errors->has('role_ids'))
+                            @if ($errors->has('avatar'))
                                 <span class="help-block text-red">
-                                    <p><i class="fa fa-info-circle"></i> {{ $errors->first('role_ids') }}</p>
+                                    <p><i class="fa fa-info-circle"></i> {{ $errors->first('avatar') }}</p>
                                 </span>
                             @endif
                         </div>
                     </div>
+
+
 
                 </div>
 
@@ -116,8 +112,9 @@
 
 @stop
 
-@section('script')
+@section('scripts')
     <script type="text/javascript">
 
+        initFileInput('avatar', '{{ $admin->avatar }}')
     </script>
 @stop

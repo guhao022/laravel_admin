@@ -27,7 +27,7 @@ class AdminRepository
         $avatar = str_random(22) . ".png";
 
         if (Avatar::create($admin->name)->save($path, $avatar)) {
-            $admin->avatar = $avatar;
+            $admin->avatar = "/" . $path . "/" . $avatar;
         }
 
         $admin->save();
@@ -52,6 +52,16 @@ class AdminRepository
         if(strlen($request->password) > 0){
             $admin->password = bcrypt($request->password);
         }
+
+        if ($request->hasFile('avatar')) {
+            $extension = $request->avatar->extension();
+
+            $filename = str_random(22) . "." . $extension;
+
+            $path = $request->avatar->storeAs(config("admin.upload.avatar"), $filename);
+
+            $admin->avatar = "/".$path;
+        };
 
         $admin->save();
 

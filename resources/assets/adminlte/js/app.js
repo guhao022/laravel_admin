@@ -7,6 +7,26 @@ toastr.options = {
 
 $('.select2').select2({allowClear: true});
 
+//fileinput控件
+function initFileInput(id, img) {
+    var control = $('#' + id);
+
+    control.fileinput({
+        language: 'zh', //设置语言
+        //uploadUrl: uploadUrl, //上传的地址
+        allowedFileExtensions : ['jpg', 'png','gif'],//接收的文件后缀
+        allowedPreviewTypes: ['image'],
+        showUpload: false, //是否显示上传按钮
+        showRemove: true,   // 是否显示删除
+        showPreview :true,  // 是否显示预览
+        showCaption: true,//是否显示标题
+        initialPreview: '<img src="' + img + '" class="file-preview-image" style="height: inherit;">',
+        browseClass: "btn btn-primary", //按钮样式
+        previewFileIcon: "<i class='glyphicon glyphicon-king'></i>",
+    });
+
+}
+
 $(function () {
 
     $('input[type="checkbox"].minimal, input[type="radio"].minimal').iCheck({
