@@ -11,7 +11,22 @@ if (!function_exists('admin_asset')) {
      */
     function admin_asset($url, $secure = false)
     {
-        return asset('packages/admin/' . config('admin.theme') . '/' . $url, $secure);
+        return asset('packages/admin/' . config('admin.theme') . DIRECTORY_SEPARATOR . $url, $secure);
+    }
+}
+
+if (! function_exists('admin_avatar')) {
+
+    /**
+     * @param $url
+     *
+     * @param bool $secure
+     *
+     * @return string
+     */
+    function admin_avatar($url, $secure = false)
+    {
+        return asset(config("admin.upload.avatar") . DIRECTORY_SEPARATOR . $url, $secure);
     }
 }
 
