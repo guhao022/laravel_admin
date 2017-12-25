@@ -77,6 +77,7 @@ class AdminRepository
         }else{
 
             $newRoles = AdminRoles::whereIn('id',$request->role_ids)->get();
+
             $newRoleIds = [];
             $needNotify = false;
             foreach($newRoles as $role){
