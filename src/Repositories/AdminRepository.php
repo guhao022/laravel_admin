@@ -50,6 +50,7 @@ class AdminRepository
 
         //1.有密码通过验证，修改密码
         if(strlen($request->password) > 0){
+
             $admin->password = bcrypt($request->password);
         }
 
