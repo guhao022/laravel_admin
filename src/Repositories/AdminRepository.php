@@ -61,7 +61,6 @@ class AdminRepository
             $request->avatar->storeAs("avatar", $filename);
 
             $admin->avatar = $filename;
-
         };
 
         $admin->save();
