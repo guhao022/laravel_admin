@@ -89,6 +89,7 @@ class AdminRepository
                     $needNotify = true;
 
                     $admin->attachRole($role);
+
                 }
                 array_push($newRoleIds,$role->id);
             }
