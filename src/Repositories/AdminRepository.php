@@ -73,6 +73,7 @@ class AdminRepository
         if(!is_array($request->role_ids) || count($request->role_ids) <=0 ){
 
             $admin->detachRoles($admin->roles);
+
         }else{
             $newRoles = AdminRoles::whereIn('id',$request->role_ids)->get();
             $newRoleIds = [];
