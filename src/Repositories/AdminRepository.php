@@ -54,6 +54,7 @@ class AdminRepository
         }
 
         if ($request->hasFile('avatar')) {
+
             $extension = $request->avatar->extension();
 
             $filename = str_random(22) . "." . $extension;
