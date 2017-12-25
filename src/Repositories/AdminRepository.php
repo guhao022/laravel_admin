@@ -52,6 +52,7 @@ class AdminRepository
         if(strlen($request->password) > 0){
 
             $admin->password = bcrypt($request->password);
+
         }
 
         if ($request->hasFile('avatar')) {
