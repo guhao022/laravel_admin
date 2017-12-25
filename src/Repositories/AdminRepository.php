@@ -22,7 +22,7 @@ class AdminRepository
         $admin->avatar = "";
 
         // 生成头像
-        $path = config("admin.upload.avatar");
+        $path = storage_path("app/public/avatar");
 
         $avatar = str_random(22) . ".png";
 
@@ -54,11 +54,11 @@ class AdminRepository
         }
 
         if ($request->hasFile('avatar')) {
-            $extension = $request->avatar->extension();
+            /*$extension = $request->avatar->extension();
 
-            $filename = str_random(22) . "." . $extension;
+            $filename = str_random(22) . "." . $extension;*/
 
-            $path = $request->avatar->storeAs(config("admin.upload.avatar"), $filename);
+            $path = $request->avatar->store(config("admin.upload.avatar"));
 
             $admin->avatar = "/".$path;
         };

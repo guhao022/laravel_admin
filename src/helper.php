@@ -26,7 +26,7 @@ if (! function_exists('admin_avatar')) {
      */
     function admin_avatar($url, $secure = false)
     {
-        return asset(config("admin.upload.avatar") . DIRECTORY_SEPARATOR . $url, $secure);
+        return asset("storage/avatar/" . $url, $secure);
     }
 }
 

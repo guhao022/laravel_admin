@@ -6,17 +6,12 @@ return [
 
     'theme' => 'adminlte',
 
-    'upload' => [
-
-        "avatar" => "avatar",
-
-        "path" => "upload",
-    ],
-
+    // 分页
     'pagination' => [
         'number' => 20,
     ],
 
+    // 路由配置
     'route' => [
 
         'prefix' => 'admin',
@@ -24,6 +19,7 @@ return [
         'namespace' => 'Modules\\Admin\\Controllers',
     ],
 
+    // 用户验证
     'auth' => [
         'guards' => [
             'admin' => [
@@ -40,6 +36,7 @@ return [
         ],
     ],
 
+    // 自动生成头像配置
     'avatar' => [
         // 生成图片大小
         'size' => 256,
