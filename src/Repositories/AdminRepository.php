@@ -81,6 +81,7 @@ class AdminRepository
             $newRoleIds = [];
 
             $needNotify = false;
+
             foreach($newRoles as $role){
                 if(!$admin->hasRole($role->name)){
                     $needNotify = true;
