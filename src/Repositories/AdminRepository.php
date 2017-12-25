@@ -91,6 +91,7 @@ class AdminRepository
                     $admin->attachRole($role);
 
                 }
+
                 array_push($newRoleIds,$role->id);
             }
 
