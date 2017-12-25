@@ -115,6 +115,6 @@
 @section('scripts')
     <script type="text/javascript">
 
-        initFileInput('avatar', '{{ $admin->avatar }}')
+        initFileInput('avatar', '{{ admin_avatar($admin->avatar) }}')
     </script>
 @stop

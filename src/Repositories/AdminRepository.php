@@ -19,16 +19,17 @@ class AdminRepository
 
         $admin->password = bcrypt($request->password);
 
-        $admin->avatar = "";
+        if ($request->hasFile('avatar')) {
 
-        // 生成头像
-        $path = storage_path("app/public/avatar");
+            $extension = $request->avatar->extension();
 
-        $avatar = str_random(22) . ".png";
+            $filename = str_random(22) . "." . $extension;
 
-        if (Avatar::create($admin->name)->save($path, $avatar)) {
-            $admin->avatar = "/" . $path . "/" . $avatar;
-        }
+            $request->avatar->storeAs("avatar", $filename);
+
+            $admin->avatar = $filename;
+
+        };
 
         $admin->save();
 

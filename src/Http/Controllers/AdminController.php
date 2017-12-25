@@ -21,7 +21,6 @@ class AdminController extends Controller
     public function index()
     {
 
-        echo asset('storage/avatar/BELhd7yNnsXiF0I1OXjXae.png');die;
         $admins = AdminUser::all();
 
         return admin_view('user.index',['admins'=>$admins]);

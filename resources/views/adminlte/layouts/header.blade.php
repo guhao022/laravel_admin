@@ -24,7 +24,7 @@
 
                 <li class="dropdown user user-menu">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                        <img src="@if(admin_user()->avatar) {{ admin_user()->avatar }} @else {{admin_asset('img/user2-160x160.jpg')}} @endif" class="user-image" alt="">
+                        <img src="@if(admin_user()->avatar) {{ admin_avatar(admin_user()->avatar) }} @else {{admin_asset('img/user2-160x160.jpg')}} @endif" class="user-image" alt="">
                         <span class="hidden-xs">
                             @if (admin_user()->name) {{admin_user()->name}} @else {{admin_user()->email}} @endif
                         </span>
@@ -32,7 +32,7 @@
                     <ul class="dropdown-menu">
                         <!-- User image -->
                         <li class="user-header">
-                            <img src="@if(admin_user()->avatar) {{ admin_user()->avatar }} @else {{admin_asset('img/user2-160x160.jpg')}} @endif" class="img-circle" alt="">
+                            <img src="@if(admin_user()->avatar) {{ admin_avatar(admin_user()->avatar) }} @else {{admin_asset('img/user2-160x160.jpg')}} @endif" class="img-circle" alt="">
 
                             <p>
                                 @if (admin_user()->name) {{admin_user()->name}} @else {{admin_user()->email}} @endif
