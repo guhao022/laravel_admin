@@ -100,6 +100,7 @@ class AdminRepository
             foreach($admin->roles as $adminRole){
 
                 array_push($hasRoleIds,$adminRole->id);
+
             }
 
 
