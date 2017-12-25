@@ -108,6 +108,7 @@ class AdminRepository
                 if(!in_array($hasRoleId,$newRoleIds)){
 
                     $needNotify = true;
+
                     $admin->roles()->detach($hasRoleId);
                 }
             }
