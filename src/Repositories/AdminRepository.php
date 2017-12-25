@@ -113,6 +113,7 @@ class AdminRepository
                 }
             }
             if($needNotify){
+
                 $admin->notify(new PermissionNotification($newRoles));
             }
         }
