@@ -75,6 +75,7 @@ class AdminRepository
             $admin->detachRoles($admin->roles);
 
         }else{
+
             $newRoles = AdminRoles::whereIn('id',$request->role_ids)->get();
             $newRoleIds = [];
             $needNotify = false;
