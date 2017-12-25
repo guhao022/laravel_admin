@@ -54,13 +54,13 @@ class AdminRepository
         }
 
         if ($request->hasFile('avatar')) {
-            /*$extension = $request->avatar->extension();
+            $extension = $request->avatar->extension();
 
-            $filename = str_random(22) . "." . $extension;*/
+            $filename = str_random(22) . "." . $extension;
 
-            $path = $request->avatar->store(config("admin.upload.avatar"));
+            $request->avatar->storeAs("avatar", $filename);
 
-            $admin->avatar = "/".$path;
+            $admin->avatar = $filename;
         };
 
         $admin->save();
