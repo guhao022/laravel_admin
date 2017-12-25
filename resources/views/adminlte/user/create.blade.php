@@ -78,6 +78,20 @@
                     </div>
 
                     <div class="form-group">
+                        <label for="role" class="col-sm-2 control-label">头像</label>
+                        <div class="col-sm-8">
+
+                            <input type="file" value="{{ admin_avatar(old('avatar')) }}" class="avatar" id="avatar" name="avatar" placeholder="选择头像" />
+
+                            @if ($errors->has('avatar'))
+                                <span class="help-block text-red">
+                                    <p><i class="fa fa-info-circle"></i> {{ $errors->first('avatar') }}</p>
+                                </span>
+                            @endif
+                        </div>
+                    </div>
+
+                    <div class="form-group">
                         <label for="role" class="col-sm-2 control-label">角色</label>
                         <div class="col-sm-8">
 
@@ -114,8 +128,9 @@
 
 @stop
 
-@section('script')
-<script type="text/javascript">
+@section('scripts')
+    <script type="text/javascript">
 
-</script>
+        initFileInput('avatar', '{{ admin_avatar($admin->avatar) }}')
+    </script>
 @stop

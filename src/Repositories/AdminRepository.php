@@ -1,7 +1,6 @@
 <?php
 namespace Modules\Admin\Repositories;
 
-use Modules\Admin\Facades\Avatar;
 use Modules\Admin\Models\AdminUser;
 use Modules\Admin\Models\AdminRoles;
 use Modules\Admin\Notifications\PermissionNotification;

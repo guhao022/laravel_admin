@@ -83,7 +83,7 @@
                         <label for="role" class="col-sm-2 control-label">头像</label>
                         <div class="col-sm-8">
 
-                            <input type="file" value="/{{ $admin->avatar }}" class="avatar" id="avatar" name="avatar" placeholder="选择头像" />
+                            <input type="file" value="{{ admin_avatar($admin->avatar) }}" class="avatar" id="avatar" name="avatar" placeholder="选择头像" />
 
                             @if ($errors->has('avatar'))
                                 <span class="help-block text-red">
