@@ -83,6 +83,7 @@ class AdminRepository
             $needNotify = false;
 
             foreach($newRoles as $role){
+
                 if(!$admin->hasRole($role->name)){
                     $needNotify = true;
                     $admin->attachRole($role);
