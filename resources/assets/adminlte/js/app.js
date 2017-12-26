@@ -8,8 +8,16 @@ toastr.options = {
 $('.select2').select2({allowClear: true});
 
 //fileinput控件
-function initFileInput(id, img) {
+function initFileInput(id, imgUrl) {
     var control = $('#' + id);
+
+    var img = ''
+
+    if (imgUrl==undefined || imgUrl=='' || imgUrl==null) {
+        img = ''
+    } else {
+        img = '<img src="' + imgUrl + '" class="file-preview-image" style="height: inherit;">'
+    }
 
     control.fileinput({
         language: 'zh', //设置语言
@@ -20,7 +28,7 @@ function initFileInput(id, img) {
         showRemove: true,   // 是否显示删除
         showPreview :true,  // 是否显示预览
         showCaption: true,//是否显示标题
-        initialPreview: '<img src="' + img + '" class="file-preview-image" style="height: inherit;">',
+        initialPreview: img,
         browseClass: "btn btn-primary", //按钮样式
         previewFileIcon: "<i class='glyphicon glyphicon-king'></i>",
     });
