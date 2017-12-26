@@ -22,7 +22,7 @@
                 </div>
             </div>
 
-            <form class="form-horizontal" method="POST" action="{{ route('admin.store') }}">
+            <form class="form-horizontal" enctype="multipart/form-data" method="POST" action="{{ route('admin.store') }}">
                 {{ csrf_field() }}
                 <div class="box-body">
                     <div class="form-group">
