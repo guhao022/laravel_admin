@@ -114,7 +114,7 @@
                 </div>
 
                 <div class="box-footer">
-                    <div class="col-sm-offset-2">
+                    <div class="col-sm-offset-2 col-md-8">
                         <button type="reset" class="btn btn-warning">重置</button>
                         <button type="submit" class="btn btn-info pull-right">提交</button>
                     </div>

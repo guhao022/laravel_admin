@@ -24,7 +24,7 @@ class AdminRepository
 
             $filename = str_random(22) . "." . $extension;
 
-            $request->avatar->storeAs("avatar", $filename);
+            $request->avatar->storeAs("avatar", $filename, "public");
 
             $admin->avatar = $filename;
 
@@ -61,7 +61,7 @@ class AdminRepository
 
             $filename = str_random(22) . "." . $extension;
 
-            $request->avatar->storeAs("avatar", $filename);
+            $request->avatar->storeAs("avatar", $filename, "public");
 
             $admin->avatar = $filename;
 
