@@ -10,24 +10,24 @@ Route::group([
 
     // 验证
     Route::group(['prefix' => 'auth'], function (){
-        Route::get('login', 'AuthController@getlogin')->name('admin.login');
-        Route::post('login', 'AuthController@postlogin');
-        Route::post('logout', 'AuthController@postlogout')->name('admin.logout');
+        Route::get('login', 'Admin\\AuthController@getlogin')->name('admin.login');
+        Route::post('login', 'Admin\\AuthController@postlogin');
+        Route::post('logout', 'Admin\\AuthController@postlogout')->name('admin.logout');
     });
 
     // 账号管理
-    Route::get('profile','AdminController@profile')->name('admin.profile');
-    Route::post('profile','AdminController@profileUpdate')->name('admin.profile');
-    Route::resource('admin','AdminController');
+    Route::get('profile','Admin\\AdminController@profile')->name('admin.profile');
+    Route::post('profile','Admin\\AdminController@profileUpdate')->name('admin.profile');
+    Route::resource('admin','Admin\\AdminController');
 
     // 权限
-    Route::get('permission/child/{permission}','PermissionController@childIndex')->name('permission.child');
-    Route::resource('permission','PermissionController');
+    Route::get('permission/child/{permission}','Admin\\PermissionController@childIndex')->name('permission.child');
+    Route::resource('permission','Admin\\PermissionController');
 
     // 角色
-    Route::resource('role','RoleController');
+    Route::resource('role','Admin\\RoleController');
 
     // 通知
-    Route::get('notification/{notification}', 'NotificationController@show')->name('notification.show');
+    Route::get('notification/{notification}', 'Admin\\NotificationController@show')->name('notification.show');
 
 });
