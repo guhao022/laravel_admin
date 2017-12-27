@@ -62,6 +62,7 @@ class AdminServiceProvider extends ServiceProvider
         // 配置
         $this->publishes([
             __DIR__.'/../config/admin.php' => config_path('admin.php'),
+            __DIR__.'/../config/entrust.php' => config_path('entrust.php'),
         ], 'admin');
 
         // 资源
