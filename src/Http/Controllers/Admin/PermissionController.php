@@ -2,6 +2,7 @@
 
 namespace Modules\Admin\Controllers\Admin;
 
+use Modules\Admin\Controllers\Controller;
 use Modules\Admin\Models\AdminPermissions;
 use Modules\Admin\Repositories\PermissionRepository;
 use Modules\Admin\Validation\Permission\Create;
