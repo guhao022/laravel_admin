@@ -1,11 +1,11 @@
 <?php
 
-namespace Modules\Admin\Controllers;
+namespace Modules\Admin\Controllers\Admin;
 
+use Modules\Admin\Controllers\Controller;
 use Modules\Admin\Models\AdminPermissions;
 use Modules\Admin\Models\AdminRoles;
 use Modules\Admin\Repositories\RoleRepository;
-use Illuminate\Http\Request;
 use Modules\Admin\Validation\Role\Create;
 use Modules\Admin\Validation\Role\Update;
 

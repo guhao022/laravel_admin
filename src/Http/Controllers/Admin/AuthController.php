@@ -6,7 +6,7 @@
  * Time: 下午5:45
  */
 
-namespace Modules\Admin\Controllers;
+namespace Modules\Admin\Controllers\Admin;
 
 
 use Illuminate\Http\Request;

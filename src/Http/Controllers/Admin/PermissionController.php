@@ -1,6 +1,6 @@
 <?php
 
-namespace Modules\Admin\Controllers;
+namespace Modules\Admin\Controllers\Admin;
 
 use Modules\Admin\Models\AdminPermissions;
 use Modules\Admin\Repositories\PermissionRepository;
