@@ -8,9 +8,7 @@
 
 namespace Modules\Admin\Controllers;
 
-use Modules\Admin\Models\AdminRoles;
-use Modules\Admin\Models\AdminUser;
-use Illuminate\Http\Request;
+use Modules\Admin\Models\Joke;
 
 class JokeController extends Controller {
 
@@ -20,11 +18,9 @@ class JokeController extends Controller {
 
     public function index()
     {
-        $admin = AdminUser::all();
+        $jokes = Joke::all();
 
-        $roles = AdminRoles::all(['id','display_name']);
-
-        return view('admin::user.index',['admin'=>$admin,'roles'=>$roles]);
+        return admin_view("joke.index", ["jokes" => $jokes]);
     }
 
 }
