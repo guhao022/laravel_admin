@@ -37,4 +37,7 @@ Modules\Admin\AdminServiceProvider::class,
 ```bash
 php artisan admin:install
 ```
-大功告成！
+
+初始登录账号、密码分别为
+账号：admin@admin.com
+密码：123456
