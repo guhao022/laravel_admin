@@ -2,6 +2,7 @@
 
 namespace Modules\Admin\Controllers\Admin;
 
+use Modules\Admin\Controllers\Controller;
 use Modules\Admin\Models\AdminUser;
 use Modules\Admin\Models\AdminRoles;
 use Modules\Admin\Requests\ProfileUpdateRequest;
