@@ -29,5 +29,4 @@ Route::group([
 
     // 通知
     Route::get('notification/{notification}', 'Admin\\NotificationController@show')->name('notification.show');
-
 });
