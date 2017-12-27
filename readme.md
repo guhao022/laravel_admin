@@ -37,3 +37,4 @@ Modules\Admin\AdminServiceProvider::class,
 ```bash
 php artisan admin:install
 ```
+大功告成！
