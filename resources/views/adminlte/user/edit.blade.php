@@ -93,7 +93,7 @@
                         </div>
                     </div>
 
-                    <div class="form-group" @if ($admin->id == 1) style="display: none" @endif>
+                    <div class="form-group" @if ($admin->id == 1 && $admin->id == admin_user()->id) style="display: none" @endif>
                         <label for="role" class="col-sm-2 control-label">角色</label>
                         <div class="col-sm-8">
 
