@@ -14,6 +14,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Validator;
 use Modules\Admin\Controllers\Controller;
+use Lang;
 
 class AuthController extends Controller {
 
