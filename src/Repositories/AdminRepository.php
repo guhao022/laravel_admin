@@ -69,6 +69,10 @@ class AdminRepository
 
         $admin->save();
 
+        if ($id == 1) {
+            return $admin;
+        }
+
         //2.修改角色
         if(!is_array($request->role_ids) || count($request->role_ids) <=0 ){
 

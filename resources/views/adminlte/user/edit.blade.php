@@ -93,6 +93,26 @@
                         </div>
                     </div>
 
+                    <div class="form-group" @if ($admin->id == 1) style="display: none" @endif>
+                        <label for="role" class="col-sm-2 control-label">角色</label>
+                        <div class="col-sm-8">
+
+                            <select name="role_ids[]" class="form-control select2" multiple="multiple" data-placeholder="选择用户角色">
+                                @foreach($roles as $role)
+                                    <option value="{{ $role->id }}"
+                                            @if($admin->hasRole($role->name)) selected @endif
+                                    >{{ $role->display_name }}</option>
+                                @endforeach
+                            </select>
+
+                            @if ($errors->has('role_ids'))
+                                <span class="help-block text-red">
+                                    <p><i class="fa fa-info-circle"></i> {{ $errors->first('role_ids') }}</p>
+                                </span>
+                            @endif
+                        </div>
+                    </div>
+
 
 
                 </div>

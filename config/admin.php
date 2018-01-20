@@ -34,12 +34,13 @@ return [
                 'model'  => Modules\Admin\Models\AdminUser::class,
             ],
         ],
+
+        // 是否启用随机密码
+        'random_password' => true,
     ],
 
     // 自动生成头像配置
     'avatar' => [
-
-
 
         // 生成图片大小
         'size' => 256,

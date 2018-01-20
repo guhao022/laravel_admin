@@ -42,7 +42,7 @@
 
                         <li class="user-footer">
                             <div class="pull-left">
-                                <a href="{{ route('admin.profile') }}" class="btn btn-default btn-flat">设置</a>
+                                <a href="{{ route('admin.edit', ['id'=>admin_user()->id]) }}" class="btn btn-default btn-flat">设置</a>
                             </div>
                             <div class="pull-right">
 

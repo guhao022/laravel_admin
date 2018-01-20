@@ -79,7 +79,7 @@ class AdminController extends Controller
 
     public function profile()
     {
-        return admin_view('user.profile');
+        return admin_view('user.edit');
     }
 
     public function resetPassword()
