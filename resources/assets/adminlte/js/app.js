@@ -55,9 +55,9 @@ $(function () {
     //全选
     $('.grid-select-all').on('ifClicked', function(event) {
         if (this.checked) {
-            $('.grid-row-checkbox').iCheck('check');
+            this.children('.grid-row-checkbox').iCheck('check');
         } else {
-            $('.grid-row-checkbox').iCheck('uncheck');
+            this.children('.grid-row-checkbox').iCheck('uncheck');
         }
     });
 
