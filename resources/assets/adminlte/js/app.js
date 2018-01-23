@@ -54,15 +54,19 @@ $(function () {
 
     //全选
     $('.grid-select-all').on('ifClicked', function(event) {
+        var id = $(this).val()
         if (this.checked) {
-            this.children('.grid-row-checkbox').iCheck('check');
+            $('.m-'+id).iCheck('uncheck');
         } else {
-            this.children('.grid-row-checkbox').iCheck('uncheck');
+            $('.m-'+id).iCheck('check');
+
         }
     });
 
     $('.grid-row-checkbox').on('ifChanged', function () {
         if (this.checked) {
+            var pid = $(this).data('pid')
+            $('#pm-'+pid).iCheck('check')
             $(this).closest('tr').css('background-color', '#ffffd5');
         } else {
             $(this).closest('tr').css('background-color', '');

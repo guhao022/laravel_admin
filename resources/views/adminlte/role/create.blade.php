@@ -81,13 +81,13 @@
 
                                 @foreach($tree_menu as $tm)
                                     <li>
-                                        <input type="checkbox" name="permission_ids[]" @if(is_array(old('permission_ids')) && in_array($tm->id, old('permission_ids'))) checked @endif class="minimal-red grid-select-all _menu" value="{{$tm->id}}" />
+                                        <input type="checkbox" name="permission_ids[]" @if(is_array(old('permission_ids')) && in_array($tm->id, old('permission_ids'))) checked @endif class="minimal-red grid-select-all _menu" id="pm-{{$tm->id}}" value="{{$tm->id}}" />
                                         &nbsp; <b class="text-aqua">{{ $tm->display_name }}</b>
-                                        @if(count($tm->children) > 0)
+                                        @if(is_array($tm->children) && count($tm->children) > 0)
                                             <ul class="list-inline">
                                                 @foreach($tm->children as $child)
                                                     <li class="col-md-2 col-sm-3 col-xs-4">
-                                                        <input type="checkbox" name="permission_ids[]" @if(is_array(old('permission_ids')) && in_array($child->id, old('permission_ids'))) checked @endif class="minimal grid-row-checkbox _menu" value="{{ $child->id }}" />
+                                                        <input type="checkbox" name="permission_ids[]" @if(is_array(old('permission_ids')) && in_array($child->id, old('permission_ids'))) checked @endif data-pid="{{$tm->id}}" class="minimal grid-row-checkbox _menu m-{{$tm->id}}" value="{{ $child->id }}" />
                                                         &nbsp; {{ $child->display_name }}
                                                     </li>
                                                 @endforeach

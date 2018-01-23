@@ -81,14 +81,14 @@
                                 {{ method_field('PUT') }}
 
                                 @foreach($permission as $tm)
-                                    <li>
-                                        <input type="checkbox" name="permission_ids[]" @if($role->hasPermission($tm->name)) checked @endif class="minimal-red grid-select-all _menu" value="{{$tm->id}}" />
+                                    <li style="display: block">
+                                        <input type="checkbox" name="permission_ids[]" @if($role->hasPermission($tm->name)) checked @endif class="minimal-red grid-select-all _menu" id="pm-{{$tm->id}}" value="{{$tm->id}}" />
                                         &nbsp; <b class="text-aqua">{{ $tm->display_name }}</b>
-                                        @if(count($tm->children) > 0)
+                                        @if(is_array($tm->children) && count($tm->children) > 0)
                                             <ul class="list-inline">
                                                 @foreach($tm->children as $child)
                                                     <li class="col-md-2 col-sm-3 col-xs-4">
-                                                        <input type="checkbox" name="permission_ids[]" @if($role->hasPermission($child->name)) checked @endif class="minimal grid-row-checkbox _menu" value="{{ $child->id }}" />
+                                                        <input type="checkbox" name="permission_ids[]" @if($role->hasPermission($child->name)) checked @endif class="minimal grid-row-checkbox _menu m-{{$tm->id}}" data-pid="{{$tm->id}}" value="{{ $child->id }}" />
                                                         &nbsp; {{ $child->display_name }}
                                                     </li>
                                                 @endforeach
