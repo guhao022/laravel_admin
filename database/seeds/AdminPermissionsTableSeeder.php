@@ -225,11 +225,38 @@ class AdminPermissionsTableSeeder extends Seeder
             ],
             [
                 'id'=>24,
+                'name'=>'my',
+                'display_name'=>'个人管理',
+                'icon' => '',
+                'is_menu' => '0',
+                'group_name'=>'my',
+                'pid'=>0
+            ],
+            [
+                'id'=>25,
                 'name'=>'notification.show',
                 'display_name'=>'阅读通知',
                 'icon' => '',
                 'is_menu' => '0',
-                'group_name'=>'notification',
+                'group_name'=>'my',
+                'pid'=>1
+            ],
+            [
+                'id'=>26,
+                'name'=>'my.profile',
+                'display_name'=>'个人设置',
+                'icon' => '',
+                'is_menu' => '0',
+                'group_name'=>'my',
+                'pid'=>1
+            ],
+            [
+                'id'=>27,
+                'name'=>'my.update',
+                'display_name'=>'更新个人信息',
+                'icon' => '',
+                'is_menu' => '0',
+                'group_name'=>'my',
                 'pid'=>1
             ],
         ];
