@@ -6,7 +6,7 @@
     <div class="row col-md-12">
         <div class="box box-success">
             <div class="box-header with-border">
-                <h3 class="box-title"> 修改密码</h3>
+                <h3 class="box-title"> 用户设置 </h3>
                 <div class="box-tools">
                     <div class="btn-group">
                         <a class="btn btn-sm btn-default history-back">
@@ -14,10 +14,15 @@
                         </a>
                     </div>
 
+                    <div class="btn-group">
+                        <a href="{{ route('admin.index') }}" class="btn btn-sm btn-default">
+                            <i class="fa fa-list"></i>&nbsp;列表
+                        </a>
+                    </div>
                 </div>
             </div>
 
-            <form class="form-horizontal" method="POST" action="{{ route('admin.profile', admin_user()->id) }}">
+            <form class="form-horizontal" enctype="multipart/form-data" method="POST" action="{{ route('my.profile', $admin->id) }}">
                 {{ csrf_field() }}
                 {{ method_field('PUT') }}
                 <div class="box-body">
@@ -25,7 +30,7 @@
                         <label for="email" class="col-sm-2 control-label">Email</label>
 
                         <div class="col-sm-8">
-                            <input type="email" name="email" disabled="disabled" class="form-control" id="email" value="{{ admin_user()->email }}" placeholder="输入登录邮箱">
+                            <input type="email" disabled="disabled" name="email" class="form-control" id="email" value="{{ $admin->email }}" placeholder="输入登录邮箱">
                             @if ($errors->has('email'))
                                 <span class="help-block text-red">
                                     <p><i class="fa fa-info-circle"></i> {{ $errors->first('email') }}</p>
@@ -38,7 +43,7 @@
                         <label for="name" class="col-sm-2 control-label">名称</label>
 
                         <div class="col-sm-8">
-                            <input type="name" name="name" class="form-control" id="name" value="{{ admin_user()->name }}" placeholder="输入用户名称">
+                            <input type="name" name="name" class="form-control" id="name" value="{{ $admin->name }}" placeholder="输入用户名称">
                             @if ($errors->has('name'))
                                 <span class="help-block text-red">
                                     <p><i class="fa fa-info-circle"></i> {{ $errors->first('name') }}</p>
@@ -74,6 +79,21 @@
 
                     </div>
 
+                    <div class="form-group">
+                        <label for="role" class="col-sm-2 control-label">头像</label>
+                        <div class="col-sm-8">
+
+                            <input type="file" value="{{ admin_avatar($admin->avatar) }}" class="avatar" id="avatar" name="avatar" placeholder="选择头像" />
+
+                            @if ($errors->has('avatar'))
+                                <span class="help-block text-red">
+                                    <p><i class="fa fa-info-circle"></i> {{ $errors->first('avatar') }}</p>
+                                </span>
+                            @endif
+                        </div>
+                    </div>
+
+
                 </div>
 
                 <div class="box-footer">
@@ -91,8 +111,9 @@
 
 @stop
 
-@section('script')
+@section('scripts')
     <script type="text/javascript">
 
+        initFileInput('avatar', '{{ admin_avatar($admin->avatar) }}')
     </script>
 @stop

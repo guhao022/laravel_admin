@@ -250,15 +250,6 @@ class AdminPermissionsTableSeeder extends Seeder
                 'group_name'=>'my',
                 'pid'=>1
             ],
-            [
-                'id'=>27,
-                'name'=>'my.update',
-                'display_name'=>'更新个人信息',
-                'icon' => '',
-                'is_menu' => '0',
-                'group_name'=>'my',
-                'pid'=>1
-            ],
         ];
 
         foreach($permissions as $permission){

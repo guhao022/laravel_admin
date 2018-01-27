@@ -16,8 +16,8 @@ Route::group([
     });
 
     // 账号管理
-    Route::get('profile','Admin\\AdminController@profile')->name('admin.profile');
-    Route::post('profile','Admin\\AdminController@profileUpdate')->name('admin.profile');
+    Route::get('profile','Admin\\AdminController@profile')->name('my.profile');
+    Route::post('profile','Admin\\AdminController@profileUpdate')->name('my.profile');
     Route::resource('admin','Admin\\AdminController');
 
     // 权限

@@ -79,16 +79,16 @@ class AdminController extends Controller
 
     public function profile()
     {
-        return admin_view('user.edit');
+        return admin_view('user.profile');
     }
 
-    public function myUpdate(Update $request, $id) {
+    public function profileUpdate(profileUpdate $request, $id) {
 
     }
 
     public function resetPassword()
     {
-        return admin_view('user.reset');
+        return admin_view('user.profile');
     }
 
     public function resetUpdate(ProfileUpdateRequest $request)

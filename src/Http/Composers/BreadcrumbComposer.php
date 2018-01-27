@@ -44,7 +44,7 @@ class BreadcrumbComposer
 
             $this->breadcrumb[] = $currentMenu;
 
-            if ($currentMenu->pid > 0) {
+            if (isset($currentMenu->pid) && $currentMenu->pid > 0) {
 
                 $this->getBreadcrumb($currentMenu->pid);
 
