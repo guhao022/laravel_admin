@@ -5,10 +5,10 @@ namespace Modules\Admin\Controllers\Admin;
 use Modules\Admin\Controllers\Controller;
 use Modules\Admin\Models\AdminUser;
 use Modules\Admin\Models\AdminRoles;
-use Modules\Admin\Requests\ProfileUpdateRequest;
 use Modules\Admin\Repositories\AdminRepository;
 use Modules\Admin\Validation\Admin\Create;
 use Modules\Admin\Validation\Admin\ProfileUpdate;
+use Modules\Admin\Validation\Admin\ResetUpdate;
 use Modules\Admin\Validation\Admin\Update;
 
 class AdminController extends Controller
@@ -83,16 +83,20 @@ class AdminController extends Controller
         return admin_view('user.profile');
     }
 
-    public function profileUpdate(ProfileUpdate $request, $id) {
+    public function profileUpdate(ProfileUpdate $request) {
 
+        if($this->admin->profileUpdate($request)) {
+            return redirect()->back()->with('message', '修改账户信息成功');
+        }
+        return redirect()->back()->with('message', '修改账户信息失败');
     }
 
     public function resetPassword()
     {
-        return admin_view('user.profile');
+        return admin_view('user.reset');
     }
 
-    public function resetUpdate(ProfileUpdateRequest $request)
+    public function resetUpdate(ResetUpdate $request)
     {
 
         if($this->admin->resetPassword($request)) {

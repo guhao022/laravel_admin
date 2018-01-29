@@ -22,15 +22,15 @@
                 </div>
             </div>
 
-            <form class="form-horizontal" enctype="multipart/form-data" method="POST" action="{{ route('my.profile', $admin->id) }}">
+            <form class="form-horizontal" enctype="multipart/form-data" method="POST" action="{{ route('my.profile') }}">
                 {{ csrf_field() }}
                 {{ method_field('PUT') }}
                 <div class="box-body">
                     <div class="form-group">
                         <label for="email" class="col-sm-2 control-label">Email</label>
 
-                        <div class="col-sm-8">
-                            <input type="email" disabled="disabled" name="email" class="form-control" id="email" value="{{ $admin->email }}" placeholder="输入登录邮箱">
+                        <div class="col-sm-5">
+                            <input type="email" disabled="disabled" name="email" class="form-control" id="email" value="{{ admin_user()->email }}" placeholder="输入登录邮箱">
                             @if ($errors->has('email'))
                                 <span class="help-block text-red">
                                     <p><i class="fa fa-info-circle"></i> {{ $errors->first('email') }}</p>
@@ -38,12 +38,16 @@
                             @endif
                         </div>
 
+                        <div class="col-sm-4">
+                            <a class="btn btn-danger" href="{{ route('my.reset') }}">修改密码</a>
+                        </div>
+
                     </div>
                     <div class="form-group">
                         <label for="name" class="col-sm-2 control-label">名称</label>
 
                         <div class="col-sm-8">
-                            <input type="name" name="name" class="form-control" id="name" value="{{ $admin->name }}" placeholder="输入用户名称">
+                            <input type="name" name="name" class="form-control" id="name" value="{{ admin_user()->name }}" placeholder="输入用户名称">
                             @if ($errors->has('name'))
                                 <span class="help-block text-red">
                                     <p><i class="fa fa-info-circle"></i> {{ $errors->first('name') }}</p>
@@ -53,7 +57,7 @@
 
                     </div>
 
-                    <div class="form-group">
+                    {{--<div class="form-group">
                         <label for="password" class="col-sm-2 control-label">密码</label>
 
                         <div class="col-sm-8">
@@ -77,13 +81,13 @@
                             @endif
                         </div>
 
-                    </div>
+                    </div>--}}
 
                     <div class="form-group">
                         <label for="role" class="col-sm-2 control-label">头像</label>
                         <div class="col-sm-8">
 
-                            <input type="file" value="{{ admin_avatar($admin->avatar) }}" class="avatar" id="avatar" name="avatar" placeholder="选择头像" />
+                            <input type="file" value="{{ admin_avatar(admin_user()->avatar) }}" class="avatar" id="avatar" name="avatar" placeholder="选择头像" />
 
                             @if ($errors->has('avatar'))
                                 <span class="help-block text-red">
@@ -114,6 +118,6 @@
 @section('scripts')
     <script type="text/javascript">
 
-        initFileInput('avatar', '{{ admin_avatar($admin->avatar) }}')
+        initFileInput('avatar', '{{ admin_avatar(admin_user()->avatar) }}')
     </script>
 @stop

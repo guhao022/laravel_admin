@@ -133,6 +133,27 @@ class AdminRepository
 
     }
 
+    public function profileUpdate($request) {
+        $admin = auth()->guard('admin')->user();
+
+        $admin->name = $request->name;
+
+        if ($request->hasFile('avatar')) {
+
+            $extension = $request->avatar->extension();
+
+            $filename = str_random(22) . "." . $extension;
+
+            $request->avatar->storeAs("avatar", $filename, "public");
+
+            $admin->avatar = $filename;
+
+        };
+
+        $admin->save();
+
+    }
+
     public function resetPassword($request)
     {
         $admin = auth()->guard('admin')->user();

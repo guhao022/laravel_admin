@@ -17,39 +17,26 @@
                 </div>
             </div>
 
-            <form class="form-horizontal" method="POST" action="{{ route('admin.profile', admin_user()->id) }}">
+            <form class="form-horizontal" method="POST" action="{{ route('my.reset') }}">
                 {{ csrf_field() }}
                 {{ method_field('PUT') }}
                 <div class="box-body">
+
                     <div class="form-group">
-                        <label for="email" class="col-sm-2 control-label">Email</label>
+                        <label for="old_password" class="col-sm-2 control-label">原始密码</label>
 
                         <div class="col-sm-8">
-                            <input type="email" name="email" disabled="disabled" class="form-control" id="email" value="{{ admin_user()->email }}" placeholder="输入登录邮箱">
-                            @if ($errors->has('email'))
+                            <input type="password" name="old_password" class="form-control" id="old_password" placeholder="输入原始密码">
+                            @if ($errors->has('old_password'))
                                 <span class="help-block text-red">
-                                    <p><i class="fa fa-info-circle"></i> {{ $errors->first('email') }}</p>
+                                    <p><i class="fa fa-info-circle"></i> {{ $errors->first('old_password') }}</p>
                                 </span>
                             @endif
                         </div>
-
-                    </div>
-                    <div class="form-group">
-                        <label for="name" class="col-sm-2 control-label">名称</label>
-
-                        <div class="col-sm-8">
-                            <input type="name" name="name" class="form-control" id="name" value="{{ admin_user()->name }}" placeholder="输入用户名称">
-                            @if ($errors->has('name'))
-                                <span class="help-block text-red">
-                                    <p><i class="fa fa-info-circle"></i> {{ $errors->first('name') }}</p>
-                                </span>
-                            @endif
-                        </div>
-
                     </div>
 
                     <div class="form-group">
-                        <label for="password" class="col-sm-2 control-label">密码</label>
+                        <label for="password" class="col-sm-2 control-label">新密码</label>
 
                         <div class="col-sm-8">
                             <input type="password" name="password" class="form-control" id="password" placeholder="输入登录密码">

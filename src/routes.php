@@ -17,7 +17,9 @@ Route::group([
 
     // 账号管理
     Route::get('profile','Admin\\AdminController@profile')->name('my.profile');
-    Route::post('profile','Admin\\AdminController@profileUpdate')->name('my.profile');
+    Route::put('profile','Admin\\AdminController@profileUpdate')->name('my.profile');
+    Route::get('reset','Admin\\AdminController@resetPassword')->name('my.reset');
+    Route::put('reset','Admin\\AdminController@resetUpdate')->name('my.reset');
     Route::resource('admin','Admin\\AdminController');
 
     // 权限
