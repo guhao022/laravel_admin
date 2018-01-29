@@ -8,6 +8,7 @@ use Modules\Admin\Models\AdminRoles;
 use Modules\Admin\Requests\ProfileUpdateRequest;
 use Modules\Admin\Repositories\AdminRepository;
 use Modules\Admin\Validation\Admin\Create;
+use Modules\Admin\Validation\Admin\ProfileUpdate;
 use Modules\Admin\Validation\Admin\Update;
 
 class AdminController extends Controller
@@ -82,7 +83,7 @@ class AdminController extends Controller
         return admin_view('user.profile');
     }
 
-    public function profileUpdate(profileUpdate $request, $id) {
+    public function profileUpdate(ProfileUpdate $request, $id) {
 
     }
 

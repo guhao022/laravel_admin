@@ -239,7 +239,7 @@ class AdminPermissionsTableSeeder extends Seeder
                 'icon' => '',
                 'is_menu' => '0',
                 'group_name'=>'my',
-                'pid'=>1
+                'pid'=>24
             ],
             [
                 'id'=>26,
@@ -248,7 +248,7 @@ class AdminPermissionsTableSeeder extends Seeder
                 'icon' => '',
                 'is_menu' => '0',
                 'group_name'=>'my',
-                'pid'=>1
+                'pid'=>24
             ],
         ];
 
