@@ -10,7 +10,7 @@ class ProfileUpdate extends Validator
 
     public function rules()
     {
-        $id = Request::segment(3);
+        $id = auth()->guard('admin')->user()->id;
 
         $rules = [
             'name'=>'required|max:20|unique:admin_user,name,'.$id,
