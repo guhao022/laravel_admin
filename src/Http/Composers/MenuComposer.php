@@ -32,13 +32,36 @@ class MenuComposer
     public function compose(View $view)
     {
 
-        $top_menus = AdminPermissions::where(['is_menu' => 1, 'pid' => 0])->get();
+        /*$user = Auth::guard('admin')->user();
 
-        foreach ($top_menus as $top_menu) {
+        if ($user->hasRole('admin')) {
+
+            $modules = AdminPermissions::where(['is_menu' => 1, 'pid' => 0])->get();
+
+        } else {
+
+            $perms = $user->perms;
+
+            $modules = AdminPermissions::where(['is_menu' => 1, 'pid' => 0])->get();
 
         }
 
-        $treeMenu = $this->roleRepository->tree($permission);
+
+
+        foreach ($modules as $module) {
+
+            if ($this->request->is($module->group_name.'*')) {
+
+                $menus =
+
+            }
+        }*/
+
+        $modules = AdminPermissions::where(['is_menu' => 1])->get()->toArray();
+
+        $treeMenu = $this->roleRepository->tree($modules);
+
+        print_r($treeMenu);die;
 
         $currentMenu = AdminPermissions::where('name',Route::currentRouteName())->first();
 
