@@ -22,7 +22,7 @@ class AdminPermissionsTableSeeder extends Seeder
                 'display_name'=>'全局管理',
                 'icon' => 'fa-cogs',
                 'is_menu' => '1',
-                'group_name'=>'',
+                'group_name'=>'site',
                 'pid'=>0
             ],
             [
@@ -230,7 +230,7 @@ class AdminPermissionsTableSeeder extends Seeder
                 'icon' => '',
                 'is_menu' => '0',
                 'group_name'=>'my',
-                'pid'=>0
+                'pid'=>1
             ],
             [
                 'id'=>25,
