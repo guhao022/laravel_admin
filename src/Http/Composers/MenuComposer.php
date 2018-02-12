@@ -17,10 +17,14 @@ use Auth;
  */
 class MenuComposer
 {
+    private $request;
+
     private $roleRepository;
 
-    public function __construct(RoleRepository $roleRepository)
+    public function __construct(Request $request, RoleRepository $roleRepository)
     {
+        $this->request = $request;
+
         $this->roleRepository = $roleRepository;
     }
 
@@ -32,40 +36,38 @@ class MenuComposer
     public function compose(View $view)
     {
 
-        /*$user = Auth::guard('admin')->user();
+        $user = Auth::guard('admin')->user();
 
         if ($user->hasRole('admin')) {
 
-            $modules = AdminPermissions::where(['is_menu' => 1, 'pid' => 0])->get();
+            $permissions = AdminPermissions::where('is_menu', 1)->get();
 
         } else {
 
-            $perms = $user->perms;
+            $user_perms = $user->perms;
 
-            $modules = AdminPermissions::where(['is_menu' => 1, 'pid' => 0])->get();
+            $permissions = AdminPermissions::where('is_menu', 1)->get();
 
         }
 
+        $treeMenu = $this->roleRepository->tree($permissions);
 
+        foreach ($treeMenu as $menu) {
 
-        foreach ($modules as $module) {
+            if ($this->request->is($menu->group_name.'*')) {
 
-            if ($this->request->is($module->group_name.'*')) {
+                $menus = $menu->children;
 
-                $menus =
+                continue;
 
             }
-        }*/
+        }
 
-        $modules = AdminPermissions::where(['is_menu' => 1])->get()->toArray();
-
-        $treeMenu = $this->roleRepository->tree($modules);
-
-        print_r($treeMenu);die;
+        print_r($menu);
 
         $currentMenu = AdminPermissions::where('name',Route::currentRouteName())->first();
 
-        $view->with(['menus' => $treeMenu, 'current_menu' => $currentMenu]);
+        $view->with(['menus' => $menus, 'current_menu' => $currentMenu]);
 
     }
 }
