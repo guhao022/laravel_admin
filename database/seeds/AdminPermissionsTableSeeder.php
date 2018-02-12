@@ -41,55 +41,37 @@ class AdminPermissionsTableSeeder extends Seeder
                 'icon' => '',
                 'is_menu' => '0',
                 'group_name'=>'admin',
-                'pid'=>1
+                'pid'=>2
             ],
             [
                 'id'=>4,
-                'name'=>'admin.store',
-                'display_name'=>'保存用户',
-                'icon' => '',
-                'is_menu' => '0',
-                'group_name'=>'admin',
-                'pid'=>1
-            ],
-            [
-                'id'=>5,
                 'name'=>'admin.show',
                 'display_name'=>'显示用户信息',
                 'icon' => '',
                 'is_menu' => '0',
                 'group_name'=>'admin',
-                'pid'=>1
+                'pid'=>2
             ],
             [
-                'id'=>6,
-                'name'=>'admin.edit',
-                'display_name'=>'编辑用户信息',
-                'icon' => '',
-                'is_menu' => '0',
-                'group_name'=>'admin',
-                'pid'=>1
-            ],
-            [
-                'id'=>7,
+                'id'=>5,
                 'name'=>'admin.update',
                 'display_name'=>'保存用户信息',
                 'icon' => '',
                 'is_menu' => '0',
                 'group_name'=>'admin',
-                'pid'=>1
+                'pid'=>2
             ],
             [
-                'id'=>8,
+                'id'=>6,
                 'name'=>'admin.reset',
                 'display_name'=>'重置密码',
                 'icon' => '',
                 'is_menu' => '0',
                 'group_name'=>'admin',
-                'pid'=>1
+                'pid'=>2
             ],
             [
-                'id'=>9,
+                'id'=>7,
                 'name'=>'role.index',
                 'display_name'=>'角色管理',
                 'icon' => '',
@@ -98,61 +80,43 @@ class AdminPermissionsTableSeeder extends Seeder
                 'pid'=>1
             ],
             [
-                'id'=>10,
+                'id'=>8,
                 'name'=>'role.create',
                 'display_name'=>'创建角色',
                 'icon' => '',
                 'is_menu' => '0',
                 'group_name'=>'role',
-                'pid'=>1
+                'pid'=>7
             ],
             [
-                'id'=>11,
-                'name'=>'role.store',
-                'display_name'=>'保存角色',
-                'icon' => '',
-                'is_menu' => '0',
-                'group_name'=>'role',
-                'pid'=>1
-            ],
-            [
-                'id'=>12,
+                'id'=>9,
                 'name'=>'role.show',
                 'display_name'=>'显示角色信息',
                 'icon' => '',
                 'is_menu' => '0',
                 'group_name'=>'role',
-                'pid'=>1
+                'pid'=>7
             ],
             [
-                'id'=>13,
-                'name'=>'role.edit',
-                'display_name'=>'编辑角色',
-                'icon' => '',
-                'is_menu' => '0',
-                'group_name'=>'role',
-                'pid'=>1
-            ],
-            [
-                'id'=>14,
+                'id'=>10,
                 'name'=>'role.update',
                 'display_name'=>'保存角色信息',
                 'icon' => '',
                 'is_menu' => '0',
                 'group_name'=>'role',
-                'pid'=>1
+                'pid'=>7
             ],
             [
-                'id'=>15,
+                'id'=>11,
                 'name'=>'role.destroy',
                 'display_name'=>'删除角色',
                 'icon' => '',
                 'is_menu' => '0',
                 'group_name'=>'role',
-                'pid'=>1
+                'pid'=>7
             ],
             [
-                'id'=>16,
+                'id'=>12,
                 'name'=>'permission.index',
                 'display_name'=>'权限管理',
                 'icon' => '',
@@ -161,70 +125,52 @@ class AdminPermissionsTableSeeder extends Seeder
                 'pid'=>1
             ],
             [
-                'id'=>17,
+                'id'=>13,
                 'name'=>'permission.create',
                 'display_name'=>'创建权限',
                 'icon' => '',
                 'is_menu' => '0',
                 'group_name'=>'permission',
-                'pid'=>1
+                'pid'=>12
             ],
             [
-                'id'=>18,
-                'name'=>'permission.store',
-                'display_name'=>'保存权限',
-                'icon' => '',
-                'is_menu' => '0',
-                'group_name'=>'permission',
-                'pid'=>1
-            ],
-            [
-                'id'=>19,
+                'id'=>14,
                 'name'=>'permission.show',
                 'display_name'=>'显示权限信息',
                 'icon' => '',
                 'is_menu' => '0',
                 'group_name'=>'permission',
-                'pid'=>1
+                'pid'=>12
             ],
             [
-                'id'=>20,
-                'name'=>'permission.edit',
-                'display_name'=>'编辑权限',
-                'icon' => '',
-                'is_menu' => '0',
-                'group_name'=>'permission',
-                'pid'=>1
-            ],
-            [
-                'id'=>21,
+                'id'=>15,
                 'name'=>'permission.update',
                 'display_name'=>'保存权限信息',
                 'icon' => '',
                 'is_menu' => '0',
                 'group_name'=>'permission',
-                'pid'=>1
+                'pid'=>12
             ],
             [
-                'id'=>22,
+                'id'=>16,
                 'name'=>'permission.destroy',
                 'display_name'=>'删除权限',
                 'icon' => '',
                 'is_menu' => '0',
                 'group_name'=>'permission',
-                'pid'=>1
+                'pid'=>12
             ],
             [
-                'id'=>23,
+                'id'=>17,
                 'name'=>'permission.child',
                 'display_name'=>'子权限列表',
                 'icon' => '',
                 'is_menu' => '0',
                 'group_name'=>'permission',
-                'pid'=>1
+                'pid'=>12
             ],
             [
-                'id'=>24,
+                'id'=>18,
                 'name'=>'my',
                 'display_name'=>'个人管理',
                 'icon' => '',
@@ -233,31 +179,31 @@ class AdminPermissionsTableSeeder extends Seeder
                 'pid'=>0
             ],
             [
-                'id'=>25,
+                'id'=>19,
                 'name'=>'notification.show',
                 'display_name'=>'阅读通知',
                 'icon' => '',
                 'is_menu' => '0',
                 'group_name'=>'my',
-                'pid'=>24
+                'pid'=>18
             ],
             [
-                'id'=>26,
+                'id'=>20,
                 'name'=>'my.profile',
                 'display_name'=>'个人设置',
                 'icon' => '',
                 'is_menu' => '0',
                 'group_name'=>'my',
-                'pid'=>24
+                'pid'=>18
             ],
             [
-                'id'=>27,
+                'id'=>21,
                 'name'=>'my.reset',
                 'display_name'=>'修改密码',
                 'icon' => '',
                 'is_menu' => '0',
                 'group_name'=>'my',
-                'pid'=>24
+                'pid'=>18
             ],
         ];
 
