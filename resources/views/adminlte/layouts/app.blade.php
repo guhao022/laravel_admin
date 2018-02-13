@@ -37,34 +37,13 @@
 
     <div class="content-wrapper">
 
-        @if (Route::currentRouteName() !=='admin.home')
         <section class="content-header">
             <h1>
                 {{$current_menu->display_name}}
                 <small>{{$current_menu->description}}</small>
             </h1>
-            {{--<ol class="breadcrumb">
 
-                <li>
-                    <a href="{{ admin_url() }}">首页</a>
-                </li>
-                @foreach ($breadcrumb as $bv)
-                    <li
-                            @if ($current_menu->name == $bv->name)
-                            class="active"
-                            @endif
-                    >
-                        @if ($bv->pid > 0)
-                            <a href="{{ route($bv->name) }}">{{ $bv->display_name }}</a>
-                        @else
-                            <a>{{ $bv->display_name }}</a>
-                        @endif
-                    </li>
-                @endforeach
-
-            </ol>--}}
         </section>
-        @endif
 
         <section class="content">
 
