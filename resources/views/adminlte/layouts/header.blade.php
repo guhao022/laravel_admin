@@ -25,7 +25,7 @@
                 @foreach($modules as $module)
                     @if(admin_user()->can($module->name) || admin_user()->hasRole('admin'))
 
-                    <li @if(Request::is(config("admin.route.prefix").'/'.$module->group_name.'*'))class="active" @endif>
+                    <li @if(Request::is(config("admin.route.prefix").'/'.$module->group_name.'*')) class="active" @endif>
                         <a href="{{ route($module->name) }}"> {{ $module->display_name }} </a>
                     </li>
 

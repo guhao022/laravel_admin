@@ -1,14 +1,10 @@
 <ul class="sidebar-menu" data-widget="tree">
     <li class="header">
-        @if (Route::currentRouteName() !=='admin.home')
-            {{ $current_menu->display_menu }}
-        @else
-            主导航
-        @endif
+        {{ $current_menu->display_name }}
     </li>
 
 
-    @if(Route::currentRouteName() =='admin.home')
+    {{--@if(Route::currentRouteName() =='admin.home')
     <li class="treeview active">
         <a href="{{ admin_url() }}">
             <i class="fa fa-tachometer"></i> <span class="nav-label">控制台</span>
@@ -20,7 +16,7 @@
                 <i class="fa fa-tachometer"></i> <span class="nav-label">控制台</span>
             </a>
         </li>
-    @endif
+    @endif--}}
 
     {{--循环输出树形菜单--}}
     @foreach($menus as $menu)
