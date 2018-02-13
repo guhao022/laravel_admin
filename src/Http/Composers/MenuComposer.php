@@ -52,9 +52,11 @@ class MenuComposer
 
         $treeMenu = $this->roleRepository->tree($permissions);
 
+        $menus = [];
+
         foreach ($treeMenu as $menu) {
 
-            if ($this->request->is($menu->group_name.'*')) {
+            if ($this->request->is(config("admin.route.prefix").'/'.$menu->group_name.'*')) {
 
                 $menus = $menu->children;
 
@@ -63,11 +65,11 @@ class MenuComposer
             }
         }
 
-        print_r($menu);
-
         $currentMenu = AdminPermissions::where('name',Route::currentRouteName())->first();
 
-        $view->with(['menus' => $menus, 'current_menu' => $currentMenu]);
+        //print_r($module);die;
+
+        $view->with(['menus' => $menus, 'current_menu' => $currentMenu, 'modules' => $treeMenu]);
 
     }
 }

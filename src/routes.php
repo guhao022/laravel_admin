@@ -2,7 +2,7 @@
 
 Route::group([
     'middleware' => ['web', 'admin'],
-    'prefix' => config("admin.route.prefix"),
+    'prefix' => config("admin.route.prefix").'/site',
     'namespace' => config("admin.route.namespace"),
 ], function() {
 

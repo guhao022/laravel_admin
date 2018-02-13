@@ -18,7 +18,7 @@ class AdminPermissionsTableSeeder extends Seeder
         $permissions = [
             [
                 'id'=>1,
-                'name'=>'site',
+                'name'=>'admin.home',
                 'display_name'=>'全局',
                 'icon' => 'fa-cogs',
                 'is_menu' => '1',
