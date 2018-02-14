@@ -56,28 +56,16 @@ class MenuComposer
 
             $menus = [];
 
+            $currentMenu = AdminPermissions::where('name',Route::currentRouteName())->first();
+
             foreach ($treeMenu as $menu) {
 
-                /*if (!session()->has('_mod')) {
-
-                    session(['_mod' => 'admin']);
-                }
-
-                $mod = session('_mod');*/
-
-                //echo $mod;die;
-
-
-                /*if ($mod == $menu->mod_name) {
+                if ($currentMenu->mod_name == $menu->mod_name) {
 
                     $menus = $menu->children;
 
-                    continue;
-
-                }*/
+                }
             }
-
-            $currentMenu = AdminPermissions::where('name',Route::currentRouteName())->first();
 
             //print_r($menus);die;
 
