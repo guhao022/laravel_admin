@@ -85,6 +85,23 @@
         toastr.success('{{ session("message") }}');
     @endif
 
+
+    var change_mod = function(obj) {
+
+            var mod = $(obj).data('mod');
+
+            console.log(mod)
+
+            $.ajax({
+                type: 'POST',
+                url: "{{ route('admin.mod.change') }}",
+                data: {
+                    mod: mod,
+                    _token: WE.token
+                }
+            })
+        }
+
 </script>
 
 @yield('scripts')

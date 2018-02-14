@@ -19,6 +19,7 @@ class AddRoutenamePidToPermissionsTable extends Migration
             $table->boolean('is_menu')->default(0)->comment("是否显示菜单");
             $table->boolean('active')->default(1)->comment('是否激活');
             $table->string('group_name')->nullable()->comment("组名");
+            $table->string('mod_name')->comment("模块名");
             $table->integer('pid')->nullable()->comment("父ID");
         });
     }

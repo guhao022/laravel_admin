@@ -8,7 +8,7 @@
 
 namespace Modules\Admin\Controllers;
 
-use Modules\Admin\Facades\AdminHelper;
+use Illuminate\Http\Request;
 
 class HomeController extends Controller {
 
@@ -19,6 +19,14 @@ class HomeController extends Controller {
 
     public function index() {
         return admin_view("index");
+    }
+
+    public function changMod(Request $request) {
+        $mod = $request->mod;
+
+        $request->session()->put('_mod', $mod);
+
+        //return session('_mod');
     }
 
 }

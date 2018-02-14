@@ -2,11 +2,12 @@
 
 Route::group([
     'middleware' => ['web', 'admin'],
-    'prefix' => config("admin.route.prefix").'/site',
+    'prefix' => config("admin.route.prefix"),
     'namespace' => config("admin.route.namespace"),
 ], function() {
 
     Route::get('/', 'HomeController@index')->name('admin.home');
+    Route::post('change_mod', 'HomeController@changMod')->name('admin.mod.change');
 
     // 验证
     Route::group(['prefix' => 'auth'], function (){

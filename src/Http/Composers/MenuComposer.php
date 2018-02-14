@@ -35,41 +35,56 @@ class MenuComposer
      */
     public function compose(View $view)
     {
-
-        $user = Auth::guard('admin')->user();
-
-        if ($user->hasRole('admin')) {
-
-            $permissions = AdminPermissions::where('is_menu', 1)->get();
-
+        if (Auth::guard('admin')->guest()) {
+            return redirect()->guest(route('admin.login'));
         } else {
+            $user = Auth::guard('admin')->user();
 
-            $user_perms = $user->perms;
+            if ($user->hasRole('admin')) {
 
-            $permissions = AdminPermissions::where('is_menu', 1)->get();
+                $permissions = AdminPermissions::where('is_menu', 1)->get();
 
-        }
+            } else {
 
-        $treeMenu = $this->roleRepository->tree($permissions);
+                $user_perms = $user->perms;
 
-        $menus = [];
-
-        foreach ($treeMenu as $menu) {
-
-            if ($this->request->is(config("admin.route.prefix").'/'.$menu->group_name.'*')) {
-
-                $menus = $menu->children;
-
-                continue;
+                $permissions = AdminPermissions::where('is_menu', 1)->get();
 
             }
+
+            $treeMenu = $this->roleRepository->tree($permissions);
+
+            $menus = [];
+
+            foreach ($treeMenu as $menu) {
+
+                /*if (!session()->has('_mod')) {
+
+                    session(['_mod' => 'admin']);
+                }
+
+                $mod = session('_mod');*/
+
+                //echo $mod;die;
+
+
+                /*if ($mod == $menu->mod_name) {
+
+                    $menus = $menu->children;
+
+                    continue;
+
+                }*/
+            }
+
+            $currentMenu = AdminPermissions::where('name',Route::currentRouteName())->first();
+
+            //print_r($menus);die;
+
+            $view->with(['menus' => $menus, 'current_menu' => $currentMenu, 'modules' => $treeMenu]);
         }
 
-        $currentMenu = AdminPermissions::where('name',Route::currentRouteName())->first();
 
-        //print_r($module);die;
-
-        $view->with(['menus' => $menus, 'current_menu' => $currentMenu, 'modules' => $treeMenu]);
 
     }
 }
