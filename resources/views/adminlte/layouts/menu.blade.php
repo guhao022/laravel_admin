@@ -27,7 +27,7 @@
                 treeview
             @endif
 
-            @if (isset($current_menu->pid) && $current_menu->pid == $menu->id)
+            @if (isset($current_menu->group_name) && $current_menu->group_name == $menu->group_name)
                 active
             @endif
             ">
