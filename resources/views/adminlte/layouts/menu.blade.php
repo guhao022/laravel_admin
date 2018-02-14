@@ -26,6 +26,7 @@
             @if(is_array($menu->children) && count($menu->children) > 0)
                 treeview
             @endif
+
             @if (isset($current_menu->pid) && $current_menu->pid == $menu->id)
                 active
             @endif

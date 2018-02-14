@@ -16,20 +16,25 @@ Route::group([
         Route::post('logout', 'Admin\\AuthController@postlogout')->name('admin.logout');
     });
 
-    // 账号管理
-    Route::get('profile','Admin\\AdminController@profile')->name('my.profile');
-    Route::put('profile','Admin\\AdminController@profileUpdate')->name('my.profile');
-    Route::get('reset','Admin\\AdminController@resetPassword')->name('my.reset');
-    Route::put('reset','Admin\\AdminController@resetUpdate')->name('my.reset');
-    Route::resource('admin','Admin\\AdminController');
+    Route::group(['prefix' => 'my'], function (){
+        // 账号管理
+        Route::get('profile','Admin\\AdminController@profile')->name('my.profile');
+        Route::put('profile','Admin\\AdminController@profileUpdate')->name('my.profile');
+        Route::get('reset','Admin\\AdminController@resetPassword')->name('my.reset');
+        Route::put('reset','Admin\\AdminController@resetUpdate')->name('my.reset');
+        // 通知
+        Route::get('notification/{notification}', 'Admin\\NotificationController@show')->name('notification.show');
+    });
 
-    // 权限
-    Route::get('permission/child/{permission}','Admin\\PermissionController@childIndex')->name('permission.child');
-    Route::resource('permission','Admin\\PermissionController');
+    Route::group(['prefix' => 'system'], function (){
+        Route::resource('admin','Admin\\AdminController');
 
-    // 角色
-    Route::resource('role','Admin\\RoleController');
+        // 权限
+        Route::get('permission/child/{permission}','Admin\\PermissionController@childIndex')->name('permission.child');
+        Route::resource('permission','Admin\\PermissionController');
 
-    // 通知
-    Route::get('notification/{notification}', 'Admin\\NotificationController@show')->name('notification.show');
+        // 角色
+        Route::resource('role','Admin\\RoleController');
+    });
+
 });

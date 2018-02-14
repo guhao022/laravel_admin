@@ -42,7 +42,7 @@ class AdminPermissionsTableSeeder extends Seeder
                 'display_name'=>'用户管理',
                 'icon' => 'fa-users',
                 'is_menu' => '1',
-                'group_name'=>'admin',
+                'group_name'=>'system',
                 'mod_name'=>'admin',
                 'pid'=>2
             ],
@@ -52,7 +52,7 @@ class AdminPermissionsTableSeeder extends Seeder
                 'display_name'=>'创建用户',
                 'icon' => '',
                 'is_menu' => '0',
-                'group_name'=>'admin',
+                'group_name'=>'system',
                 'mod_name'=>'admin',
                 'pid'=>3
             ],
@@ -62,7 +62,7 @@ class AdminPermissionsTableSeeder extends Seeder
                 'display_name'=>'保存用户',
                 'icon' => '',
                 'is_menu' => '0',
-                'group_name'=>'admin',
+                'group_name'=>'system',
                 'mod_name'=>'admin',
                 'pid'=>3
             ],
@@ -72,7 +72,7 @@ class AdminPermissionsTableSeeder extends Seeder
                 'display_name'=>'显示用户信息',
                 'icon' => '',
                 'is_menu' => '0',
-                'group_name'=>'admin',
+                'group_name'=>'system',
                 'mod_name'=>'admin',
                 'pid'=>3
             ],
@@ -82,7 +82,7 @@ class AdminPermissionsTableSeeder extends Seeder
                 'display_name'=>'编辑用户信息',
                 'icon' => '',
                 'is_menu' => '0',
-                'group_name'=>'admin',
+                'group_name'=>'system',
                 'mod_name'=>'admin',
                 'pid'=>3
             ],
@@ -92,7 +92,7 @@ class AdminPermissionsTableSeeder extends Seeder
                 'display_name'=>'保存用户信息',
                 'icon' => '',
                 'is_menu' => '0',
-                'group_name'=>'admin',
+                'group_name'=>'system',
                 'mod_name'=>'admin',
                 'pid'=>3
             ],
@@ -102,7 +102,7 @@ class AdminPermissionsTableSeeder extends Seeder
                 'display_name'=>'重置密码',
                 'icon' => '',
                 'is_menu' => '0',
-                'group_name'=>'admin',
+                'group_name'=>'system',
                 'mod_name'=>'admin',
                 'pid'=>3
             ],
@@ -112,7 +112,7 @@ class AdminPermissionsTableSeeder extends Seeder
                 'display_name'=>'角色管理',
                 'icon' => 'fa-address-card-o',
                 'is_menu' => '1',
-                'group_name'=>'role',
+                'group_name'=>'system',
                 'mod_name'=>'admin',
                 'pid'=>2
             ],
@@ -122,7 +122,7 @@ class AdminPermissionsTableSeeder extends Seeder
                 'display_name'=>'创建角色',
                 'icon' => '',
                 'is_menu' => '0',
-                'group_name'=>'role',
+                'group_name'=>'system',
                 'mod_name'=>'admin',
                 'pid'=>10
             ],
@@ -132,7 +132,7 @@ class AdminPermissionsTableSeeder extends Seeder
                 'display_name'=>'保存角色',
                 'icon' => '',
                 'is_menu' => '0',
-                'group_name'=>'role',
+                'group_name'=>'system',
                 'mod_name'=>'admin',
                 'pid'=>10
             ],
@@ -142,7 +142,7 @@ class AdminPermissionsTableSeeder extends Seeder
                 'display_name'=>'显示角色信息',
                 'icon' => '',
                 'is_menu' => '0',
-                'group_name'=>'role',
+                'group_name'=>'system',
                 'mod_name'=>'admin',
                 'pid'=>10
             ],
@@ -152,7 +152,7 @@ class AdminPermissionsTableSeeder extends Seeder
                 'display_name'=>'编辑角色',
                 'icon' => '',
                 'is_menu' => '0',
-                'group_name'=>'role',
+                'group_name'=>'system',
                 'mod_name'=>'admin',
                 'pid'=>10
             ],
@@ -162,7 +162,7 @@ class AdminPermissionsTableSeeder extends Seeder
                 'display_name'=>'保存角色信息',
                 'icon' => '',
                 'is_menu' => '0',
-                'group_name'=>'role',
+                'group_name'=>'system',
                 'mod_name'=>'admin',
                 'pid'=>10
             ],
@@ -172,7 +172,7 @@ class AdminPermissionsTableSeeder extends Seeder
                 'display_name'=>'删除角色',
                 'icon' => '',
                 'is_menu' => '0',
-                'group_name'=>'role',
+                'group_name'=>'system',
                 'mod_name'=>'admin',
                 'pid'=>10
             ],
@@ -182,7 +182,7 @@ class AdminPermissionsTableSeeder extends Seeder
                 'display_name'=>'权限管理',
                 'icon' => 'fa-lock',
                 'is_menu' => '1',
-                'group_name'=>'permission',
+                'group_name'=>'system',
                 'mod_name'=>'admin',
                 'pid'=>2
             ],
@@ -192,7 +192,7 @@ class AdminPermissionsTableSeeder extends Seeder
                 'display_name'=>'创建权限',
                 'icon' => '',
                 'is_menu' => '0',
-                'group_name'=>'permission',
+                'group_name'=>'system',
                 'mod_name'=>'admin',
                 'pid'=>17
             ],
@@ -202,7 +202,7 @@ class AdminPermissionsTableSeeder extends Seeder
                 'display_name'=>'保存权限',
                 'icon' => '',
                 'is_menu' => '0',
-                'group_name'=>'permission',
+                'group_name'=>'system',
                 'mod_name'=>'admin',
                 'pid'=>17
             ],
@@ -212,7 +212,7 @@ class AdminPermissionsTableSeeder extends Seeder
                 'display_name'=>'显示权限信息',
                 'icon' => '',
                 'is_menu' => '0',
-                'group_name'=>'permission',
+                'group_name'=>'system',
                 'mod_name'=>'admin',
                 'pid'=>17
             ],
@@ -222,7 +222,7 @@ class AdminPermissionsTableSeeder extends Seeder
                 'display_name'=>'编辑权限',
                 'icon' => '',
                 'is_menu' => '0',
-                'group_name'=>'permission',
+                'group_name'=>'system',
                 'mod_name'=>'admin',
                 'pid'=>17
             ],
@@ -232,7 +232,7 @@ class AdminPermissionsTableSeeder extends Seeder
                 'display_name'=>'保存权限信息',
                 'icon' => '',
                 'is_menu' => '0',
-                'group_name'=>'permission',
+                'group_name'=>'system',
                 'mod_name'=>'admin',
                 'pid'=>17
             ],
@@ -242,7 +242,7 @@ class AdminPermissionsTableSeeder extends Seeder
                 'display_name'=>'删除权限',
                 'icon' => '',
                 'is_menu' => '0',
-                'group_name'=>'permission',
+                'group_name'=>'system',
                 'mod_name'=>'admin',
                 'pid'=>17
             ],
@@ -252,7 +252,7 @@ class AdminPermissionsTableSeeder extends Seeder
                 'display_name'=>'子权限列表',
                 'icon' => '',
                 'is_menu' => '0',
-                'group_name'=>'permission',
+                'group_name'=>'system',
                 'mod_name'=>'admin',
                 'pid'=>17
             ],
