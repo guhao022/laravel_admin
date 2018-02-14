@@ -40,7 +40,7 @@ class AdminController extends Controller
 
         $this->admin->createAdminAndSaveRole($request);
 
-        return redirect(route('admin.index'));
+        return redirect(route('admin.index'))->with('message', '新增用户 成功');
     }
 
     public function show($id)

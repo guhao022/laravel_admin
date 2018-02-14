@@ -102,8 +102,7 @@
             },
             "sZeroRecords": "没有检索到数据",
         },
-        "aLengthMenu": [[20, 50, 100, -1], [20, 50, 100, "所有"]],
-        "aoColumnDefs": [ { "bSortable": false, "aTargets": [ 5 ] }]
+        "aLengthMenu": [[20, 50, 100, -1], [20, 50, 100, "所有"]]
     } );
 
 </script>
