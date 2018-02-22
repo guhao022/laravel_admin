@@ -67,6 +67,8 @@
 
                     </div>
 
+                    {{ method_field('PUT') }}
+
                     <div class="form-group">
                         <label for="Permission" class="col-sm-2 control-label">权限</label>
                         <div class="col-sm-8">
@@ -77,26 +79,76 @@
                                 </span>
                             @endif
 
-                            <ul class="list-unstyled">
-                                {{ method_field('PUT') }}
-
                                 @foreach($permission as $tm)
-                                    <li style="display: block">
-                                        <input type="checkbox" name="permission_ids[]" @if($role->hasPermission($tm->name)) checked @endif class="minimal-red grid-select-all _menu" id="pm-{{$tm->id}}" value="{{$tm->id}}" />
-                                        &nbsp; <b class="text-aqua">{{ $tm->display_name }}</b>
+                                    <div class="row" style="border-bottom: dashed 1px #DDD;padding: 20px 5px !important;">
+
+                                        <div class="col-lg-10 col-md-10">
+                                            <div class="checkbox">
+                                                <label class="text-aqua">
+                                                    <input type="checkbox" name="permission_ids[]" @if($role->hasPermission($tm->name)) checked @endif class="minimal-red grid-select-all _menu" id="pm-{{$tm->id}}" value="{{$tm->id}}" />
+                                                    <strong>{{ $tm->display_name }}</strong>
+                                                </label>
+                                            </div>
+                                        </div>
+
                                         @if(is_array($tm->children) && count($tm->children) > 0)
-                                            <ul class="list-inline">
+
+                                            <div class="col-lg-10 col-md-10">
                                                 @foreach($tm->children as $child)
-                                                    <li class="col-md-2 col-sm-3 col-xs-4">
-                                                        <input type="checkbox" name="permission_ids[]" @if($role->hasPermission($child->name)) checked @endif class="minimal grid-row-checkbox _menu m-{{$tm->id}}" data-pid="{{$tm->id}}" value="{{ $child->id }}" />
-                                                        &nbsp; {{ $child->display_name }}
-                                                    </li>
+
+                                                    <div class="checkbox col-lg-2 col-md-3 col-sm-4">
+                                                        <label class="text-green" style="padding-left: 5px !important;">
+                                                            <input type="checkbox" name="permission_ids[]" @if($role->hasPermission($child->name)) checked @endif data-pid="{{$tm->id}}" id="pm-{{$child->id}}" class="minimal grid-row-checkbox _menu m-{{$tm->id}}" value="{{ $child->id }}" />
+                                                            <strong>{{ $child->display_name }}</strong>
+                                                        </label>
+
+
+                                                    </div>
+
+                                                    @if(is_array($child->children) && count($child->children) > 0)
+
+                                                        @foreach($child->children as $ch)
+
+                                                            <div class="checkbox col-lg-2 col-md-3 col-sm-4">
+                                                                <label style="padding-left: 5px !important;">
+                                                                    <input type="checkbox" name="permission_ids[]" @if($role->hasPermission($ch->name)) checked @endif data-pid="{{$child->id}}" data-tpid="{{$tm->id}}"  class="minimal grid-row-checkbox _menu m-{{$tm->id}} chm-{{$child->id}}" id="pm-{{$ch->id}}" value="{{ $ch->id }}" />
+                                                                    {{ $ch->display_name }}
+                                                                </label>
+
+                                                                @if(is_array($child->children) && count($child->children) > 0)
+
+                                                                    <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true"><span class="caret"></span>
+                                                                    </a>
+                                                                    <ul class="dropdown-menu">
+                                                                        @foreach($ch->children as $c)
+                                                                            <li>
+                                                                                <label>
+                                                                                    <input type="checkbox" name="permission_ids[]" @if($role->hasPermission($c->name)) checked @endif data-pid="{{$child->id}}" data-ppid="{{$ch->id}}" data-tpid="{{$tm->id}}"  class="minimal grid-row-checkbox _menu m-{{$tm->id}} cm-{{$child->id}} chm-{{$ch->id}}" value="{{ $c->id }}" />
+                                                                                    {{ $c->display_name }}
+                                                                                </label>
+                                                                            </li>
+                                                                        @endforeach
+                                                                    </ul>
+
+                                                                @endif
+
+
+                                                            </div>
+
+                                                        @endforeach
+
+                                                    @endif
+
                                                 @endforeach
-                                            </ul>
+
+                                            </div>
                                         @endif
-                                    </li>
+
+
+                                    </div>
                                 @endforeach
-                            </ul>
+
+
                         </div>
                     </div>
 

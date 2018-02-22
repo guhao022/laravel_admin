@@ -53,12 +53,17 @@ $(function () {
     });
 
     //全选
-    $('.grid-select-all').on('ifClicked', function(event) {
+    //$('.grid-select-all').on('ifClicked', function(event) {
+    $('._menu').on('ifClicked', function(event) {
         var id = $(this).val()
         if (this.checked) {
             $('.m-'+id).iCheck('uncheck');
+            $('.cm-'+id).iCheck('uncheck');
+            $('.chm-'+id).iCheck('uncheck');
         } else {
             $('.m-'+id).iCheck('check');
+            $('.cm-'+id).iCheck('check');
+            $('.chm-'+id).iCheck('check');
 
         }
     });
@@ -66,7 +71,11 @@ $(function () {
     $('.grid-row-checkbox').on('ifChanged', function () {
         if (this.checked) {
             var pid = $(this).data('pid')
+            var tpid = $(this).data('tpid')
+            var ppid = $(this).data('ppid')
             $('#pm-'+pid).iCheck('check')
+            $('#pm-'+ppid).iCheck('check')
+            $('#pm-'+tpid).iCheck('check')
             $(this).closest('tr').css('background-color', '#ffffd5');
         } else {
             $(this).closest('tr').css('background-color', '');

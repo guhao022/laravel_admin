@@ -66,4 +66,6 @@
         @endif
 
     @endforeach
+
+    @yield('menus')
 </ul>

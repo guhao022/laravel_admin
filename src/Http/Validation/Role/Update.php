@@ -10,7 +10,7 @@ class Update extends Validator
 
     public function rules()
     {
-        $id = Request::segment(3);
+        $id = Request::segment(4);
 
         return [
             //'name'=>'required|unique:admin_roles,name,'.$id,
