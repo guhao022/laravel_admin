@@ -150,7 +150,7 @@ class AdminRepository
 
         };
 
-        $admin->save();
+        return $admin->save();
 
     }
 

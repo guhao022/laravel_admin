@@ -91,8 +91,9 @@
 
                                         @if(is_array($tm->children) && count($tm->children) > 0)
 
-                                            <div class="col-lg-10 col-md-10">
-                                                @foreach($tm->children as $child)
+                                            @foreach($tm->children as $child)
+
+                                                <div class="col-lg-10 col-md-10">
 
                                                     <div class="checkbox col-lg-2 col-md-3 col-sm-4">
                                                         <label class="text-green" style="padding-left: 5px !important;">
@@ -113,7 +114,7 @@
                                                                     {{ $ch->display_name }}
                                                                 </label>
 
-                                                                @if(is_array($child->children) && count($child->children) > 0)
+                                                                @if(is_array($ch->children) && count($ch->children) > 0)
 
                                                                     <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true"><span class="caret"></span>
                                                                     </a>
@@ -136,10 +137,10 @@
                                                         @endforeach
 
                                                     @endif
-
+                                                </div>
                                                 @endforeach
 
-                                            </div>
+
                                         @endif
 
 
