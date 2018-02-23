@@ -60,7 +60,7 @@ class MenuComposer
 
             foreach ($treeMenu as $menu) {
 
-                if ($currentMenu->mod_name == $menu->mod_name) {
+                if (isset($currentMenu->mod_name) && $currentMenu->mod_name == $menu->mod_name) {
 
                     $menus = $menu->children;
 

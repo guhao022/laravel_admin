@@ -75,6 +75,7 @@
 <script src="https://cdn.bootcss.com/bootstrap-fileinput/4.4.6/js/locales/zh.min.js"></script>
 
 <script src="{{ admin_asset('js/adminlte.min.js') }}"></script>
+<script src="{{ admin_asset('plugins/sortable/Sortable.min.js') }}"></script>
 <script src="{{ admin_asset('js/app.js') }}"></script>
 
 <script type="text/javascript">
