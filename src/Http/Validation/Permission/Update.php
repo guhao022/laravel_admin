@@ -19,7 +19,7 @@ class Update extends FormRequest
 
     public function rules()
     {
-        $id = Request::segment(3);
+        $id = Request::segment(4);
 
         $rules = [
             //

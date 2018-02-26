@@ -86,6 +86,10 @@
         toastr.success('{{ session("message") }}');
     @endif
 
+    @if(session("error"))
+        toastr.error('{{ session("error") }}');
+    @endif
+
     $('.dataTable').dataTable( {
 
         "oLanguage": {

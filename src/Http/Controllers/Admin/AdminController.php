@@ -88,7 +88,7 @@ class AdminController extends Controller
         if($this->admin->profileUpdate($request)) {
             return redirect()->back()->with('message', '修改账户信息成功');
         }
-        return redirect()->back()->with('message', '修改账户信息失败');
+        return redirect()->back()->with('error', '修改账户信息失败');
     }
 
     public function resetPassword()
@@ -102,6 +102,6 @@ class AdminController extends Controller
         if($this->admin->resetPassword($request)) {
             return redirect()->back()->with('message', '修改账户信息成功');
         }
-        return redirect()->back()->with('message', '修改账户信息失败，原密码错误');
+        return redirect()->back()->with('error', '修改账户信息失败，原密码错误');
     }
 }
