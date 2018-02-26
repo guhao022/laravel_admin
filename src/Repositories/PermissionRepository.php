@@ -40,7 +40,7 @@ class PermissionRepository
     {
         $permission = AdminPermissions::find($id);
 
-        $top_permission = AdminPermissions::where("pid", "0")->get();
+        $top_permission = $this->tree(AdminPermissions::all());
 
         return ['permission'=>$permission,'top_menu'=>$top_permission];
     }
@@ -69,10 +69,10 @@ class PermissionRepository
         }
     }
 
-    public function tree($table,$p_id='0') {
+    public function tree($table, $pid='0') {
         $tree = array();
         foreach($table as $row){
-            if($row['pid']==$p_id){
+            if($row['pid']==$pid){
                 $tmp = $this->tree($table,$row['id']);
                 if($tmp){
                     $row['children']=$tmp;

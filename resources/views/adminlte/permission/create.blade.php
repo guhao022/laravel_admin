@@ -141,6 +141,18 @@
                                     <option value="{{ $tm->id }}" @if(old('pid') == $tm->id) selected @endif >
                                         |-- {{ $tm->display_name }}
                                     </option>
+
+                                    @if(is_array($tm->children) && count($tm->children) > 0)
+
+                                        @foreach($tm->children as $child)
+                                        <option value="{{ $child->id }}" @if(old('pid') == $child->id) selected @endif >
+                                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                            |-- {{ $child->display_name }}
+                                        </option>
+                                        @endforeach
+
+                                    @endif
+
                                 @endforeach
                             </select>
 

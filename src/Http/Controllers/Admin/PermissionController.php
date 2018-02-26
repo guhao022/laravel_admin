@@ -20,14 +20,17 @@ class PermissionController extends Controller
 
     public function index()
     {
-        $permission = AdminPermissions::where("pid", "0")->paginate(config('admin.pagination.number'));
+        //$permissions = AdminPermissions::where("pid", "0")->paginate(config('admin.pagination.number'));
 
-        return admin_view('permission.index',['permissions'=>$permission, 'has_child'=>true]);
+        $permissions = $this->permission->tree(AdminPermissions::all());
+
+        return admin_view('permission.index',['permissions'=>$permissions, 'has_child'=>true]);
     }
 
     public function create()
     {
-        $top_permission = AdminPermissions::where("pid", "0")->get();
+        $top_permission = $this->permission->tree(AdminPermissions::all());
+
         return admin_view('permission.create', ["top_menu"=>$top_permission]);
     }
 
