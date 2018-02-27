@@ -59,7 +59,7 @@ class RoleController extends Controller
 
         $role = $this->role->updateRoleAndPermission($request,$id);
 
-        return redirect(route('role.index'))->with('message', '编辑角色: '.$role->display_name.' 成功');
+        return redirect(route('role.index'))->with('success', '编辑角色: '.$role->display_name.' 成功');
 
     }
 

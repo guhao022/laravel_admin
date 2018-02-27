@@ -82,8 +82,8 @@
     function WE() {}
     WE.token = "{{ csrf_token() }}";
 
-    @if(session("message"))
-        toastr.success('{{ session("message") }}');
+    @if(session("success"))
+        toastr.success('{{ session("success") }}');
     @endif
 
     @if(session("error"))

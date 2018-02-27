@@ -40,7 +40,7 @@ class AdminController extends Controller
 
         $this->admin->createAdminAndSaveRole($request);
 
-        return redirect(route('admin.index'))->with('message', '新增用户 成功');
+        return redirect(route('admin.index'))->with('success', '新增用户 成功');
     }
 
     public function show($id)
@@ -63,7 +63,7 @@ class AdminController extends Controller
 
         $admin = $this->admin->updateAdminAndRole($request,$id);
 
-        return redirect(route('admin.index'))->with('message', '编辑用户: '.$admin->name.' 成功');
+        return redirect(route('admin.index'))->with('success', '编辑用户: '.$admin->name.' 成功');
     }
 
     public function destroy($id)
@@ -86,7 +86,7 @@ class AdminController extends Controller
     public function profileUpdate(ProfileUpdate $request) {
 
         if($this->admin->profileUpdate($request)) {
-            return redirect()->back()->with('message', '修改账户信息成功');
+            return redirect()->back()->with('success', '修改账户信息成功');
         }
         return redirect()->back()->with('error', '修改账户信息失败');
     }
@@ -100,7 +100,7 @@ class AdminController extends Controller
     {
 
         if($this->admin->resetPassword($request)) {
-            return redirect()->back()->with('message', '修改账户信息成功');
+            return redirect()->back()->with('success', '修改账户信息成功');
         }
         return redirect()->back()->with('error', '修改账户信息失败，原密码错误');
     }

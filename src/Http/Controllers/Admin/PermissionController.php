@@ -40,7 +40,7 @@ class PermissionController extends Controller
         $create = $this->permission->createPermission($request);
 
         if($create){
-            return redirect(route('permission.index'))->with('message', '创建成功');
+            return redirect(route('permission.index'))->with('success', '创建成功');
         }else{
             return redirect(route('permission.index'))->with('error', '创建失败');
         }
@@ -65,7 +65,7 @@ class PermissionController extends Controller
         $update = $this->permission->updatePermissionInfo($request,$id);
 
         if($update){
-            return redirect(route('permission.index'))->with('message', '编辑权限成功');
+            return redirect(route('permission.index'))->with('success', '编辑权限成功');
         }else{
             return redirect(route('permission.index'))->with('error', '编辑权限失败');
         }
