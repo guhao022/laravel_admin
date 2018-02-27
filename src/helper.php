@@ -78,7 +78,8 @@ if (!function_exists('admin_base_path')) {
 }
 
 
-if (!function_exists('admin_user')) {
+if (!function_exists('admin_user'))
+{
     /**
      * Get admin user.
      *
@@ -89,3 +90,17 @@ if (!function_exists('admin_user')) {
         return Auth::guard('admin')->user();
     }
 }
+
+if (!function_exists('make_api_url'))
+{
+    /**
+     * @param $tag
+     * @return \Illuminate\Contracts\Routing\UrlGenerator|string
+     */
+    function make_api_url($tag)
+    {
+        return url('/api?t='.$tag);
+    }
+}
+
+
