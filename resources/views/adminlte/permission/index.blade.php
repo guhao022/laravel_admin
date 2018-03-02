@@ -27,7 +27,7 @@
 
                 </div>--}}
 
-                <div class="btn-group pull-right">
+                {{--<div class="btn-group pull-right">
                     <a class="btn btn-sm btn-default history-back">
                         <i class="fa fa-arrow-left"></i>&nbsp;返回
                     </a>
@@ -37,7 +37,7 @@
                     <a href="{{ route('permission.create') }}" class="btn btn-sm btn-success">
                         <i class="fa fa-save"></i>&nbsp;&nbsp;新增
                     </a>
-                </div>
+                </div>--}}
             </div>
             <div class="box-body table-responsive no-padding">
 
